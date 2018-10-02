@@ -23,8 +23,9 @@ int pdf::fetchNPages()
     int nPage = int(MagickCore::MagickGetNumberImages(m_wand));
     return nPage;
 }
-void pdf::ConvertToPNGs(std::string destPath, std::string namePrefix)
+std::vector<std::string> pdf::ConvertToPNGs(std::string destPath, std::string namePrefix)
 {
+    std::vector<std::string> retPngFullPaths;
     int i;
     for (i=1; i<=fetchNPages(); i++)
     {
@@ -32,6 +33,8 @@ void pdf::ConvertToPNGs(std::string destPath, std::string namePrefix)
         mFile.read(mFullPath+"["+std::to_string(i-1)+"]");
         mFile.quality(100);
         mFile.write(destPath+"/"+namePrefix+"-"+std::to_string(i)+".png");
+        retPngFullPaths.push_back(destPath+"/"+namePrefix+"-"+std::to_string(i)+".png");
     }
+    return retPngFullPaths;
 }
 

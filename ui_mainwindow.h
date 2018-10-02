@@ -18,7 +18,6 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,8 +29,6 @@ public:
     QPushButton *pushButton_Choose_PDF;
     QLabel *label_displayImg;
     QPushButton *pushButton_ConvertPdf2Png;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
     QTextBrowser *textBrowser;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -63,25 +60,15 @@ public:
         pushButton_ConvertPdf2Png = new QPushButton(centralWidget);
         pushButton_ConvertPdf2Png->setObjectName(QStringLiteral("pushButton_ConvertPdf2Png"));
         pushButton_ConvertPdf2Png->setGeometry(QRect(490, 210, 101, 41));
-        verticalLayoutWidget = new QWidget(centralWidget);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(380, 10, 531, 191));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        textBrowser = new QTextBrowser(verticalLayoutWidget);
+        textBrowser = new QTextBrowser(centralWidget);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
+        textBrowser->setGeometry(QRect(380, 10, 541, 191));
         textBrowser->setFocusPolicy(Qt::StrongFocus);
         textBrowser->setAutoFillBackground(false);
         textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         textBrowser->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         textBrowser->setLineWrapMode(QTextEdit::NoWrap);
-
-        verticalLayout->addWidget(textBrowser);
-
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

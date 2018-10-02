@@ -71,6 +71,18 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     else
     {
         pdf pdfFile(pdf::mFullPath);
-        pdfFile.ConvertToPNGs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA");
+        vector<string> ret;
+        ret = pdfFile.ConvertToPNGs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA");
+        if (ret.size()<1)
+        {
+            // //
+        }
+        else
+        {
+            string converted;
+            for(size_t j=0;j!=ret.size();++j)
+                converted = converted + ret[j] + "\n";
+            ui->textBrowser->setText(converted.c_str());
+        }
     }
 }
