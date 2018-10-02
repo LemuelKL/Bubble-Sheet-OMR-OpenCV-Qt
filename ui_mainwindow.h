@@ -16,7 +16,9 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,6 +29,10 @@ public:
     QWidget *centralWidget;
     QPushButton *pushButton_Choose_PDF;
     QLabel *label_displayImg;
+    QPushButton *pushButton_ConvertPdf2Png;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QTextBrowser *textBrowser;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -35,12 +41,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(631, 632);
+        MainWindow->resize(926, 638);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setMinimumSize(QSize(926, 585));
         pushButton_Choose_PDF = new QPushButton(centralWidget);
         pushButton_Choose_PDF->setObjectName(QStringLiteral("pushButton_Choose_PDF"));
-        pushButton_Choose_PDF->setGeometry(QRect(520, 10, 101, 41));
+        pushButton_Choose_PDF->setGeometry(QRect(380, 210, 101, 41));
         label_displayImg = new QLabel(centralWidget);
         label_displayImg->setObjectName(QStringLiteral("label_displayImg"));
         label_displayImg->setGeometry(QRect(10, 10, 361, 561));
@@ -53,10 +60,32 @@ public:
         label_displayImg->setFrameShape(QFrame::Box);
         label_displayImg->setFrameShadow(QFrame::Plain);
         label_displayImg->setLineWidth(1);
+        pushButton_ConvertPdf2Png = new QPushButton(centralWidget);
+        pushButton_ConvertPdf2Png->setObjectName(QStringLiteral("pushButton_ConvertPdf2Png"));
+        pushButton_ConvertPdf2Png->setGeometry(QRect(490, 210, 101, 41));
+        verticalLayoutWidget = new QWidget(centralWidget);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(380, 10, 531, 191));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        textBrowser = new QTextBrowser(verticalLayoutWidget);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+        textBrowser->setFocusPolicy(Qt::StrongFocus);
+        textBrowser->setAutoFillBackground(false);
+        textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        textBrowser->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        textBrowser->setLineWrapMode(QTextEdit::NoWrap);
+
+        verticalLayout->addWidget(textBrowser);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 631, 21));
+        menuBar->setGeometry(QRect(0, 0, 926, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -75,6 +104,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton_Choose_PDF->setText(QApplication::translate("MainWindow", "Choose PDF", nullptr));
         label_displayImg->setText(QApplication::translate("MainWindow", "Image", nullptr));
+        pushButton_ConvertPdf2Png->setText(QApplication::translate("MainWindow", "Convert PDF", nullptr));
     } // retranslateUi
 
 };

@@ -1,6 +1,12 @@
 #include "pdf.h"
 
+std::string pdf::mFullPath = "";
+
 pdf::pdf(std::string fullPath)
+{
+    mFullPath = fullPath;
+}
+void pdf::SetFullPath(std::string fullPath)
 {
     mFullPath = fullPath;
 }

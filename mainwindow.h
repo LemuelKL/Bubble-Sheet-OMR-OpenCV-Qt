@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pushButton_Choose_PDF_clicked();
 
+    void on_pushButton_ConvertPdf2Png_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

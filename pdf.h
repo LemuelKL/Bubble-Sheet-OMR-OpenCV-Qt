@@ -22,12 +22,13 @@ class pdf
 {
 private:
     Magick::Image mFile;
-    std::string mFullPath;
     int mnPages;
     int fetchNPages();
 
 public:
+    static std::string mFullPath;
     pdf(std::string fullPath);
+    void SetFullPath(std::string path);
     std::string FullPath();
     void ConvertToPNGs(std::string destPath, std::string namePrefix);
 };

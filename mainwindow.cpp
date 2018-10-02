@@ -27,25 +27,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Bubble Sheet Optical Mark Recognition");
-    //pdf sheet("D:\\Users\\Lemuel\\Desktop\\test.pdf");
 
+    //ui->label_displayImg->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, int(img.step), QImage::Format_RGB888)));
+    //ui->label_displayImg->setScaledContents( true );
 
-     // CARE
-
-    Image pdf;
-
-    pdf.density(Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
-    pdf.read("pdf/3.pdf");
-    pdf.quality(100);
-    pdf.write("pdf/3.png");
-
-    Mat img;
-    img = imread("pdf/3.png", -1);
-
-
-    ui->label_displayImg->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, int(img.step), QImage::Format_RGB888)));
-    ui->label_displayImg->setScaledContents( true );
-
+    ui->textBrowser->setText("A\nB\nC");
 }
 
 MainWindow::~MainWindow()
@@ -69,8 +55,22 @@ void MainWindow::on_pushButton_Choose_PDF_clicked()
     if (path2Pdf.isEmpty()){
         QMessageBox::warning(this, tr("What are you doing?"), tr("Please select a PDF file."));
     }
+    else
+    {
+        pdf::mFullPath = path2Pdf.toStdString();
+        ui->textBrowser->setText(pdf::mFullPath.c_str());
+    }
+}
 
-    pdf p(path2Pdf.toStdString());
-    p.ConvertToPNGs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA");
-    //QMessageBox::information(this, tr("a"), QString::number(p.));
+void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
+{
+    if (pdf::mFullPath.size()<1)
+    {
+        QMessageBox::warning(this, tr("What are you doing?"), tr("Please have a PDF file loaded first."));
+    }
+    else
+    {
+        pdf pdfFile(pdf::mFullPath);
+        pdfFile.ConvertToPNGs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA");
+    }
 }
