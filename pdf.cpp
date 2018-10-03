@@ -23,17 +23,23 @@ int pdf::fetchNPages()
     int nPage = int(MagickCore::MagickGetNumberImages(m_wand));
     return nPage;
 }
-std::vector<std::string> pdf::ConvertToPNGs(std::string destPath, std::string namePrefix)
+std::vector<std::string> pdf::ConvertToImgs(std::string destPath, std::string namePrefix, std::string imgFormat)
 {
     std::vector<std::string> retPngFullPaths;
+    if (imgFormat.empty()==true){
+        return retPngFullPaths;
+    }
     int i;
     for (i=1; i<=fetchNPages(); i++)
     {
         mFile.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
         mFile.read(mFullPath+"["+std::to_string(i-1)+"]");
         mFile.quality(100);
-        mFile.write(destPath+"/"+namePrefix+"-"+std::to_string(i)+".png");
-        retPngFullPaths.push_back(destPath+"/"+namePrefix+"-"+std::to_string(i)+".png");
+        mFile.backgroundColor("white");
+        mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
+        mFile.mergeLayers(Magick::FlattenLayer);
+        mFile.write(destPath+"/"+namePrefix+"-"+std::to_string(i)+"."+imgFormat);
+        retPngFullPaths.push_back(destPath+"/"+namePrefix+"-"+std::to_string(i)+"."+imgFormat);
     }
     return retPngFullPaths;
 }

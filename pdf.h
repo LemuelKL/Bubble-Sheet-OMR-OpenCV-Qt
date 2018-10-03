@@ -30,7 +30,7 @@ public:
     pdf(std::string fullPath);
     void SetFullPath(std::string path);
     std::string FullPath();
-    std::vector<std::string> ConvertToPNGs(std::string destPath, std::string namePrefix);
+    std::vector<std::string> ConvertToImgs(std::string destPath, std::string namePrefix, std::string imgFormat);
 };
 
 #endif // PDF_H

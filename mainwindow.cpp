@@ -72,10 +72,12 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     {
         pdf pdfFile(pdf::mFullPath);
         vector<string> ret;
-        ret = pdfFile.ConvertToPNGs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA");
+        std::string targetFileType = "jpg";
+        ret = pdfFile.ConvertToImgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA", targetFileType);
         if (ret.size()<1)
         {
-            // //
+            std::string failStr = "Failed to convert PDF into " + targetFileType + "!";
+            QMessageBox::warning(this, tr("Failed!"), tr(failStr.c_str()));
         }
         else
         {
