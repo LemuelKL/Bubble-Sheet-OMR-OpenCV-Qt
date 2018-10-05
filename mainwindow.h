@@ -20,6 +20,16 @@ private slots:
 
     void on_pushButton_ConvertPdf2Png_clicked();
 
+    void onProgressUpdated(double perc);
+
+    void onNewlyConverted(std::string convertedImgName);
+
+    void onStartedConverting();
+
+    void onFailedConverting();
+
+    void onFinishedConverting(qint64 timeTook);
+
 private:
     Ui::MainWindow *ui;
 };

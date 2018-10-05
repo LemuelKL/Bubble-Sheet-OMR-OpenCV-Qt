@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QObject>
 
 #include <stdio.h>
 #include <iostream>
@@ -10,6 +11,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QThread>
 
 #include <Magick++.h>
 
@@ -30,8 +32,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //ui->label_displayImg->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, int(img.step), QImage::Format_RGB888)));
     //ui->label_displayImg->setScaledContents( true );
+    ui->progressBar_Pdf2Img->setMaximum(100);
+    ui->progressBar_Pdf2Img->setMinimum(0);
+    ui->progressBar_Pdf2Img->setValue(0);
 
-    ui->textBrowser->setText("A\nB\nC");
+    ui->textBrowser->setText("...");
 }
 
 MainWindow::~MainWindow()
@@ -58,10 +63,35 @@ void MainWindow::on_pushButton_Choose_PDF_clicked()
     else
     {
         pdf::mFullPath = path2Pdf.toStdString();
-        ui->textBrowser->setText(pdf::mFullPath.c_str());
+        ui->textBrowser->setText(("[ PDF Read ] "+pdf::mFullPath).c_str());
     }
 }
 
+void MainWindow::onProgressUpdated(double perc)
+{
+    ui->progressBar_Pdf2Img->setValue(int(perc));
+}
+void MainWindow::onNewlyConverted(std::string convertedImgName)
+{
+    convertedImgName = "[ PDF -> Image ] "+convertedImgName;
+    QString str = QString::fromUtf8(convertedImgName.c_str());
+    ui->textBrowser->append(str);
+}
+void MainWindow::onStartedConverting()
+{
+    QString str = QString::fromUtf8("[ PDF -> Image Conversion Started ] ");
+    ui->textBrowser->append(str);
+}
+void MainWindow::onFailedConverting()
+{
+    QString str = QString::fromUtf8("[ PDF -> Image Conversion Failed ] ");
+    ui->textBrowser->append(str);
+}
+void MainWindow::onFinishedConverting(qint64 timeTook)
+{
+    QString str = QString("[ PDF -> Image Conversion Finished After " + QString::number(timeTook/1000) + " Seconds ] ");
+    ui->textBrowser->append(str);
+}
 void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 {
     if (pdf::mFullPath.size()<1)
@@ -70,21 +100,21 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     }
     else
     {
-        pdf pdfFile(pdf::mFullPath);
-        vector<string> ret;
         std::string targetFileType = "jpg";
-        ret = pdfFile.ConvertToImgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA", targetFileType);
-        if (ret.size()<1)
-        {
-            std::string failStr = "Failed to convert PDF into " + targetFileType + "!";
-            QMessageBox::warning(this, tr("Failed!"), tr(failStr.c_str()));
-        }
-        else
-        {
-            string converted;
-            for(size_t j=0;j!=ret.size();++j)
-                converted = converted + ret[j] + "\n";
-            ui->textBrowser->setText(converted.c_str());
-        }
+        pdf* pdfFile = new pdf(pdf::mFullPath);
+        pdfFile->setArgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA", targetFileType);
+        vector<string> ret;
+
+        QThread* thread = new QThread;
+        pdfFile->moveToThread(thread);
+        connect(pdfFile, SIGNAL (failedConverting()), this, SLOT(onFailedConverting()));
+        connect(pdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
+        connect(pdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
+        connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
+        connect(pdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
+        connect(pdfFile, SIGNAL (finishedConverting(qint64)), this, SLOT (onFinishedConverting(qint64)));
+        connect(pdfFile, SIGNAL (finishedConverting(qint64)), thread, SLOT (quit()));
+
+        thread->start();
     }
 }

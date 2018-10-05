@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
@@ -30,6 +31,7 @@ public:
     QLabel *label_displayImg;
     QPushButton *pushButton_ConvertPdf2Png;
     QTextBrowser *textBrowser;
+    QProgressBar *progressBar_Pdf2Img;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -38,7 +40,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(926, 638);
+        MainWindow->resize(1200, 640);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setMinimumSize(QSize(926, 585));
@@ -62,17 +64,21 @@ public:
         pushButton_ConvertPdf2Png->setGeometry(QRect(490, 210, 101, 41));
         textBrowser = new QTextBrowser(centralWidget);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(380, 10, 541, 191));
+        textBrowser->setGeometry(QRect(380, 10, 811, 191));
         textBrowser->setFocusPolicy(Qt::StrongFocus);
         textBrowser->setAutoFillBackground(false);
         textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         textBrowser->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         textBrowser->setLineWrapMode(QTextEdit::NoWrap);
+        progressBar_Pdf2Img = new QProgressBar(centralWidget);
+        progressBar_Pdf2Img->setObjectName(QStringLiteral("progressBar_Pdf2Img"));
+        progressBar_Pdf2Img->setGeometry(QRect(600, 210, 591, 41));
+        progressBar_Pdf2Img->setValue(24);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 926, 21));
+        menuBar->setGeometry(QRect(0, 0, 1200, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

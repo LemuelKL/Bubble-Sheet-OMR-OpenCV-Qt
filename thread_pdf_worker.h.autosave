@@ -1,0 +1,24 @@
+#ifndef THREAD_PDF_WORKER_H
+#define THREAD_PDF_WORKER_H
+
+#include <QThread>
+#include <pdf.h>
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
+
+class thread_pdf_worker : public pdf, public QThread
+{
+    Q_OBJECT
+private:
+
+public:
+    explicit thread_pdf_worker(QObject *parent =  nullptr);
+    void run();
+    bool stop;
+signals:
+    void progressDone(std::vector<std::string> ret);
+
+};
+
+#endif // THREAD_PDF_WORKER_H

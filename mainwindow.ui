@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>926</width>
-    <height>638</height>
+    <width>1200</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -82,7 +82,7 @@
      <rect>
       <x>380</x>
       <y>10</y>
-      <width>541</width>
+      <width>811</width>
       <height>191</height>
      </rect>
     </property>
@@ -105,13 +105,26 @@
      <enum>QTextEdit::NoWrap</enum>
     </property>
    </widget>
+   <widget class="QProgressBar" name="progressBar_Pdf2Img">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>210</y>
+      <width>591</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>926</width>
+     <width>1200</width>
      <height>21</height>
     </rect>
    </property>

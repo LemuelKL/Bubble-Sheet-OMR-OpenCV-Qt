@@ -1,4 +1,6 @@
 #include "pdf.h"
+#include "ui_mainwindow.h"
+#include <QDebug>
 
 std::string pdf::mFullPath = "";
 
@@ -23,24 +25,42 @@ int pdf::fetchNPages()
     int nPage = int(MagickCore::MagickGetNumberImages(m_wand));
     return nPage;
 }
-std::vector<std::string> pdf::ConvertToImgs(std::string destPath, std::string namePrefix, std::string imgFormat)
+void pdf::setArgs(std::string destPath, std::string namePrefix, std::string imgFormat)
 {
-    std::vector<std::string> retPngFullPaths;
-    if (imgFormat.empty()==true){
-        return retPngFullPaths;
-    }
-    int i;
-    for (i=1; i<=fetchNPages(); i++)
+    mDestPath = destPath;
+    mImgFormat = imgFormat;
+    mNamePrefix = namePrefix;
+}
+void pdf::ConvertToImgs()
+{
+    std::string convertedImgName;
+    if (mImgFormat.empty()==true || (mImgFormat!="jpg" && mImgFormat!="png"))
     {
-        mFile.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
-        mFile.read(mFullPath+"["+std::to_string(i-1)+"]");
-        mFile.quality(100);
-        mFile.backgroundColor("white");
-        mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
-        mFile.mergeLayers(Magick::FlattenLayer);
-        mFile.write(destPath+"/"+namePrefix+"-"+std::to_string(i)+"."+imgFormat);
-        retPngFullPaths.push_back(destPath+"/"+namePrefix+"-"+std::to_string(i)+"."+imgFormat);
+        emit failedConverting();
     }
-    return retPngFullPaths;
+    else
+    {
+        QElapsedTimer timer;
+        timer.start();
+        emit startedConverting();
+        int i;
+        int nPages = fetchNPages();
+        double percDone = 0;
+        for (i=1; i<=nPages; i++)
+        {
+            mFile.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
+            mFile.read(mFullPath+"["+std::to_string(i-1)+"]");
+            mFile.quality(100);
+            mFile.backgroundColor("white");
+            mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
+            mFile.mergeLayers(Magick::FlattenLayer);
+            mFile.write(mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+"."+mImgFormat);
+            convertedImgName = mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+"."+mImgFormat;
+            percDone = 100.00*i/nPages;
+            emit progressUpdated(percDone);
+            emit newlyConverted(convertedImgName);
+        }
+        emit finishedConverting(timer.elapsed());
+    }
 }
 
