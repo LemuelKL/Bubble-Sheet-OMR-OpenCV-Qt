@@ -18,7 +18,7 @@ std::string pdf::FullPath()
 }
 int pdf::fetchNPages()
 {
-    MagickCore::MagickWand *m_wand = nullptr;
+    MagickCore::MagickWand *m_wand;
     MagickCore::MagickWandGenesis();
     m_wand = MagickCore::NewMagickWand();
     MagickCore::MagickReadImage(m_wand, mFullPath.c_str());
@@ -34,9 +34,9 @@ void pdf::setArgs(std::string destPath, std::string namePrefix, std::string imgF
 void pdf::ConvertToImgs()
 {
     std::string convertedImgName;
-    if (mImgFormat.empty()==true || (mImgFormat!="jpg" && mImgFormat!="png"))
+    if (mImgFormat.empty()==true || (mImgFormat!=".jpg" && mImgFormat!=".png" && mImgFormat!= ".bmp"))
     {
-        emit failedConverting();
+        emit badImgFormat();
     }
     else
     {
@@ -54,8 +54,8 @@ void pdf::ConvertToImgs()
             mFile.backgroundColor("white");
             mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
             mFile.mergeLayers(Magick::FlattenLayer);
-            mFile.write(mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+"."+mImgFormat);
-            convertedImgName = mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+"."+mImgFormat;
+            mFile.write(mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+mImgFormat);
+            convertedImgName = mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+mImgFormat;
             percDone = 100.00*i/nPages;
             emit progressUpdated(percDone);
             emit newlyConverted(convertedImgName);

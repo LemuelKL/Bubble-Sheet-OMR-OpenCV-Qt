@@ -82,15 +82,18 @@ void MainWindow::onStartedConverting()
     QString str = QString::fromUtf8("[ PDF -> Image Conversion Started ] ");
     ui->textBrowser->append(str);
 }
-void MainWindow::onFailedConverting()
+void MainWindow::onBadImgFormat()
 {
-    QString str = QString::fromUtf8("[ PDF -> Image Conversion Failed ] ");
-    ui->textBrowser->append(str);
+    QMessageBox::warning(this, tr("What the heck?"),  tr("Bad Target Image Format!"));
 }
 void MainWindow::onFinishedConverting(qint64 timeTook)
 {
     QString str = QString("[ PDF -> Image Conversion Finished After " + QString::number(timeTook/1000) + " Seconds ] ");
     ui->textBrowser->append(str);
+}
+void MainWindow::onObjDestroyed()
+{
+    QMessageBox::information(this, tr("DESTRUCTION"), tr("An pdfFile object has been destroyed!"));
 }
 void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 {
@@ -98,20 +101,25 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     {
         QMessageBox::warning(this, tr("What are you doing?"), tr("Please have a PDF file loaded first."));
     }
+    else if (ui->lineEdit_SetImgPrefix->text().length()<1)
+    {
+        QMessageBox::warning(this, tr("What are you doing?"), tr("Please set a desirable prefix for image names."));
+    }
     else
     {
         vector<string> ret;
-        std::string targetFileType = "jpg";
 
         QThread* thread = new QThread;
         pdf* pdfFile = new pdf(pdf::mFullPath);
 
-        pdfFile->setArgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA", targetFileType);
+        pdfFile->setArgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf",
+                         ui->lineEdit_SetImgPrefix->text().toStdString(),
+                         ui->comboBox_SelectOutImgFormat->currentText().toStdString());
 
 
         pdfFile->moveToThread(thread);
 
-        connect(pdfFile, SIGNAL (failedConverting()), this, SLOT(onFailedConverting()));
+        connect(pdfFile, SIGNAL (badImgFormat()), this, SLOT(onBadImgFormat()));
         connect(pdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
         connect(pdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
         connect(pdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
@@ -124,6 +132,8 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 
         connect(pdfFile, SIGNAL (finishedConverting(qint64)), pdfFile, SLOT (deleteLater()));
         connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
+
+        //connect(thread, SIGNAL (destroyed()), this, SLOT (onObjDestroyed()));
 
         thread->start();
     }

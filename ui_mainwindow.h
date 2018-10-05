@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -34,10 +35,11 @@ public:
     QPushButton *pushButton_ConvertPdf2Png;
     QTextBrowser *textBrowser;
     QProgressBar *progressBar_Pdf2Img;
-    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_SetImgPrefix;
     QLabel *label_TextInfo_SetImgPrefix;
     QFrame *line;
     QLabel *label_TextInfo_ConvertedSoFar;
+    QComboBox *comboBox_SelectOutImgFormat;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -97,9 +99,9 @@ public:
         progressBar_Pdf2Img->setLayoutDirection(Qt::RightToLeft);
         progressBar_Pdf2Img->setValue(24);
         progressBar_Pdf2Img->setInvertedAppearance(true);
-        lineEdit = new QLineEdit(centralWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(680, 210, 131, 21));
+        lineEdit_SetImgPrefix = new QLineEdit(centralWidget);
+        lineEdit_SetImgPrefix->setObjectName(QStringLiteral("lineEdit_SetImgPrefix"));
+        lineEdit_SetImgPrefix->setGeometry(QRect(680, 210, 131, 21));
         label_TextInfo_SetImgPrefix = new QLabel(centralWidget);
         label_TextInfo_SetImgPrefix->setObjectName(QStringLiteral("label_TextInfo_SetImgPrefix"));
         label_TextInfo_SetImgPrefix->setGeometry(QRect(580, 210, 101, 21));
@@ -115,6 +117,12 @@ public:
         label_TextInfo_ConvertedSoFar->setObjectName(QStringLiteral("label_TextInfo_ConvertedSoFar"));
         label_TextInfo_ConvertedSoFar->setGeometry(QRect(580, 240, 61, 21));
         label_TextInfo_ConvertedSoFar->setFont(font1);
+        comboBox_SelectOutImgFormat = new QComboBox(centralWidget);
+        comboBox_SelectOutImgFormat->addItem(QString());
+        comboBox_SelectOutImgFormat->addItem(QString());
+        comboBox_SelectOutImgFormat->addItem(QString());
+        comboBox_SelectOutImgFormat->setObjectName(QStringLiteral("comboBox_SelectOutImgFormat"));
+        comboBox_SelectOutImgFormat->setGeometry(QRect(820, 210, 51, 22));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -141,6 +149,11 @@ public:
         progressBar_Pdf2Img->setFormat(QApplication::translate("MainWindow", "%p%", nullptr));
         label_TextInfo_SetImgPrefix->setText(QApplication::translate("MainWindow", "Image Prefix : ", nullptr));
         label_TextInfo_ConvertedSoFar->setText(QApplication::translate("MainWindow", "Progress : ", nullptr));
+        comboBox_SelectOutImgFormat->setItemText(0, QApplication::translate("MainWindow", ".jpg", nullptr));
+        comboBox_SelectOutImgFormat->setItemText(1, QApplication::translate("MainWindow", ".png", nullptr));
+        comboBox_SelectOutImgFormat->setItemText(2, QApplication::translate("MainWindow", ".bmp", nullptr));
+
+        comboBox_SelectOutImgFormat->setCurrentText(QApplication::translate("MainWindow", ".jpg", nullptr));
     } // retranslateUi
 
 };

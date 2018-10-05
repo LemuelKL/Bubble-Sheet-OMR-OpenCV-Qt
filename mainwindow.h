@@ -26,9 +26,11 @@ private slots:
 
     void onStartedConverting();
 
-    void onFailedConverting();
+    void onBadImgFormat();
 
     void onFinishedConverting(qint64 timeTook);
+
+    void onObjDestroyed();
 
 private:
     Ui::MainWindow *ui;

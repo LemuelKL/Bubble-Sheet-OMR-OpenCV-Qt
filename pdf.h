@@ -43,7 +43,7 @@ public slots:
     void ConvertToImgs();
 
 signals:
-    void failedConverting();
+    void badImgFormat();
     void startedConverting();
     void progressUpdated(double perc);
     void newlyConverted(std::string convertedImgName);

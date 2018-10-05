@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_pdf_t {
     QByteArrayData data[12];
-    char stringdata0[147];
+    char stringdata0[143];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,20 +32,20 @@ struct qt_meta_stringdata_pdf_t {
 static const qt_meta_stringdata_pdf_t qt_meta_stringdata_pdf = {
     {
 QT_MOC_LITERAL(0, 0, 3), // "pdf"
-QT_MOC_LITERAL(1, 4, 16), // "failedConverting"
-QT_MOC_LITERAL(2, 21, 0), // ""
-QT_MOC_LITERAL(3, 22, 17), // "startedConverting"
-QT_MOC_LITERAL(4, 40, 15), // "progressUpdated"
-QT_MOC_LITERAL(5, 56, 4), // "perc"
-QT_MOC_LITERAL(6, 61, 14), // "newlyConverted"
-QT_MOC_LITERAL(7, 76, 11), // "std::string"
-QT_MOC_LITERAL(8, 88, 16), // "convertedImgName"
-QT_MOC_LITERAL(9, 105, 18), // "finishedConverting"
-QT_MOC_LITERAL(10, 124, 8), // "timeTook"
-QT_MOC_LITERAL(11, 133, 13) // "ConvertToImgs"
+QT_MOC_LITERAL(1, 4, 12), // "badImgFormat"
+QT_MOC_LITERAL(2, 17, 0), // ""
+QT_MOC_LITERAL(3, 18, 17), // "startedConverting"
+QT_MOC_LITERAL(4, 36, 15), // "progressUpdated"
+QT_MOC_LITERAL(5, 52, 4), // "perc"
+QT_MOC_LITERAL(6, 57, 14), // "newlyConverted"
+QT_MOC_LITERAL(7, 72, 11), // "std::string"
+QT_MOC_LITERAL(8, 84, 16), // "convertedImgName"
+QT_MOC_LITERAL(9, 101, 18), // "finishedConverting"
+QT_MOC_LITERAL(10, 120, 8), // "timeTook"
+QT_MOC_LITERAL(11, 129, 13) // "ConvertToImgs"
 
     },
-    "pdf\0failedConverting\0\0startedConverting\0"
+    "pdf\0badImgFormat\0\0startedConverting\0"
     "progressUpdated\0perc\0newlyConverted\0"
     "std::string\0convertedImgName\0"
     "finishedConverting\0timeTook\0ConvertToImgs"
@@ -94,7 +94,7 @@ void pdf::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         pdf *_t = static_cast<pdf *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->failedConverting(); break;
+        case 0: _t->badImgFormat(); break;
         case 1: _t->startedConverting(); break;
         case 2: _t->progressUpdated((*reinterpret_cast< double(*)>(_a[1]))); break;
         case 3: _t->newlyConverted((*reinterpret_cast< std::string(*)>(_a[1]))); break;
@@ -106,7 +106,7 @@ void pdf::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (pdf::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&pdf::failedConverting)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&pdf::badImgFormat)) {
                 *result = 0;
                 return;
             }
@@ -179,7 +179,7 @@ int pdf::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void pdf::failedConverting()
+void pdf::badImgFormat()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
