@@ -11,7 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QProgressBar>
@@ -32,6 +34,10 @@ public:
     QPushButton *pushButton_ConvertPdf2Png;
     QTextBrowser *textBrowser;
     QProgressBar *progressBar_Pdf2Img;
+    QLineEdit *lineEdit;
+    QLabel *label_TextInfo_SetImgPrefix;
+    QFrame *line;
+    QLabel *label_TextInfo_ConvertedSoFar;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -41,27 +47,34 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(1200, 640);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        centralWidget->setMinimumSize(QSize(926, 585));
+        sizePolicy.setHeightForWidth(centralWidget->sizePolicy().hasHeightForWidth());
+        centralWidget->setSizePolicy(sizePolicy);
+        centralWidget->setMinimumSize(QSize(1200, 600));
         pushButton_Choose_PDF = new QPushButton(centralWidget);
         pushButton_Choose_PDF->setObjectName(QStringLiteral("pushButton_Choose_PDF"));
-        pushButton_Choose_PDF->setGeometry(QRect(380, 210, 101, 41));
+        pushButton_Choose_PDF->setGeometry(QRect(380, 210, 91, 51));
         label_displayImg = new QLabel(centralWidget);
         label_displayImg->setObjectName(QStringLiteral("label_displayImg"));
         label_displayImg->setGeometry(QRect(10, 10, 361, 561));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(label_displayImg->sizePolicy().hasHeightForWidth());
-        label_displayImg->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_displayImg->sizePolicy().hasHeightForWidth());
+        label_displayImg->setSizePolicy(sizePolicy1);
         label_displayImg->setAutoFillBackground(false);
         label_displayImg->setFrameShape(QFrame::Box);
         label_displayImg->setFrameShadow(QFrame::Plain);
         label_displayImg->setLineWidth(1);
         pushButton_ConvertPdf2Png = new QPushButton(centralWidget);
         pushButton_ConvertPdf2Png->setObjectName(QStringLiteral("pushButton_ConvertPdf2Png"));
-        pushButton_ConvertPdf2Png->setGeometry(QRect(490, 210, 101, 41));
+        pushButton_ConvertPdf2Png->setGeometry(QRect(480, 210, 91, 51));
         textBrowser = new QTextBrowser(centralWidget);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
         textBrowser->setGeometry(QRect(380, 10, 811, 191));
@@ -73,8 +86,35 @@ public:
         textBrowser->setLineWrapMode(QTextEdit::NoWrap);
         progressBar_Pdf2Img = new QProgressBar(centralWidget);
         progressBar_Pdf2Img->setObjectName(QStringLiteral("progressBar_Pdf2Img"));
-        progressBar_Pdf2Img->setGeometry(QRect(600, 210, 591, 41));
+        progressBar_Pdf2Img->setGeometry(QRect(640, 240, 551, 21));
+        QFont font;
+        font.setBold(true);
+        font.setItalic(false);
+        font.setUnderline(false);
+        font.setWeight(75);
+        font.setKerning(true);
+        progressBar_Pdf2Img->setFont(font);
+        progressBar_Pdf2Img->setLayoutDirection(Qt::RightToLeft);
         progressBar_Pdf2Img->setValue(24);
+        progressBar_Pdf2Img->setInvertedAppearance(true);
+        lineEdit = new QLineEdit(centralWidget);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(680, 210, 131, 21));
+        label_TextInfo_SetImgPrefix = new QLabel(centralWidget);
+        label_TextInfo_SetImgPrefix->setObjectName(QStringLiteral("label_TextInfo_SetImgPrefix"));
+        label_TextInfo_SetImgPrefix->setGeometry(QRect(580, 210, 101, 21));
+        QFont font1;
+        font1.setPointSize(9);
+        label_TextInfo_SetImgPrefix->setFont(font1);
+        line = new QFrame(centralWidget);
+        line->setObjectName(QStringLiteral("line"));
+        line->setGeometry(QRect(380, 260, 811, 16));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        label_TextInfo_ConvertedSoFar = new QLabel(centralWidget);
+        label_TextInfo_ConvertedSoFar->setObjectName(QStringLiteral("label_TextInfo_ConvertedSoFar"));
+        label_TextInfo_ConvertedSoFar->setGeometry(QRect(580, 240, 61, 21));
+        label_TextInfo_ConvertedSoFar->setFont(font1);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -98,6 +138,9 @@ public:
         pushButton_Choose_PDF->setText(QApplication::translate("MainWindow", "Choose PDF", nullptr));
         label_displayImg->setText(QApplication::translate("MainWindow", "Image", nullptr));
         pushButton_ConvertPdf2Png->setText(QApplication::translate("MainWindow", "Convert PDF", nullptr));
+        progressBar_Pdf2Img->setFormat(QApplication::translate("MainWindow", "%p%", nullptr));
+        label_TextInfo_SetImgPrefix->setText(QApplication::translate("MainWindow", "Image Prefix : ", nullptr));
+        label_TextInfo_ConvertedSoFar->setText(QApplication::translate("MainWindow", "Progress : ", nullptr));
     } // retranslateUi
 
 };

@@ -100,20 +100,30 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     }
     else
     {
-        std::string targetFileType = "jpg";
-        pdf* pdfFile = new pdf(pdf::mFullPath);
-        pdfFile->setArgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA", targetFileType);
         vector<string> ret;
+        std::string targetFileType = "jpg";
 
         QThread* thread = new QThread;
+        pdf* pdfFile = new pdf(pdf::mFullPath);
+
+        pdfFile->setArgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf", "AAA", targetFileType);
+
+
         pdfFile->moveToThread(thread);
+
         connect(pdfFile, SIGNAL (failedConverting()), this, SLOT(onFailedConverting()));
         connect(pdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
         connect(pdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
-        connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
         connect(pdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
+
+        connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
+
         connect(pdfFile, SIGNAL (finishedConverting(qint64)), this, SLOT (onFinishedConverting(qint64)));
+
         connect(pdfFile, SIGNAL (finishedConverting(qint64)), thread, SLOT (quit()));
+
+        connect(pdfFile, SIGNAL (finishedConverting(qint64)), pdfFile, SLOT (deleteLater()));
+        connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
 
         thread->start();
     }
