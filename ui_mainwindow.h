@@ -33,13 +33,15 @@ public:
     QPushButton *pushButton_Choose_PDF;
     QLabel *label_displayImg;
     QPushButton *pushButton_ConvertPdf2Png;
-    QTextBrowser *textBrowser;
+    QTextBrowser *textBrowser_Console;
     QProgressBar *progressBar_Pdf2Img;
     QLineEdit *lineEdit_SetImgPrefix;
     QLabel *label_TextInfo_SetImgPrefix;
     QFrame *line;
     QLabel *label_TextInfo_ConvertedSoFar;
     QComboBox *comboBox_SelectOutImgFormat;
+    QPushButton *pushButton_CV_Worker;
+    QTextBrowser *textBrowser_ConvertedImagePaths;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -48,7 +50,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1200, 640);
+        MainWindow->resize(1200, 651);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -77,18 +79,18 @@ public:
         pushButton_ConvertPdf2Png = new QPushButton(centralWidget);
         pushButton_ConvertPdf2Png->setObjectName(QStringLiteral("pushButton_ConvertPdf2Png"));
         pushButton_ConvertPdf2Png->setGeometry(QRect(480, 210, 91, 51));
-        textBrowser = new QTextBrowser(centralWidget);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(380, 10, 811, 191));
-        textBrowser->setFocusPolicy(Qt::StrongFocus);
-        textBrowser->setAutoFillBackground(false);
-        textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-        textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        textBrowser->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        textBrowser->setLineWrapMode(QTextEdit::NoWrap);
+        textBrowser_Console = new QTextBrowser(centralWidget);
+        textBrowser_Console->setObjectName(QStringLiteral("textBrowser_Console"));
+        textBrowser_Console->setGeometry(QRect(380, 10, 811, 191));
+        textBrowser_Console->setFocusPolicy(Qt::StrongFocus);
+        textBrowser_Console->setAutoFillBackground(false);
+        textBrowser_Console->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        textBrowser_Console->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        textBrowser_Console->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        textBrowser_Console->setLineWrapMode(QTextEdit::NoWrap);
         progressBar_Pdf2Img = new QProgressBar(centralWidget);
         progressBar_Pdf2Img->setObjectName(QStringLiteral("progressBar_Pdf2Img"));
-        progressBar_Pdf2Img->setGeometry(QRect(640, 240, 551, 21));
+        progressBar_Pdf2Img->setGeometry(QRect(640, 240, 231, 21));
         QFont font;
         font.setBold(true);
         font.setItalic(false);
@@ -110,7 +112,7 @@ public:
         label_TextInfo_SetImgPrefix->setFont(font1);
         line = new QFrame(centralWidget);
         line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(380, 260, 811, 16));
+        line->setGeometry(QRect(380, 260, 811, 21));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
         label_TextInfo_ConvertedSoFar = new QLabel(centralWidget);
@@ -123,6 +125,14 @@ public:
         comboBox_SelectOutImgFormat->addItem(QString());
         comboBox_SelectOutImgFormat->setObjectName(QStringLiteral("comboBox_SelectOutImgFormat"));
         comboBox_SelectOutImgFormat->setGeometry(QRect(820, 210, 51, 22));
+        pushButton_CV_Worker = new QPushButton(centralWidget);
+        pushButton_CV_Worker->setObjectName(QStringLiteral("pushButton_CV_Worker"));
+        pushButton_CV_Worker->setGeometry(QRect(380, 280, 91, 51));
+        textBrowser_ConvertedImagePaths = new QTextBrowser(centralWidget);
+        textBrowser_ConvertedImagePaths->setObjectName(QStringLiteral("textBrowser_ConvertedImagePaths"));
+        textBrowser_ConvertedImagePaths->setGeometry(QRect(880, 210, 311, 51));
+        textBrowser_ConvertedImagePaths->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        textBrowser_ConvertedImagePaths->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -154,6 +164,7 @@ public:
         comboBox_SelectOutImgFormat->setItemText(2, QApplication::translate("MainWindow", ".bmp", nullptr));
 
         comboBox_SelectOutImgFormat->setCurrentText(QApplication::translate("MainWindow", ".jpg", nullptr));
+        pushButton_CV_Worker->setText(QApplication::translate("MainWindow", "Start CV Worker", nullptr));
     } // retranslateUi
 
 };

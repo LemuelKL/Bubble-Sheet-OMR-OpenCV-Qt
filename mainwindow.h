@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "cv_worker.h"
+#include "cv_controller.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -32,7 +35,13 @@ private slots:
 
     void onObjDestroyed();
 
+    void recieveImgPaths(std::vector<std::string> ImgPaths);
+
+    void on_pushButton_CV_Worker_clicked();
+
 private:
+    cv_controller *controller_;
+    cv_worker *worker_;
     Ui::MainWindow *ui;
 };
 

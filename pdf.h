@@ -16,11 +16,6 @@
 #include <wand/magick_wand.h>
 #pragma warning(pop)
 
-
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-
 class pdf : public QObject
 {
     Q_OBJECT
@@ -48,6 +43,7 @@ signals:
     void progressUpdated(double perc);
     void newlyConverted(std::string convertedImgName);
     void finishedConverting(qint64 timeTook);
+    void sendImgPaths(std::vector<std::string> paths);
 };
 
 #endif // PDF_H

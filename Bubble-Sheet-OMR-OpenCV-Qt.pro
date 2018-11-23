@@ -27,11 +27,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    pdf.cpp
+    pdf.cpp \
+    cv_controller.cpp \
+    cv_worker.cpp
 
 HEADERS += \
         mainwindow.h \
-    pdf.h
+    pdf.h \
+    cv_controller.h \
+    cv_worker.h
 
 FORMS += \
         mainwindow.ui

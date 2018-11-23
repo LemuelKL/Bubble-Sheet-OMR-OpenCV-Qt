@@ -11,6 +11,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDebug>
 #include <QThread>
 
 #include <Magick++.h>
@@ -25,6 +26,7 @@ using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+    controller_(new cv_controller(this)),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -36,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressBar_Pdf2Img->setMinimum(0);
     ui->progressBar_Pdf2Img->setValue(0);
 
-    ui->textBrowser->setText("...");
+    ui->textBrowser_Console->setText("...");
 }
 
 MainWindow::~MainWindow()
@@ -44,13 +46,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void singleImgAlgorithm(std::string)
-{
-    // //
-}
-
 void MainWindow::on_pushButton_Choose_PDF_clicked()
 {
+    ui->progressBar_Pdf2Img->setValue(0);
     QString path2Pdf = QFileDialog::getOpenFileName(
                 this,
                 tr("Choose PDF"),
@@ -63,7 +61,7 @@ void MainWindow::on_pushButton_Choose_PDF_clicked()
     else
     {
         pdf::mFullPath = path2Pdf.toStdString();
-        ui->textBrowser->setText(("[ PDF Read ] "+pdf::mFullPath).c_str());
+        ui->textBrowser_Console->setText(("[ PDF Read ] "+pdf::mFullPath).c_str());
     }
 }
 
@@ -75,12 +73,12 @@ void MainWindow::onNewlyConverted(std::string convertedImgName)
 {
     convertedImgName = "[ PDF -> Image ] "+convertedImgName;
     QString str = QString::fromUtf8(convertedImgName.c_str());
-    ui->textBrowser->append(str);
+    ui->textBrowser_Console->append(str);
 }
 void MainWindow::onStartedConverting()
 {
     QString str = QString::fromUtf8("[ PDF -> Image Conversion Started ] ");
-    ui->textBrowser->append(str);
+    ui->textBrowser_Console->append(str);
 }
 void MainWindow::onBadImgFormat()
 {
@@ -89,14 +87,26 @@ void MainWindow::onBadImgFormat()
 void MainWindow::onFinishedConverting(qint64 timeTook)
 {
     QString str = QString("[ PDF -> Image Conversion Finished After " + QString::number(timeTook/1000) + " Seconds ] ");
-    ui->textBrowser->append(str);
+    ui->textBrowser_Console->append(str);
 }
 void MainWindow::onObjDestroyed()
 {
     QMessageBox::information(this, tr("DESTRUCTION"), tr("An pdfFile object has been destroyed!"));
 }
+void MainWindow::recieveImgPaths(std::vector<std::string> ImgPaths)
+{
+    int i;
+    for (i = 0; i < int(ImgPaths.size()); i++)
+    {
+        QString str = QString::fromStdString(ImgPaths.at(i).c_str());
+        ui->textBrowser_ConvertedImagePaths->append(str);
+    }
+    //QMessageBox::information(this, tr("Success"), tr(ImgPaths[0].c_str()));
+    QMessageBox::information(this, tr("Success"), tr("Done!"));
+}
 void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 {
+    ui->progressBar_Pdf2Img->setValue(0);
     if (pdf::mFullPath.size()<1)
     {
         QMessageBox::warning(this, tr("What are you doing?"), tr("Please have a PDF file loaded first."));
@@ -123,6 +133,7 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
         connect(pdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
         connect(pdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
         connect(pdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
+        connect(pdfFile, SIGNAL (sendImgPaths(std::vector<std::string>)), this, SLOT (recieveImgPaths(std::vector<std::string>)));
 
         connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
 
@@ -138,3 +149,20 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
         thread->start();
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void MainWindow::on_pushButton_CV_Worker_clicked()
+{
+    if (ui->textBrowser_ConvertedImagePaths->toPlainText().length() < 1)
+    {
+        QMessageBox::warning(this, tr("What the heck?"),  tr("Process PDF first!"));
+        return;
+    }
+    QString ImgPaths = ui->textBrowser_ConvertedImagePaths->toPlainText();
+    QStringList lines = ImgPaths.split("\n");
+    qDebug()<<QThread::currentThread();
+    controller_->start_working(lines);
+}
+

@@ -33,6 +33,7 @@ void pdf::setArgs(std::string destPath, std::string namePrefix, std::string imgF
 }
 void pdf::ConvertToImgs()
 {
+    std::vector<std::string> convertedImgNames;
     std::string convertedImgName;
     if (mImgFormat.empty()==true || (mImgFormat!=".jpg" && mImgFormat!=".png" && mImgFormat!= ".bmp"))
     {
@@ -59,8 +60,11 @@ void pdf::ConvertToImgs()
             percDone = 100.00*i/nPages;
             emit progressUpdated(percDone);
             emit newlyConverted(convertedImgName);
+            convertedImgNames.push_back(convertedImgName);
         }
+        emit sendImgPaths(convertedImgNames);
         emit finishedConverting(timer.elapsed());
     }
 }
+
 
