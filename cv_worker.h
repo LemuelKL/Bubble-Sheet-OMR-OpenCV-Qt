@@ -27,6 +27,8 @@ private:
     QStringList mImgPaths;
     int mNPages;
     std::vector<cv::Mat> mDoc;
+
+    std::vector<std::vector<cv::Point> > findCircleContours(cv::Mat img);
 };
 
 #endif // CV_WORKER_H
