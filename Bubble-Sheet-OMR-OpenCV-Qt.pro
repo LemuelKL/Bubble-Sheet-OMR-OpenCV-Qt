@@ -28,13 +28,11 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     pdf.cpp \
-    cv_controller.cpp \
     cv_worker.cpp
 
 HEADERS += \
         mainwindow.h \
     pdf.h \
-    cv_controller.h \
     cv_worker.h
 
 FORMS += \

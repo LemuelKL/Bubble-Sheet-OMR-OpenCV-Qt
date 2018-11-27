@@ -2,9 +2,9 @@
 #define MAINWINDOW_H
 
 #include "cv_worker.h"
-#include "cv_controller.h"
 
 #include <QMainWindow>
+#include <QMetaType>
 
 namespace Ui {
 class MainWindow;
@@ -39,9 +39,12 @@ private slots:
 
     void on_pushButton_CV_Worker_clicked();
 
+    void errorString(QString);
+
+    void updateImg(cv::Mat img);
+
 private:
-    cv_controller *controller_;
-    cv_worker *worker_;
+    //cv_worker *worker_;
     Ui::MainWindow *ui;
 };
 

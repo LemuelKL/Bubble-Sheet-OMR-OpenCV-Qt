@@ -26,12 +26,11 @@ using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    controller_(new cv_controller(this)),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     this->setWindowTitle("Bubble Sheet Optical Mark Recognition");
-
+    qRegisterMetaType< cv::Mat >("cv::Mat");
     //ui->label_displayImg->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, int(img.step), QImage::Format_RGB888)));
     //ui->label_displayImg->setScaledContents( true );
     ui->progressBar_Pdf2Img->setMaximum(100);
@@ -126,7 +125,6 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
                          ui->lineEdit_SetImgPrefix->text().toStdString(),
                          ui->comboBox_SelectOutImgFormat->currentText().toStdString());
 
-
         pdfFile->moveToThread(thread);
 
         connect(pdfFile, SIGNAL (badImgFormat()), this, SLOT(onBadImgFormat()));
@@ -152,6 +150,10 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void MainWindow::errorString(QString errStr)
+{
+    qDebug()<<errStr;
+}
 
 void MainWindow::on_pushButton_CV_Worker_clicked()
 {
@@ -163,6 +165,56 @@ void MainWindow::on_pushButton_CV_Worker_clicked()
     QString ImgPaths = ui->textBrowser_ConvertedImagePaths->toPlainText();
     QStringList lines = ImgPaths.split("\n");
     qDebug()<<QThread::currentThread();
-    controller_->start_working(lines);
+
+    QThread* thread = new QThread;
+    cv_worker* worker = new cv_worker(lines);
+    worker->moveToThread(thread);
+    connect(worker, SIGNAL(error(QString)), this, SLOT(errorString(QString)));
+    connect(thread, SIGNAL(started()), worker, SLOT(process()));
+    connect(worker, SIGNAL(finished()), thread, SLOT(quit()));
+    connect(worker, SIGNAL(finished()), worker, SLOT(deleteLater()));
+    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+
+    connect(worker, SIGNAL(sendImg(cv::Mat)), this, SLOT(updateImg(cv::Mat)));
+
+    thread->start();
+}
+
+QImage MatToQImage(const Mat& mat)
+{
+    // 8-bits unsigned, NO. OF CHANNELS=1
+    if(mat.type()==CV_8UC1)
+    {
+        // Set the color table (used to translate colour indexes to qRgb values)
+        QVector<QRgb> colorTable;
+        for (int i=0; i<256; i++)
+            colorTable.push_back(qRgb(i,i,i));
+        // Copy input Mat
+        const uchar *qImageBuffer = (const uchar*)mat.data;
+        // Create QImage with same dimensions as input Mat
+        QImage img(qImageBuffer, mat.cols, mat.rows, int(mat.step), QImage::Format_Indexed8);
+        img.setColorTable(colorTable);
+        return img;
+    }
+    // 8-bits unsigned, NO. OF CHANNELS=3
+    if(mat.type()==CV_8UC3)
+    {
+        // Copy input Mat
+        const uchar *qImageBuffer = (const uchar*)mat.data;
+        // Create QImage with same dimensions as input Mat
+        QImage img(qImageBuffer, mat.cols, mat.rows, int(mat.step), QImage::Format_RGB888);
+        return img.rgbSwapped();
+    }
+    else
+    {
+        qDebug() << "ERROR: Mat could not be converted to QImage.";
+        return QImage();
+    }
+}
+
+void MainWindow::updateImg(cv::Mat img)
+{
+    ui->label_displayImg->setPixmap(QPixmap::fromImage(MatToQImage(img)));
+    ui->label_displayImg->setScaledContents(true);
 }
 

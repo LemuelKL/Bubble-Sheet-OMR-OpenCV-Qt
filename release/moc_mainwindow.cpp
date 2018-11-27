@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[18];
-    char stringdata0[313];
+    QByteArrayData data[22];
+    char stringdata0[347];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -48,7 +48,11 @@ QT_MOC_LITERAL(13, 216, 14), // "onObjDestroyed"
 QT_MOC_LITERAL(14, 231, 15), // "recieveImgPaths"
 QT_MOC_LITERAL(15, 247, 24), // "std::vector<std::string>"
 QT_MOC_LITERAL(16, 272, 8), // "ImgPaths"
-QT_MOC_LITERAL(17, 281, 31) // "on_pushButton_CV_Worker_clicked"
+QT_MOC_LITERAL(17, 281, 31), // "on_pushButton_CV_Worker_clicked"
+QT_MOC_LITERAL(18, 313, 11), // "errorString"
+QT_MOC_LITERAL(19, 325, 9), // "updateImg"
+QT_MOC_LITERAL(20, 335, 7), // "cv::Mat"
+QT_MOC_LITERAL(21, 343, 3) // "img"
 
     },
     "MainWindow\0on_pushButton_Choose_PDF_clicked\0"
@@ -59,7 +63,8 @@ QT_MOC_LITERAL(17, 281, 31) // "on_pushButton_CV_Worker_clicked"
     "onFinishedConverting\0timeTook\0"
     "onObjDestroyed\0recieveImgPaths\0"
     "std::vector<std::string>\0ImgPaths\0"
-    "on_pushButton_CV_Worker_clicked"
+    "on_pushButton_CV_Worker_clicked\0"
+    "errorString\0updateImg\0cv::Mat\0img"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,7 +74,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -77,16 +82,18 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x08 /* Private */,
-       3,    0,   65,    2, 0x08 /* Private */,
-       4,    1,   66,    2, 0x08 /* Private */,
-       6,    1,   69,    2, 0x08 /* Private */,
-       9,    0,   72,    2, 0x08 /* Private */,
-      10,    0,   73,    2, 0x08 /* Private */,
-      11,    1,   74,    2, 0x08 /* Private */,
-      13,    0,   77,    2, 0x08 /* Private */,
-      14,    1,   78,    2, 0x08 /* Private */,
-      17,    0,   81,    2, 0x08 /* Private */,
+       1,    0,   74,    2, 0x08 /* Private */,
+       3,    0,   75,    2, 0x08 /* Private */,
+       4,    1,   76,    2, 0x08 /* Private */,
+       6,    1,   79,    2, 0x08 /* Private */,
+       9,    0,   82,    2, 0x08 /* Private */,
+      10,    0,   83,    2, 0x08 /* Private */,
+      11,    1,   84,    2, 0x08 /* Private */,
+      13,    0,   87,    2, 0x08 /* Private */,
+      14,    1,   88,    2, 0x08 /* Private */,
+      17,    0,   91,    2, 0x08 /* Private */,
+      18,    1,   92,    2, 0x08 /* Private */,
+      19,    1,   95,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -99,6 +106,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 15,   16,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, 0x80000000 | 20,   21,
 
        0        // eod
 };
@@ -119,6 +128,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->onObjDestroyed(); break;
         case 8: _t->recieveImgPaths((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
         case 9: _t->on_pushButton_CV_Worker_clicked(); break;
+        case 10: _t->errorString((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 11: _t->updateImg((*reinterpret_cast< cv::Mat(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -149,13 +160,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 12;
     }
     return _id;
 }
