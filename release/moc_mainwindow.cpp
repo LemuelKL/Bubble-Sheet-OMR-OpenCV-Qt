@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[22];
-    char stringdata0[347];
+    QByteArrayData data[21];
+    char stringdata0[339];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -51,8 +51,7 @@ QT_MOC_LITERAL(16, 272, 8), // "ImgPaths"
 QT_MOC_LITERAL(17, 281, 31), // "on_pushButton_CV_Worker_clicked"
 QT_MOC_LITERAL(18, 313, 11), // "errorString"
 QT_MOC_LITERAL(19, 325, 9), // "updateImg"
-QT_MOC_LITERAL(20, 335, 7), // "cv::Mat"
-QT_MOC_LITERAL(21, 343, 3) // "img"
+QT_MOC_LITERAL(20, 335, 3) // "img"
 
     },
     "MainWindow\0on_pushButton_Choose_PDF_clicked\0"
@@ -64,7 +63,7 @@ QT_MOC_LITERAL(21, 343, 3) // "img"
     "onObjDestroyed\0recieveImgPaths\0"
     "std::vector<std::string>\0ImgPaths\0"
     "on_pushButton_CV_Worker_clicked\0"
-    "errorString\0updateImg\0cv::Mat\0img"
+    "errorString\0updateImg\0img"
 };
 #undef QT_MOC_LITERAL
 
@@ -107,7 +106,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, 0x80000000 | 15,   16,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
-    QMetaType::Void, 0x80000000 | 20,   21,
+    QMetaType::Void, QMetaType::QImage,   20,
 
        0        // eod
 };
@@ -129,7 +128,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->recieveImgPaths((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
         case 9: _t->on_pushButton_CV_Worker_clicked(); break;
         case 10: _t->errorString((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 11: _t->updateImg((*reinterpret_cast< cv::Mat(*)>(_a[1]))); break;
+        case 11: _t->updateImg((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         default: ;
         }
     }

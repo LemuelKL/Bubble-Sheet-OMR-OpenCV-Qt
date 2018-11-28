@@ -41,7 +41,7 @@ private slots:
 
     void errorString(QString);
 
-    void updateImg(cv::Mat img);
+    void updateImg(QImage img);
 
 private:
     //cv_worker *worker_;

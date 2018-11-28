@@ -2,6 +2,7 @@
 #define CV_WORKER_H
 
 #include <QObject>
+#include <QImage>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -21,14 +22,16 @@ signals:
     void finished();
     void error(QString errStr);
 
-    void sendImg(cv::Mat img);
+    void sendImg(QImage img);
 
 private:
     QStringList mImgPaths;
     int mNPages;
     std::vector<cv::Mat> mDoc;
 
+    QImage MatToQImage(const cv::Mat& mat);
     std::vector<std::vector<cv::Point> > findCircleContours(cv::Mat img);
+
 };
 
 #endif // CV_WORKER_H

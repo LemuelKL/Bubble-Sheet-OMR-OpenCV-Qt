@@ -106,6 +106,7 @@ void MainWindow::recieveImgPaths(std::vector<std::string> ImgPaths)
 void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 {
     ui->progressBar_Pdf2Img->setValue(0);
+    ui->textBrowser_ConvertedImagePaths->clear();
     if (pdf::mFullPath.size()<1)
     {
         QMessageBox::warning(this, tr("What are you doing?"), tr("Please have a PDF file loaded first."));
@@ -175,46 +176,14 @@ void MainWindow::on_pushButton_CV_Worker_clicked()
     connect(worker, SIGNAL(finished()), worker, SLOT(deleteLater()));
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
 
-    connect(worker, SIGNAL(sendImg(cv::Mat)), this, SLOT(updateImg(cv::Mat)));
+    connect(worker, SIGNAL(sendImg(QImage)), this, SLOT(updateImg(QImage)));
 
     thread->start();
 }
 
-QImage MatToQImage(const Mat& mat)
+void MainWindow::updateImg(QImage img)
 {
-    // 8-bits unsigned, NO. OF CHANNELS=1
-    if(mat.type()==CV_8UC1)
-    {
-        // Set the color table (used to translate colour indexes to qRgb values)
-        QVector<QRgb> colorTable;
-        for (int i=0; i<256; i++)
-            colorTable.push_back(qRgb(i,i,i));
-        // Copy input Mat
-        const uchar *qImageBuffer = (const uchar*)mat.data;
-        // Create QImage with same dimensions as input Mat
-        QImage img(qImageBuffer, mat.cols, mat.rows, int(mat.step), QImage::Format_Indexed8);
-        img.setColorTable(colorTable);
-        return img;
-    }
-    // 8-bits unsigned, NO. OF CHANNELS=3
-    if(mat.type()==CV_8UC3)
-    {
-        // Copy input Mat
-        const uchar *qImageBuffer = (const uchar*)mat.data;
-        // Create QImage with same dimensions as input Mat
-        QImage img(qImageBuffer, mat.cols, mat.rows, int(mat.step), QImage::Format_RGB888);
-        return img.rgbSwapped();
-    }
-    else
-    {
-        qDebug() << "ERROR: Mat could not be converted to QImage.";
-        return QImage();
-    }
-}
-
-void MainWindow::updateImg(cv::Mat img)
-{
-    ui->label_displayImg->setPixmap(QPixmap::fromImage(MatToQImage(img)));
+    ui->label_displayImg->setPixmap(QPixmap::fromImage(img));
     ui->label_displayImg->setScaledContents(true);
 }
 

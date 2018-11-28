@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_cv_worker_t {
-    QByteArrayData data[9];
-    char stringdata0[61];
+    QByteArrayData data[8];
+    char stringdata0[53];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,13 +37,12 @@ QT_MOC_LITERAL(2, 19, 0), // ""
 QT_MOC_LITERAL(3, 20, 5), // "error"
 QT_MOC_LITERAL(4, 26, 6), // "errStr"
 QT_MOC_LITERAL(5, 33, 7), // "sendImg"
-QT_MOC_LITERAL(6, 41, 7), // "cv::Mat"
-QT_MOC_LITERAL(7, 49, 3), // "img"
-QT_MOC_LITERAL(8, 53, 7) // "process"
+QT_MOC_LITERAL(6, 41, 3), // "img"
+QT_MOC_LITERAL(7, 45, 7) // "process"
 
     },
     "cv_worker\0finished\0\0error\0errStr\0"
-    "sendImg\0cv::Mat\0img\0process"
+    "sendImg\0img\0process"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,12 +65,12 @@ static const uint qt_meta_data_cv_worker[] = {
        5,    1,   38,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   41,    2, 0x0a /* Public */,
+       7,    0,   41,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    4,
-    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, QMetaType::QImage,    6,
 
  // slots: parameters
     QMetaType::Void,
@@ -87,7 +86,7 @@ void cv_worker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->finished(); break;
         case 1: _t->error((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->sendImg((*reinterpret_cast< cv::Mat(*)>(_a[1]))); break;
+        case 2: _t->sendImg((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 3: _t->process(); break;
         default: ;
         }
@@ -108,7 +107,7 @@ void cv_worker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             }
         }
         {
-            using _t = void (cv_worker::*)(cv::Mat );
+            using _t = void (cv_worker::*)(QImage );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&cv_worker::sendImg)) {
                 *result = 2;
                 return;
@@ -167,7 +166,7 @@ void cv_worker::error(QString _t1)
 }
 
 // SIGNAL 2
-void cv_worker::sendImg(cv::Mat _t1)
+void cv_worker::sendImg(QImage _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);

@@ -219,36 +219,78 @@ debug\moc_mainwindow.cpp: cv_worker.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
@@ -276,6 +318,7 @@ debug\moc_mainwindow.cpp: cv_worker.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QMetaType \
 		mainwindow.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.11.2\msvc2017_64\bin\moc.exe
@@ -335,36 +378,78 @@ debug\moc_pdf.cpp: C:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		mainwindow.h \
 		cv_worker.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
@@ -392,6 +477,7 @@ debug\moc_pdf.cpp: C:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QMetaType \
 		"C:\Program Files\ImageMagick-6.9.10-Q16\include\Magick++.h" \
 		"C:\Program Files\ImageMagick-6.9.10-Q16\include\Magick++\Include.h" \
 		"C:\Program Files\ImageMagick-6.9.10-Q16\include\magick\magick-config.h" \
@@ -578,6 +664,71 @@ debug\moc_cv_worker.cpp: C:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
 		cv_worker.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.11.2\msvc2017_64\bin\moc.exe
@@ -658,36 +809,78 @@ debug\main.obj: main.cpp mainwindow.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
@@ -715,6 +908,7 @@ debug\main.obj: main.cpp mainwindow.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QMetaType \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QApplication \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcoreapplication.h \
@@ -905,36 +1099,78 @@ debug\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
@@ -962,6 +1198,7 @@ debug\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QMetaType \
 		ui_mainwindow.h \
 		pdf.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QElapsedTimer \
@@ -1107,48 +1344,7 @@ debug\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QDebug \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QThread \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qthread.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
-		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qthread.h
 
 debug\pdf.obj: pdf.cpp pdf.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
@@ -1205,36 +1401,78 @@ debug\pdf.obj: pdf.cpp pdf.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		mainwindow.h \
 		cv_worker.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
@@ -1262,6 +1500,7 @@ debug\pdf.obj: pdf.cpp pdf.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QMetaType \
 		"C:\Program Files\ImageMagick-6.9.10-Q16\include\Magick++.h" \
 		"C:\Program Files\ImageMagick-6.9.10-Q16\include\Magick++\Include.h" \
 		"C:\Program Files\ImageMagick-6.9.10-Q16\include\magick\magick-config.h" \
@@ -1447,17 +1686,79 @@ debug\cv_worker.obj: cv_worker.cpp cv_worker.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvdef.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\hal\interface.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_dispatch.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cv_cpu_helper.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\fast_math.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\version.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\base.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\opencv_modules.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ptr.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\neon_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\vsx_utils.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\check.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\traits.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\matx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\saturate.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\bufferpool.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\mat.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\persistence.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\operations.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\cvstd.inl.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\utility.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\core_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\optim.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\core\ovx.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgproc\types_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio.hpp \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\imgcodecs\imgcodecs_c.h \
+		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\videoio\videoio_c.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QDebug \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdebug.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qhash.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qmap.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qtextstream.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qlocale.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvariant.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qset.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontiguouscache.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
