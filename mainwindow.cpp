@@ -123,7 +123,9 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
         QThread* thread = new QThread;
         pdf* pdfFile = new pdf(pdf::mFullPath);
 
-        pdfFile->setArgs("D:/Users/Lemuel/Software-Development/Bubble-Sheet-OMR/Bubble-Sheet-OMR-OpenCV-Qt/pdf",
+        std::string outPath;
+        outPath = pdfFile->FullPath().substr(0, pdfFile->FullPath().find_last_of("\\/"));
+        pdfFile->setArgs(outPath,
                          ui->lineEdit_SetImgPrefix->text().toStdString(),
                          ui->comboBox_SelectOutImgFormat->currentText().toStdString());
 
@@ -138,9 +140,7 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
         connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
 
         connect(pdfFile, SIGNAL (finishedConverting(qint64)), this, SLOT (onFinishedConverting(qint64)));
-
         connect(pdfFile, SIGNAL (finishedConverting(qint64)), thread, SLOT (quit()));
-
         connect(pdfFile, SIGNAL (finishedConverting(qint64)), pdfFile, SLOT (deleteLater()));
         connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
 
