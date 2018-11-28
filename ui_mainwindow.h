@@ -42,6 +42,9 @@ public:
     QComboBox *comboBox_SelectOutImgFormat;
     QPushButton *pushButton_CV_Worker;
     QTextBrowser *textBrowser_ConvertedImagePaths;
+    QPushButton *pushButton_PrevPage;
+    QPushButton *pushButton_NextPage;
+    QLabel *label_CurrentPageNumber;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -133,6 +136,28 @@ public:
         textBrowser_ConvertedImagePaths->setGeometry(QRect(880, 210, 311, 51));
         textBrowser_ConvertedImagePaths->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowser_ConvertedImagePaths->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        pushButton_PrevPage = new QPushButton(centralWidget);
+        pushButton_PrevPage->setObjectName(QStringLiteral("pushButton_PrevPage"));
+        pushButton_PrevPage->setGeometry(QRect(380, 530, 71, 41));
+        pushButton_NextPage = new QPushButton(centralWidget);
+        pushButton_NextPage->setObjectName(QStringLiteral("pushButton_NextPage"));
+        pushButton_NextPage->setGeometry(QRect(460, 530, 71, 41));
+        label_CurrentPageNumber = new QLabel(centralWidget);
+        label_CurrentPageNumber->setObjectName(QStringLiteral("label_CurrentPageNumber"));
+        label_CurrentPageNumber->setGeometry(QRect(540, 530, 41, 41));
+        QFont font2;
+        font2.setPointSize(13);
+        font2.setBold(true);
+        font2.setItalic(false);
+        font2.setUnderline(true);
+        font2.setWeight(75);
+        font2.setStrikeOut(false);
+        font2.setKerning(true);
+        label_CurrentPageNumber->setFont(font2);
+        label_CurrentPageNumber->setCursor(QCursor(Qt::CrossCursor));
+        label_CurrentPageNumber->setAutoFillBackground(false);
+        label_CurrentPageNumber->setScaledContents(false);
+        label_CurrentPageNumber->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -165,6 +190,9 @@ public:
 
         comboBox_SelectOutImgFormat->setCurrentText(QApplication::translate("MainWindow", ".jpg", nullptr));
         pushButton_CV_Worker->setText(QApplication::translate("MainWindow", "Start CV Worker", nullptr));
+        pushButton_PrevPage->setText(QApplication::translate("MainWindow", "Previous", nullptr));
+        pushButton_NextPage->setText(QApplication::translate("MainWindow", "Next", nullptr));
+        label_CurrentPageNumber->setText(QApplication::translate("MainWindow", "0", nullptr));
     } // retranslateUi
 
 };

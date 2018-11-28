@@ -23,6 +23,7 @@ signals:
     void error(QString errStr);
 
     void sendImg(QImage img);
+    void transportImgs(std::vector<QImage> imgs);
 
 private:
     QStringList mImgPaths;

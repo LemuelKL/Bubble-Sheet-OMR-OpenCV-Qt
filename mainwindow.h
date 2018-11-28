@@ -43,9 +43,16 @@ private slots:
 
     void updateImg(QImage img);
 
+    void updateImgStorage(std::vector<QImage> imgs);
+
+    void on_pushButton_PrevPage_clicked();
+
+    void on_pushButton_NextPage_clicked();
+
 private:
-    //cv_worker *worker_;
     Ui::MainWindow *ui;
+    std::vector<QImage> mDisplayImgs;
+    int mNPages;
 };
 
 #endif // MAINWINDOW_H

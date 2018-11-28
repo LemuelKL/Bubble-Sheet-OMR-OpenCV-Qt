@@ -30,9 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Bubble Sheet Optical Mark Recognition");
+
     qRegisterMetaType< cv::Mat >("cv::Mat");
-    //ui->label_displayImg->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, int(img.step), QImage::Format_RGB888)));
-    //ui->label_displayImg->setScaledContents( true );
+    qRegisterMetaType< std::vector<QImage> >("std::vector<QImage>");
+
     ui->progressBar_Pdf2Img->setMaximum(100);
     ui->progressBar_Pdf2Img->setMinimum(0);
     ui->progressBar_Pdf2Img->setValue(0);
@@ -148,7 +149,6 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
         thread->start();
     }
 }
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::errorString(QString errStr)
@@ -177,6 +177,7 @@ void MainWindow::on_pushButton_CV_Worker_clicked()
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
 
     connect(worker, SIGNAL(sendImg(QImage)), this, SLOT(updateImg(QImage)));
+    connect(worker, SIGNAL(transportImgs(std::vector<QImage>)), this, SLOT(updateImgStorage(std::vector<QImage>)));
 
     thread->start();
 }
@@ -187,3 +188,44 @@ void MainWindow::updateImg(QImage img)
     ui->label_displayImg->setScaledContents(true);
 }
 
+void MainWindow::updateImgStorage(std::vector<QImage> img)
+{
+    mDisplayImgs = img;
+    mNPages = int(mDisplayImgs.size());
+    updateImg(mDisplayImgs.at(1-1));
+    ui->label_CurrentPageNumber->setText("1");
+}
+
+void MainWindow::on_pushButton_PrevPage_clicked()
+{
+    if (!(mDisplayImgs.size() == 0))
+    {
+        QString cpn = ui->label_CurrentPageNumber->text();
+        int int_cpn = cpn.toInt();
+        if (int_cpn<2)
+        {
+            return;
+        }
+        int_cpn -= 1;
+        updateImg(mDisplayImgs.at(int_cpn-1));
+        cpn = QString::number(int_cpn);
+        ui->label_CurrentPageNumber->setText(cpn);
+    }
+}
+
+void MainWindow::on_pushButton_NextPage_clicked()
+{
+    if (!(mDisplayImgs.size() == 0))
+    {
+        QString cpn = ui->label_CurrentPageNumber->text();
+        int int_cpn = cpn.toInt();
+        if (int_cpn>mNPages-1)
+        {
+            return;
+        }
+        int_cpn += 1;
+        updateImg(mDisplayImgs.at(int_cpn-1));
+        cpn = QString::number(int_cpn);
+        ui->label_CurrentPageNumber->setText(cpn);
+    }
+}

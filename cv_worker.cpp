@@ -22,6 +22,8 @@ void cv_worker::process() {
     qDebug("CV WORKER STARTED");
     qDebug()<<QThread::currentThread();
 
+    std::vector<QImage> productImgs;
+
     int i;
     for (i=0;i<mNPages;i++)
     {
@@ -43,8 +45,11 @@ void cv_worker::process() {
         std::vector<std::vector<cv::Point> > circleContours;
         circleContours = findCircleContours(img);
         cv::drawContours(rawImg, circleContours, -1, cv::Scalar(0,0,255), 2);
-        emit sendImg(MatToQImage(rawImg));
+        QImage finishedImg = MatToQImage(rawImg);
+        //emit sendImg(finishedImg);
+        productImgs.push_back(finishedImg);
     }
+    emit transportImgs(productImgs);
     emit finished();
 }
 
