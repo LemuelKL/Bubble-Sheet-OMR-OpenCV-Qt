@@ -192,15 +192,17 @@ void MainWindow::updateImgStorage(std::vector<QImage> img)
 {
     mDisplayImgs = img;
     mNPages = int(mDisplayImgs.size());
+    ui->textBrowser_Console->append("[ GUI ] Recieved Images From CV_WORKER Thread.");
+    ui->textBrowser_Console->append("[ GUI ] Loaded Images For Display.");
     updateImg(mDisplayImgs.at(1-1));
-    ui->label_CurrentPageNumber->setText("1");
+    ui->label_CurrentPageNumber->setText("1/" + QString::number(mDisplayImgs.size()));
 }
 
 void MainWindow::on_pushButton_PrevPage_clicked()
 {
     if (!(mDisplayImgs.size() == 0))
     {
-        QString cpn = ui->label_CurrentPageNumber->text();
+        QString cpn = ui->label_CurrentPageNumber->text().split("/")[0];
         int int_cpn = cpn.toInt();
         if (int_cpn<2)
         {
@@ -209,7 +211,7 @@ void MainWindow::on_pushButton_PrevPage_clicked()
         int_cpn -= 1;
         updateImg(mDisplayImgs.at(int_cpn-1));
         cpn = QString::number(int_cpn);
-        ui->label_CurrentPageNumber->setText(cpn);
+        ui->label_CurrentPageNumber->setText(cpn + "/" + QString::number(mDisplayImgs.size()));
     }
 }
 
@@ -217,7 +219,7 @@ void MainWindow::on_pushButton_NextPage_clicked()
 {
     if (!(mDisplayImgs.size() == 0))
     {
-        QString cpn = ui->label_CurrentPageNumber->text();
+        QString cpn = ui->label_CurrentPageNumber->text().split("/")[0];
         int int_cpn = cpn.toInt();
         if (int_cpn>mNPages-1)
         {
@@ -226,6 +228,6 @@ void MainWindow::on_pushButton_NextPage_clicked()
         int_cpn += 1;
         updateImg(mDisplayImgs.at(int_cpn-1));
         cpn = QString::number(int_cpn);
-        ui->label_CurrentPageNumber->setText(cpn);
+        ui->label_CurrentPageNumber->setText(cpn + "/" + QString::number(mDisplayImgs.size()));
     }
 }
