@@ -295,7 +295,7 @@
      <rect>
       <x>540</x>
       <y>530</y>
-      <width>41</width>
+      <width>31</width>
       <height>41</height>
      </rect>
     </property>
@@ -305,7 +305,7 @@
       <weight>75</weight>
       <italic>false</italic>
       <bold>true</bold>
-      <underline>true</underline>
+      <underline>false</underline>
       <strikeout>false</strikeout>
       <kerning>true</kerning>
      </font>
@@ -324,6 +324,19 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>280</y>
+      <width>16</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
     </property>
    </widget>
   </widget>

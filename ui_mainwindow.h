@@ -45,6 +45,7 @@ public:
     QPushButton *pushButton_PrevPage;
     QPushButton *pushButton_NextPage;
     QLabel *label_CurrentPageNumber;
+    QFrame *line_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -144,12 +145,12 @@ public:
         pushButton_NextPage->setGeometry(QRect(460, 530, 71, 41));
         label_CurrentPageNumber = new QLabel(centralWidget);
         label_CurrentPageNumber->setObjectName(QStringLiteral("label_CurrentPageNumber"));
-        label_CurrentPageNumber->setGeometry(QRect(540, 530, 41, 41));
+        label_CurrentPageNumber->setGeometry(QRect(540, 530, 31, 41));
         QFont font2;
         font2.setPointSize(13);
         font2.setBold(true);
         font2.setItalic(false);
-        font2.setUnderline(true);
+        font2.setUnderline(false);
         font2.setWeight(75);
         font2.setStrikeOut(false);
         font2.setKerning(true);
@@ -158,6 +159,11 @@ public:
         label_CurrentPageNumber->setAutoFillBackground(false);
         label_CurrentPageNumber->setScaledContents(false);
         label_CurrentPageNumber->setAlignment(Qt::AlignCenter);
+        line_2 = new QFrame(centralWidget);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setGeometry(QRect(570, 280, 16, 291));
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

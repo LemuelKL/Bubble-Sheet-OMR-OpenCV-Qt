@@ -14,6 +14,8 @@
 #include <QDebug>
 #include <QThread>
 
+#include <QDateTime>
+
 #include <Magick++.h>
 
 #include <opencv2/core/core.hpp>
@@ -62,6 +64,13 @@ void MainWindow::on_pushButton_Choose_PDF_clicked()
     {
         pdf::mFullPath = path2Pdf.toStdString();
         ui->textBrowser_Console->setText(("[ PDF Read ] "+pdf::mFullPath).c_str());
+
+        QFile pdf(path2Pdf);
+        QFileInfo fileInfo(pdf.fileName());
+        QString filename(fileInfo.fileName());
+        QDateTime datetime = QDateTime::currentDateTime();
+        QString str_datetime = datetime.toString("yyyyMMdd") + "-" + datetime.toString("HHmmss");
+        ui->lineEdit_SetImgPrefix->setText(str_datetime + "-" + filename);
     }
 }
 
