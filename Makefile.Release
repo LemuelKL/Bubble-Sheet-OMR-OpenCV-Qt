@@ -1344,7 +1344,9 @@ release\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QDebug \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QThread \
-		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qthread.h
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qthread.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QDateTime \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatetime.h
 
 release\pdf.obj: pdf.cpp pdf.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
