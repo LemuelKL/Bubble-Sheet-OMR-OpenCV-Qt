@@ -3,54 +3,14 @@
 #include <QDebug>
 #include <QThread>
 
-// --- CONSTRUCTOR ---
-cv_worker::cv_worker(QStringList paths) {
-    // you could copy data from constructor arguments to internal variables here.
+cv_worker::cv_worker(QStringList paths)
+{
     mImgPaths = paths;
     mNPages = mImgPaths.size();
 }
 
-// --- DECONSTRUCTOR ---
-cv_worker::~cv_worker() {
-    // free resources
-}
-
-// --- PROCESS ---
-// Start processing data.
-void cv_worker::process() {
-    // allocate resources using new here
-    qDebug("CV WORKER STARTED");
-    qDebug()<<QThread::currentThread();
-
-    std::vector<QImage> productImgs;
-
-    int i;
-    for (i=0;i<mNPages;i++)
-    {
-        mDoc.push_back(cv::imread(mImgPaths[i].toStdString(), -1));
-    }
-
-    for(cv::Mat& rawImg : mDoc)
-    {
-        cv::Mat grayImg;
-        cv::cvtColor(rawImg, grayImg, cv::COLOR_BGR2GRAY);
-        cv::Mat blurry;
-        cv::GaussianBlur(grayImg, blurry, cv::Size(3, 3), 1);
-        cv::Mat adapt_thresh;
-        cv::adaptiveThreshold(blurry, adapt_thresh, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C, cv::THRESH_BINARY_INV, 11, 2);
-
-        cv::Mat img;
-        img = adapt_thresh;
-
-        std::vector<std::vector<cv::Point> > circleContours;
-        circleContours = findCircleContours(img);
-        cv::drawContours(rawImg, circleContours, -1, cv::Scalar(0,0,255), 2);
-        QImage finishedImg = MatToQImage(rawImg);
-        //emit sendImg(finishedImg);
-        productImgs.push_back(finishedImg);
-    }
-    emit transportImgs(productImgs);
-    emit finished();
+cv_worker::~cv_worker()
+{
 }
 
 QImage cv_worker::MatToQImage(const cv::Mat& mat)
@@ -85,8 +45,43 @@ QImage cv_worker::MatToQImage(const cv::Mat& mat)
     }
 }
 
-std::vector<std::vector<cv::Point> > cv_worker::findCircleContours(cv::Mat img)
+void cv_worker::identify(int startP, int endP, int METHOD)
 {
+    std::vector<QImage> productImgs;
+    std::vector<cv::Mat> mDoc;
+    int i;
+    for (i=startP-1;i<endP;i++)
+    {
+        mDoc.push_back(cv::imread(mImgPaths[i].toStdString(), -1));
+    }
+
+    for(cv::Mat& rawImg : mDoc)
+    {
+        cv::Mat grayImg;
+        cv::cvtColor(rawImg, grayImg, cv::COLOR_BGR2GRAY);
+        cv::Mat blurry;
+        cv::GaussianBlur(grayImg, blurry, cv::Size(3, 3), 1);
+        cv::Mat adapt_thresh;
+        cv::adaptiveThreshold(blurry, adapt_thresh, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C, cv::THRESH_BINARY_INV, 11, 2);
+        cv::Mat img = adapt_thresh;
+
+        std::vector<std::vector<cv::Point> > circleContours;
+        switch(METHOD)
+        {
+            case 0 : circleContours = generic(img); break;
+            default: qDebug() << "Unknow METHOD ID!";
+        }
+
+        cv::drawContours(rawImg, circleContours, -1, cv::Scalar(0,0,255), 2);
+        QImage finishedImg = MatToQImage(rawImg);
+        productImgs.push_back(finishedImg);
+    }
+    emit sendImgs(productImgs, startP, endP);
+}
+
+std::vector<std::vector<cv::Point> > cv_worker::generic(cv::Mat img)
+{
+    qDebug() << "CV WORKER THREAD: " << QThread::currentThreadId();
     int maxCircleR = 100;
     int minCircleW = 35;
     int minCircleH = 35;

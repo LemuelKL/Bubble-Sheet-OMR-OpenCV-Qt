@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "cv_controller.h"
 #include "cv_worker.h"
 
 #include <QMainWindow>
@@ -43,11 +44,13 @@ private slots:
 
     void updateImg(QImage img);
 
-    void updateImgStorage(std::vector<QImage> imgs);
+    void updateImgStorage(std::vector<QImage> imgs, int startP, int endP);
 
     void on_pushButton_PrevPage_clicked();
 
     void on_pushButton_NextPage_clicked();
+
+    void on_pushButton_AllDone_clicked();
 
 private:
     Ui::MainWindow *ui;

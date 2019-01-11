@@ -16,22 +16,17 @@ public:
     ~cv_worker();
 
 public slots:
-    void process();
+    void identify(int startP, int endP, int METHOD);
 
 signals:
-    void finished();
-    void error(QString errStr);
-
-    void sendImg(QImage img);
-    void transportImgs(std::vector<QImage> imgs);
+    void sendImgs(std::vector<QImage> imgs, int startP, int endP);
 
 private:
     QStringList mImgPaths;
     int mNPages;
-    std::vector<cv::Mat> mDoc;
 
     QImage MatToQImage(const cv::Mat& mat);
-    std::vector<std::vector<cv::Point> > findCircleContours(cv::Mat img);
+    std::vector<std::vector<cv::Point> > generic(cv::Mat img);
 
 };
 

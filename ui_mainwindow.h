@@ -48,6 +48,7 @@ public:
     QFrame *line_2;
     QLabel *label;
     QProgressBar *progressBar;
+    QPushButton *pushButton_AllDone;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -186,6 +187,9 @@ public:
         progressBar->setValue(0);
         progressBar->setOrientation(Qt::Horizontal);
         progressBar->setInvertedAppearance(true);
+        pushButton_AllDone = new QPushButton(centralWidget);
+        pushButton_AllDone->setObjectName(QStringLiteral("pushButton_AllDone"));
+        pushButton_AllDone->setGeometry(QRect(1100, 530, 91, 51));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -222,6 +226,7 @@ public:
         pushButton_NextPage->setText(QApplication::translate("MainWindow", "Next", nullptr));
         label_CurrentPageNumber->setText(QApplication::translate("MainWindow", "0", nullptr));
         label->setText(QApplication::translate("MainWindow", "Marking Status:", nullptr));
+        pushButton_AllDone->setText(QApplication::translate("MainWindow", "All Done", nullptr));
     } // retranslateUi
 
 };

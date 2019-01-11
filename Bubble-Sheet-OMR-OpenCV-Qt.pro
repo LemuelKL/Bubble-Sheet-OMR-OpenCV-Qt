@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     pdf.cpp \
-    cv_worker.cpp
+    cv_worker.cpp \
+    cv_controller.cpp
 
 HEADERS += \
         mainwindow.h \
     pdf.h \
-    cv_worker.h
+    cv_worker.h \
+    cv_controller.h
 
 FORMS += \
         mainwindow.ui
