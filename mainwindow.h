@@ -36,7 +36,7 @@ private slots:
 
     void onObjDestroyed();
 
-    void recieveImgPaths(std::vector<std::string> ImgPaths);
+    void invoke_CV_Controller(std::vector<std::string> ImgPaths);
 
     void on_pushButton_CV_Worker_clicked();
 
@@ -54,6 +54,9 @@ private:
     Ui::MainWindow *ui;
     std::vector<QImage> mDisplayImgs;
     int mNPages;
+    int mNConverted;
+
+    cv_controller* mpController;
 };
 
 #endif // MAINWINDOW_H

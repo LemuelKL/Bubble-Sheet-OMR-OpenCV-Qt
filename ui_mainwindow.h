@@ -41,7 +41,6 @@ public:
     QLabel *label_TextInfo_ConvertedSoFar;
     QComboBox *comboBox_SelectOutImgFormat;
     QPushButton *pushButton_CV_Worker;
-    QTextBrowser *textBrowser_ConvertedImagePaths;
     QPushButton *pushButton_PrevPage;
     QPushButton *pushButton_NextPage;
     QLabel *label_CurrentPageNumber;
@@ -49,6 +48,8 @@ public:
     QLabel *label;
     QProgressBar *progressBar;
     QPushButton *pushButton_AllDone;
+    QFrame *line_3;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -85,7 +86,7 @@ public:
         label_displayImg->setLineWidth(1);
         pushButton_ConvertPdf2Png = new QPushButton(centralWidget);
         pushButton_ConvertPdf2Png->setObjectName(QStringLiteral("pushButton_ConvertPdf2Png"));
-        pushButton_ConvertPdf2Png->setGeometry(QRect(480, 210, 91, 51));
+        pushButton_ConvertPdf2Png->setGeometry(QRect(490, 210, 91, 51));
         textBrowser_Console = new QTextBrowser(centralWidget);
         textBrowser_Console->setObjectName(QStringLiteral("textBrowser_Console"));
         textBrowser_Console->setGeometry(QRect(380, 10, 811, 191));
@@ -97,7 +98,7 @@ public:
         textBrowser_Console->setLineWrapMode(QTextEdit::NoWrap);
         progressBar_Pdf2Img = new QProgressBar(centralWidget);
         progressBar_Pdf2Img->setObjectName(QStringLiteral("progressBar_Pdf2Img"));
-        progressBar_Pdf2Img->setGeometry(QRect(640, 240, 301, 21));
+        progressBar_Pdf2Img->setGeometry(QRect(650, 240, 301, 21));
         QFont font;
         font.setBold(true);
         font.setItalic(false);
@@ -110,10 +111,10 @@ public:
         progressBar_Pdf2Img->setInvertedAppearance(true);
         lineEdit_SetImgPrefix = new QLineEdit(centralWidget);
         lineEdit_SetImgPrefix->setObjectName(QStringLiteral("lineEdit_SetImgPrefix"));
-        lineEdit_SetImgPrefix->setGeometry(QRect(680, 210, 201, 21));
+        lineEdit_SetImgPrefix->setGeometry(QRect(690, 210, 201, 21));
         label_TextInfo_SetImgPrefix = new QLabel(centralWidget);
         label_TextInfo_SetImgPrefix->setObjectName(QStringLiteral("label_TextInfo_SetImgPrefix"));
-        label_TextInfo_SetImgPrefix->setGeometry(QRect(580, 210, 101, 21));
+        label_TextInfo_SetImgPrefix->setGeometry(QRect(590, 210, 101, 21));
         QFont font1;
         font1.setPointSize(9);
         label_TextInfo_SetImgPrefix->setFont(font1);
@@ -124,22 +125,17 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         label_TextInfo_ConvertedSoFar = new QLabel(centralWidget);
         label_TextInfo_ConvertedSoFar->setObjectName(QStringLiteral("label_TextInfo_ConvertedSoFar"));
-        label_TextInfo_ConvertedSoFar->setGeometry(QRect(580, 240, 61, 21));
+        label_TextInfo_ConvertedSoFar->setGeometry(QRect(590, 240, 61, 21));
         label_TextInfo_ConvertedSoFar->setFont(font1);
         comboBox_SelectOutImgFormat = new QComboBox(centralWidget);
         comboBox_SelectOutImgFormat->addItem(QString());
         comboBox_SelectOutImgFormat->addItem(QString());
         comboBox_SelectOutImgFormat->addItem(QString());
         comboBox_SelectOutImgFormat->setObjectName(QStringLiteral("comboBox_SelectOutImgFormat"));
-        comboBox_SelectOutImgFormat->setGeometry(QRect(890, 210, 51, 22));
+        comboBox_SelectOutImgFormat->setGeometry(QRect(900, 210, 51, 22));
         pushButton_CV_Worker = new QPushButton(centralWidget);
         pushButton_CV_Worker->setObjectName(QStringLiteral("pushButton_CV_Worker"));
-        pushButton_CV_Worker->setGeometry(QRect(380, 280, 91, 51));
-        textBrowser_ConvertedImagePaths = new QTextBrowser(centralWidget);
-        textBrowser_ConvertedImagePaths->setObjectName(QStringLiteral("textBrowser_ConvertedImagePaths"));
-        textBrowser_ConvertedImagePaths->setGeometry(QRect(950, 210, 241, 51));
-        textBrowser_ConvertedImagePaths->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        textBrowser_ConvertedImagePaths->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        pushButton_CV_Worker->setGeometry(QRect(490, 280, 91, 51));
         pushButton_PrevPage = new QPushButton(centralWidget);
         pushButton_PrevPage->setObjectName(QStringLiteral("pushButton_PrevPage"));
         pushButton_PrevPage->setGeometry(QRect(420, 530, 71, 41));
@@ -190,6 +186,14 @@ public:
         pushButton_AllDone = new QPushButton(centralWidget);
         pushButton_AllDone->setObjectName(QStringLiteral("pushButton_AllDone"));
         pushButton_AllDone->setGeometry(QRect(1110, 530, 81, 41));
+        line_3 = new QFrame(centralWidget);
+        line_3->setObjectName(QStringLiteral("line_3"));
+        line_3->setGeometry(QRect(470, 280, 21, 191));
+        line_3->setFrameShape(QFrame::VLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(380, 280, 91, 51));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -227,6 +231,7 @@ public:
         label_CurrentPageNumber->setText(QApplication::translate("MainWindow", "0", nullptr));
         label->setText(QApplication::translate("MainWindow", "Marking Status:", nullptr));
         pushButton_AllDone->setText(QApplication::translate("MainWindow", "All Done", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "CV Controller", nullptr));
     } // retranslateUi
 
 };

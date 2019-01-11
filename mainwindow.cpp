@@ -80,11 +80,13 @@ void MainWindow::onNewlyConverted(std::string convertedImgName)
     convertedImgName = "[ PDF -> Image ] "+convertedImgName;
     QString str = QString::fromUtf8(convertedImgName.c_str());
     ui->textBrowser_Console->append(str);
+    mNConverted++;
 }
 void MainWindow::onStartedConverting()
 {
     QString str = QString::fromUtf8("[ PDF -> Image Conversion Started ] ");
     ui->textBrowser_Console->append(str);
+    mNConverted=0;
 }
 void MainWindow::onBadImgFormat()
 {
@@ -99,22 +101,22 @@ void MainWindow::onObjDestroyed()
 {
     QMessageBox::information(this, tr("DESTRUCTION"), tr("An pdfFile object has been destroyed!"));
 }
-void MainWindow::recieveImgPaths(std::vector<std::string> ImgPaths)
+void MainWindow::invoke_CV_Controller(std::vector<std::string> ImgPaths)
 {
+    QStringList strlist;
     int i;
     for (i = 0; i < int(ImgPaths.size()); i++)
     {
-        QString str = QString::fromStdString(ImgPaths.at(i).c_str());
-        ui->textBrowser_ConvertedImagePaths->append(str);
+        strlist.append(ImgPaths.at(i).c_str());
     }
-    //QMessageBox::information(this, tr("Success"), tr(ImgPaths[0].c_str()));
+    mpController = new cv_controller(strlist);
+    connect(mpController, SIGNAL(sendImgsToUI(std::vector<QImage>, int, int)), this, SLOT(updateImgStorage(std::vector<QImage>, int ,int)));
     QMessageBox::information(this, tr("Success"), tr("Done!"));
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 {
     ui->progressBar_Pdf2Img->setValue(0);
-    ui->textBrowser_ConvertedImagePaths->clear();
     if (pdf::mFullPath.size()<1)
     {
         QMessageBox::warning(this, tr("What are you doing?"), tr("Please have a PDF file loaded first."));
@@ -140,7 +142,7 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
         connect(pdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
         connect(pdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
         connect(pdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
-        connect(pdfFile, SIGNAL (sendImgPaths(std::vector<std::string>)), this, SLOT (recieveImgPaths(std::vector<std::string>)));
+        connect(pdfFile, SIGNAL (sendImgPaths(std::vector<std::string>)), this, SLOT (invoke_CV_Controller(std::vector<std::string>)));
 
         connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
 
@@ -156,6 +158,7 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 void MainWindow::on_pushButton_CV_Worker_clicked()
 {
     qDebug() << "UI THREAD: " << QThread::currentThreadId();
+    /*
     if (ui->textBrowser_ConvertedImagePaths->toPlainText().length() < 1)
     {
         QMessageBox::warning(this, tr("What the heck?"),  tr("Process PDF first!"));
@@ -166,7 +169,8 @@ void MainWindow::on_pushButton_CV_Worker_clicked()
 
     cv_controller* controller = new cv_controller(lines);
     connect(controller, SIGNAL(sendImgsToUI(std::vector<QImage>, int, int)), this, SLOT(updateImgStorage(std::vector<QImage>, int ,int)));
-    controller->invoke_identify_generic(1, lines.size());
+    */
+    mpController->invoke_identify_generic(1, mNConverted);
 }
 
 void MainWindow::updateImg(QImage img)
@@ -179,12 +183,19 @@ void MainWindow::updateImgStorage(std::vector<QImage> img, int startP, int endP)
 {
     ui->textBrowser_Console->append("[ GUI ] Recieved Images From CV_WORKER Thread.");
     int i;
-    for (i=startP-1;i<endP;i++)
+    if (startP==1 && endP == mNConverted)
     {
-        mDisplayImgs[i] = img[i];
+        mDisplayImgs = img;
+    }
+    else
+    {
+        for (i=startP-1;i<endP;i++)
+        {
+            mDisplayImgs[i] = img[i];
+        }
     }
     mNPages = int(mDisplayImgs.size());
-    updateImg(mDisplayImgs.at(1-1));
+    updateImg(mDisplayImgs.at(0));
     ui->textBrowser_Console->append("[ GUI ] Loaded Images For Display.");
     ui->label_CurrentPageNumber->setText("1/" + QString::number(mDisplayImgs.size()));
 }

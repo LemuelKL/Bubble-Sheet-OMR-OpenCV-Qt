@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[28];
-    char stringdata0[473];
+    char stringdata0[478];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,20 +45,20 @@ QT_MOC_LITERAL(10, 171, 14), // "onBadImgFormat"
 QT_MOC_LITERAL(11, 186, 20), // "onFinishedConverting"
 QT_MOC_LITERAL(12, 207, 8), // "timeTook"
 QT_MOC_LITERAL(13, 216, 14), // "onObjDestroyed"
-QT_MOC_LITERAL(14, 231, 15), // "recieveImgPaths"
-QT_MOC_LITERAL(15, 247, 24), // "std::vector<std::string>"
-QT_MOC_LITERAL(16, 272, 8), // "ImgPaths"
-QT_MOC_LITERAL(17, 281, 31), // "on_pushButton_CV_Worker_clicked"
-QT_MOC_LITERAL(18, 313, 9), // "updateImg"
-QT_MOC_LITERAL(19, 323, 3), // "img"
-QT_MOC_LITERAL(20, 327, 16), // "updateImgStorage"
-QT_MOC_LITERAL(21, 344, 19), // "std::vector<QImage>"
-QT_MOC_LITERAL(22, 364, 4), // "imgs"
-QT_MOC_LITERAL(23, 369, 6), // "startP"
-QT_MOC_LITERAL(24, 376, 4), // "endP"
-QT_MOC_LITERAL(25, 381, 30), // "on_pushButton_PrevPage_clicked"
-QT_MOC_LITERAL(26, 412, 30), // "on_pushButton_NextPage_clicked"
-QT_MOC_LITERAL(27, 443, 29) // "on_pushButton_AllDone_clicked"
+QT_MOC_LITERAL(14, 231, 20), // "invoke_CV_Controller"
+QT_MOC_LITERAL(15, 252, 24), // "std::vector<std::string>"
+QT_MOC_LITERAL(16, 277, 8), // "ImgPaths"
+QT_MOC_LITERAL(17, 286, 31), // "on_pushButton_CV_Worker_clicked"
+QT_MOC_LITERAL(18, 318, 9), // "updateImg"
+QT_MOC_LITERAL(19, 328, 3), // "img"
+QT_MOC_LITERAL(20, 332, 16), // "updateImgStorage"
+QT_MOC_LITERAL(21, 349, 19), // "std::vector<QImage>"
+QT_MOC_LITERAL(22, 369, 4), // "imgs"
+QT_MOC_LITERAL(23, 374, 6), // "startP"
+QT_MOC_LITERAL(24, 381, 4), // "endP"
+QT_MOC_LITERAL(25, 386, 30), // "on_pushButton_PrevPage_clicked"
+QT_MOC_LITERAL(26, 417, 30), // "on_pushButton_NextPage_clicked"
+QT_MOC_LITERAL(27, 448, 29) // "on_pushButton_AllDone_clicked"
 
     },
     "MainWindow\0on_pushButton_Choose_PDF_clicked\0"
@@ -67,7 +67,7 @@ QT_MOC_LITERAL(27, 443, 29) // "on_pushButton_AllDone_clicked"
     "std::string\0convertedImgName\0"
     "onStartedConverting\0onBadImgFormat\0"
     "onFinishedConverting\0timeTook\0"
-    "onObjDestroyed\0recieveImgPaths\0"
+    "onObjDestroyed\0invoke_CV_Controller\0"
     "std::vector<std::string>\0ImgPaths\0"
     "on_pushButton_CV_Worker_clicked\0"
     "updateImg\0img\0updateImgStorage\0"
@@ -142,7 +142,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->onBadImgFormat(); break;
         case 6: _t->onFinishedConverting((*reinterpret_cast< qint64(*)>(_a[1]))); break;
         case 7: _t->onObjDestroyed(); break;
-        case 8: _t->recieveImgPaths((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
+        case 8: _t->invoke_CV_Controller((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
         case 9: _t->on_pushButton_CV_Worker_clicked(); break;
         case 10: _t->updateImg((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 11: _t->updateImgStorage((*reinterpret_cast< std::vector<QImage>(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
