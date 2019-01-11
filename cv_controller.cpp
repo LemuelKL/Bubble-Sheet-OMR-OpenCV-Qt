@@ -13,6 +13,7 @@ cv_controller::cv_controller(QStringList imgPaths)
 
 cv_controller::~cv_controller()
 {
+    workerThread->quit();
 }
 
 void cv_controller::handleImgs(std::vector<QImage> imgs, int startP, int endP)

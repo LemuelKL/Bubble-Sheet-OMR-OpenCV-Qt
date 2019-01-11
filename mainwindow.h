@@ -40,8 +40,6 @@ private slots:
 
     void on_pushButton_CV_Worker_clicked();
 
-    void errorString(QString);
-
     void updateImg(QImage img);
 
     void updateImgStorage(std::vector<QImage> imgs, int startP, int endP);

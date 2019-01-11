@@ -57,7 +57,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1200, 651);
+        MainWindow->resize(1200, 653);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -189,7 +189,7 @@ public:
         progressBar->setInvertedAppearance(true);
         pushButton_AllDone = new QPushButton(centralWidget);
         pushButton_AllDone->setObjectName(QStringLiteral("pushButton_AllDone"));
-        pushButton_AllDone->setGeometry(QRect(1100, 530, 91, 51));
+        pushButton_AllDone->setGeometry(QRect(1110, 530, 81, 41));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

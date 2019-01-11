@@ -153,11 +153,6 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void MainWindow::errorString(QString errStr)
-{
-    qDebug()<<errStr;
-}
-
 void MainWindow::on_pushButton_CV_Worker_clicked()
 {
     qDebug() << "UI THREAD: " << QThread::currentThreadId();
@@ -182,12 +177,15 @@ void MainWindow::updateImg(QImage img)
 
 void MainWindow::updateImgStorage(std::vector<QImage> img, int startP, int endP)
 {
-    updateImg(img[startP-1]);
-    mDisplayImgs = img;
-    mNPages = int(mDisplayImgs.size());
     ui->textBrowser_Console->append("[ GUI ] Recieved Images From CV_WORKER Thread.");
-    ui->textBrowser_Console->append("[ GUI ] Loaded Images For Display.");
+    int i;
+    for (i=startP-1;i<endP;i++)
+    {
+        mDisplayImgs[i] = img[i];
+    }
+    mNPages = int(mDisplayImgs.size());
     updateImg(mDisplayImgs.at(1-1));
+    ui->textBrowser_Console->append("[ GUI ] Loaded Images For Display.");
     ui->label_CurrentPageNumber->setText("1/" + QString::number(mDisplayImgs.size()));
 }
 

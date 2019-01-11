@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>651</height>
+    <height>653</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -391,10 +391,10 @@
    <widget class="QPushButton" name="pushButton_AllDone">
     <property name="geometry">
      <rect>
-      <x>1100</x>
+      <x>1110</x>
       <y>530</y>
-      <width>91</width>
-      <height>51</height>
+      <width>81</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
