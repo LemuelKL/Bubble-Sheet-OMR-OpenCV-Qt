@@ -90,7 +90,7 @@ void MainWindow::onStartedConverting()
 }
 void MainWindow::onBadImgFormat()
 {
-    QMessageBox::warning(this, tr("What the heck?"),  tr("Bad Target Image Format!"));
+    QMessageBox::warning(this, tr("Warning!"),  tr("Bad Target Image Format!"));
 }
 void MainWindow::onFinishedConverting(qint64 timeTook)
 {
@@ -99,7 +99,7 @@ void MainWindow::onFinishedConverting(qint64 timeTook)
 }
 void MainWindow::onObjDestroyed()
 {
-    QMessageBox::information(this, tr("DESTRUCTION"), tr("An pdfFile object has been destroyed!"));
+    QMessageBox::information(this, tr("Warning!"), tr("An pdfFile object has been destroyed!"));
 }
 void MainWindow::invoke_CV_Controller(std::vector<std::string> ImgPaths)
 {
@@ -117,13 +117,13 @@ void MainWindow::invoke_CV_Controller(std::vector<std::string> ImgPaths)
 void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
 {
     ui->progressBar_Pdf2Img->setValue(0);
-    if (pdf::mFullPath.size()<1)
+    if (pdf::mFullPath.size() < 1)
     {
-        QMessageBox::warning(this, tr("What are you doing?"), tr("Please have a PDF file loaded first."));
+        QMessageBox::warning(this, tr("Error"), tr("Please have a PDF file loaded first."));
     }
-    else if (ui->lineEdit_SetImgPrefix->text().length()<1)
+    else if (ui->lineEdit_SetImgPrefix->text().length() < 1)
     {
-        QMessageBox::warning(this, tr("What are you doing?"), tr("Please set a desirable prefix for image names."));
+        QMessageBox::warning(this, tr("Error"), tr("Please set a desirable prefix for image names."));
     }
     else
     {

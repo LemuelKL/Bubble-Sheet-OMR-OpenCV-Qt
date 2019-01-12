@@ -23,7 +23,8 @@ QImage cv_worker::MatToQImage(const cv::Mat& mat)
         for (int i = 0; i < 256; i++)
             colorTable.push_back(qRgb(i, i, i));
         // Copy input Mat
-        const uchar *qImageBuffer = (const uchar*)mat.data;
+        //const uchar *qImageBuffer = (const uchar*)mat.data;
+        const uchar *qImageBuffer = const_cast<uchar*>(mat.data);
         // Create QImage with same dimensions as input Mat
         QImage img(qImageBuffer, mat.cols, mat.rows, int(mat.step), QImage::Format_Indexed8);
         img.setColorTable(colorTable);
@@ -33,7 +34,8 @@ QImage cv_worker::MatToQImage(const cv::Mat& mat)
     if(mat.type() == CV_8UC3)
     {
         // Copy input Mat
-        const uchar *qImageBuffer = (const uchar*)mat.data;
+        //const uchar *qImageBuffer = (const uchar*)mat.data;
+        const uchar *qImageBuffer = const_cast<uchar*>(mat.data);
         // Create QImage with same dimensions as input Mat
         QImage img(qImageBuffer, mat.cols, mat.rows, int(mat.step), QImage::Format_RGB888);
         return img.rgbSwapped();
@@ -85,7 +87,7 @@ std::vector<std::vector<cv::Point> > cv_worker::generic(cv::Mat img)
     int maxCircleR = 100;
     int minCircleW = 35;
     int minCircleH = 35;
-    double minCircleArea = ((minCircleW+minCircleH)/4)*((minCircleW+minCircleH)/4)*3;
+    double minCircleArea = ((minCircleW + minCircleH)/4)*((minCircleW + minCircleH)/4)*3;
 
     std::vector<std::vector<cv::Point> > contours;
     std::vector<std::vector<cv::Point> > poly(contours.size());

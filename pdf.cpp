@@ -35,36 +35,30 @@ void pdf::ConvertToImgs()
 {
     std::vector<std::string> convertedImgNames;
     std::string convertedImgName;
-    if (mImgFormat.empty()==true || (mImgFormat!=".jpg" && mImgFormat!=".png" && mImgFormat!= ".bmp"))
+    QElapsedTimer timer;
+    timer.start();
+    emit startedConverting();
+
+    int i;
+    int nPages = fetchNPages();
+    double percDone = 0;
+    for (i = 1; i <= nPages; i++)
     {
-        emit badImgFormat();
+        mFile.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
+        mFile.read(mFullPath + "[" + std::to_string(i - 1) + "]");
+        mFile.quality(100);
+        mFile.backgroundColor("white");
+        mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
+        mFile.mergeLayers(Magick::FlattenLayer);
+        mFile.write(mDestPath+"/"+mNamePrefix+"-" + std::to_string(i) + mImgFormat);
+        convertedImgName = mDestPath + "/" + mNamePrefix+"-" + std::to_string(i) + mImgFormat;
+        percDone = 100.00 * i / nPages;
+        emit progressUpdated(percDone);
+        emit newlyConverted(convertedImgName);
+        convertedImgNames.push_back(convertedImgName);
     }
-    else
-    {
-        QElapsedTimer timer;
-        timer.start();
-        emit startedConverting();
-        int i;
-        int nPages = fetchNPages();
-        double percDone = 0;
-        for (i=1; i<=nPages; i++)
-        {
-            mFile.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
-            mFile.read(mFullPath+"["+std::to_string(i-1)+"]");
-            mFile.quality(100);
-            mFile.backgroundColor("white");
-            mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
-            mFile.mergeLayers(Magick::FlattenLayer);
-            mFile.write(mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+mImgFormat);
-            convertedImgName = mDestPath+"/"+mNamePrefix+"-"+std::to_string(i)+mImgFormat;
-            percDone = 100.00*i/nPages;
-            emit progressUpdated(percDone);
-            emit newlyConverted(convertedImgName);
-            convertedImgNames.push_back(convertedImgName);
-        }
-        emit sendImgPaths(convertedImgNames);
-        emit finishedConverting(timer.elapsed());
-    }
+    emit sendImgPaths(convertedImgNames);
+    emit finishedConverting(timer.elapsed());
 }
 
 
