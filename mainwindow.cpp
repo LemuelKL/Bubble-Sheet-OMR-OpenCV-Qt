@@ -60,7 +60,7 @@ void MainWindow::on_pushButton_Choose_PDF_clicked()
     if (!(path2Pdf.isEmpty()))
     {
         pdf::mFullPath = path2Pdf.toStdString();
-        ui->textBrowser_Console->setText(("[ PDF Read ] "+pdf::mFullPath).c_str());
+        ui->textBrowser_Console->setText(("[ PDF Read ] " + pdf::mFullPath).c_str());
 
         QFile pdf(path2Pdf);
         QFileInfo fileInfo(pdf.fileName());
@@ -107,7 +107,7 @@ void MainWindow::invoke_CV_Controller(std::vector<std::string> ImgPaths)
     int i;
     for (i = 0; i < int(ImgPaths.size()); i++)
     {
-        strlist.append(ImgPaths.at(i).c_str());
+        strlist.append(ImgPaths.at(unsigned(long(long(i)))).c_str());
     }
     mpController = new cv_controller(strlist);
     connect(mpController, SIGNAL(sendImgsToUI(std::vector<QImage>, int, int)), this, SLOT(updateImgStorage(std::vector<QImage>, int ,int)));
@@ -129,47 +129,35 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     {
         vector<string> ret;
 
-        QThread* thread = new QThread;
-        pdf* pdfFile = new pdf(pdf::mFullPath);
+        QThread* pThread = new QThread;
+        pdf* pPdfFile = new pdf(pdf::mFullPath);
 
         std::string outPath;
-        outPath = pdfFile->FullPath().substr(0, pdfFile->FullPath().find_last_of("\\/"));
-        pdfFile->setArgs(outPath, ui->lineEdit_SetImgPrefix->text().toStdString(), ui->comboBox_SelectOutImgFormat->currentText().toStdString());
+        outPath = pPdfFile->FullPath().substr(0, pPdfFile->FullPath().find_last_of("\\/"));
+        pPdfFile->setArgs(outPath, ui->lineEdit_SetImgPrefix->text().toStdString(), ui->comboBox_SelectOutImgFormat->currentText().toStdString());
 
-        pdfFile->moveToThread(thread);
+        pPdfFile->moveToThread(pThread);
 
-        connect(pdfFile, SIGNAL (badImgFormat()), this, SLOT(onBadImgFormat()));
-        connect(pdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
-        connect(pdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
-        connect(pdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
-        connect(pdfFile, SIGNAL (sendImgPaths(std::vector<std::string>)), this, SLOT (invoke_CV_Controller(std::vector<std::string>)));
+        connect(pPdfFile, SIGNAL (badImgFormat()), this, SLOT(onBadImgFormat()));
+        connect(pPdfFile, SIGNAL (startedConverting()), this, SLOT(onStartedConverting()));
+        connect(pPdfFile, SIGNAL (progressUpdated(double)), this, SLOT(onProgressUpdated(double)));
+        connect(pPdfFile, SIGNAL (newlyConverted(std::string)), this, SLOT (onNewlyConverted(std::string)));
+        connect(pPdfFile, SIGNAL (sendImgPaths(std::vector<std::string>)), this, SLOT (invoke_CV_Controller(std::vector<std::string>)));
 
-        connect(thread, SIGNAL (started()), pdfFile, SLOT (ConvertToImgs()));
+        connect(pThread, SIGNAL (started()), pPdfFile, SLOT (ConvertToImgs()));
 
-        connect(pdfFile, SIGNAL (finishedConverting(qint64)), this, SLOT (onFinishedConverting(qint64)));
-        connect(pdfFile, SIGNAL (finishedConverting(qint64)), thread, SLOT (quit()));
-        connect(pdfFile, SIGNAL (finishedConverting(qint64)), pdfFile, SLOT (deleteLater()));
-        connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
+        connect(pPdfFile, SIGNAL (finishedConverting(qint64)), this, SLOT (onFinishedConverting(qint64)));
+        connect(pPdfFile, SIGNAL (finishedConverting(qint64)), pThread, SLOT (quit()));
+        connect(pPdfFile, SIGNAL (finishedConverting(qint64)), pPdfFile, SLOT (deleteLater()));
+        connect(pThread, SIGNAL (finished()), pThread, SLOT (deleteLater()));
 
-        thread->start();
+        pThread->start();
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_pushButton_CV_Worker_clicked()
 {
     qDebug() << "UI THREAD: " << QThread::currentThreadId();
-    /*
-    if (ui->textBrowser_ConvertedImagePaths->toPlainText().length() < 1)
-    {
-        QMessageBox::warning(this, tr("What the heck?"),  tr("Process PDF first!"));
-        return;
-    }
-    QString ImgPaths = ui->textBrowser_ConvertedImagePaths->toPlainText();
-    QStringList lines = ImgPaths.split("\n");
-
-    cv_controller* controller = new cv_controller(lines);
-    connect(controller, SIGNAL(sendImgsToUI(std::vector<QImage>, int, int)), this, SLOT(updateImgStorage(std::vector<QImage>, int ,int)));
-    */
     mpController->invoke_identify_generic(1, mNConverted);
 }
 
@@ -182,14 +170,14 @@ void MainWindow::updateImg(QImage img)
 void MainWindow::updateImgStorage(std::vector<QImage> img, int startP, int endP)
 {
     ui->textBrowser_Console->append("[ GUI ] Recieved Images From CV_WORKER Thread.");
-    int i;
-    if (startP==1 && endP == mNConverted)
+    unsigned long long i;
+    if (startP == 1 && endP == mNConverted)
     {
         mDisplayImgs = img;
     }
     else
     {
-        for (i=startP-1;i<endP;i++)
+        for (i = unsigned(long(long(startP))) - 1; i < unsigned(long(long(endP))); i++)
         {
             mDisplayImgs[i] = img[i];
         }
@@ -211,7 +199,7 @@ void MainWindow::on_pushButton_PrevPage_clicked()
             return;
         }
         int_cpn -= 1;
-        updateImg(mDisplayImgs.at(int_cpn-1));
+        updateImg(mDisplayImgs.at(unsigned(long(long(int_cpn - 1)))));
         cpn = QString::number(int_cpn);
         ui->label_CurrentPageNumber->setText(cpn + "/" + QString::number(mDisplayImgs.size()));
     }
@@ -228,7 +216,7 @@ void MainWindow::on_pushButton_NextPage_clicked()
             return;
         }
         int_cpn += 1;
-        updateImg(mDisplayImgs.at(int_cpn-1));
+        updateImg(mDisplayImgs.at(unsigned(long(long(int_cpn - 1)))));
         cpn = QString::number(int_cpn);
         ui->label_CurrentPageNumber->setText(cpn + "/" + QString::number(mDisplayImgs.size()));
     }
