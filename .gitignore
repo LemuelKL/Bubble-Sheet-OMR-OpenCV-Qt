@@ -1,8 +1,6 @@
 /debug
+/release
 *.autosave
 /pdf/*.jpg
 /pdf/*.png
 /pdf/*.bmp
-/release/*.obj
-/release/*.exe
-/release/*.dll
