@@ -29,16 +29,17 @@ private:
 
 public:
     static std::string mFullPath;
-    pdf(std::string fullPath);
-    void SetFullPath(std::string path);
     std::string FullPath();
+
+    pdf(std::string fullPath);
+
+    void SetFullPath(std::string path);
     void setArgs(std::string destPath, std::string namePrefix, std::string imgFormat);
 
 public slots:
     void ConvertToImgs();
 
 signals:
-    void badImgFormat();
     void startedConverting();
     void progressUpdated(double perc);
     void newlyConverted(std::string convertedImgName);

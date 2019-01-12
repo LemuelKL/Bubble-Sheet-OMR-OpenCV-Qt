@@ -88,10 +88,6 @@ void MainWindow::onStartedConverting()
     ui->textBrowser_Console->append(str);
     mNConverted=0;
 }
-void MainWindow::onBadImgFormat()
-{
-    QMessageBox::warning(this, tr("Warning!"),  tr("Bad Target Image Format!"));
-}
 void MainWindow::onFinishedConverting(qint64 timeTook)
 {
     QString str = QString("[ PDF -> Image Conversion Finished After " + QString::number(timeTook/1000) + " Seconds ] ");
@@ -194,7 +190,7 @@ void MainWindow::on_pushButton_PrevPage_clicked()
     {
         QString cpn = ui->label_CurrentPageNumber->text().split("/")[0];
         int int_cpn = cpn.toInt();
-        if (int_cpn<2)
+        if (int_cpn < 2)
         {
             return;
         }
@@ -211,7 +207,7 @@ void MainWindow::on_pushButton_NextPage_clicked()
     {
         QString cpn = ui->label_CurrentPageNumber->text().split("/")[0];
         int int_cpn = cpn.toInt();
-        if (int_cpn>mNPages-1)
+        if (int_cpn > mNPages-1)
         {
             return;
         }

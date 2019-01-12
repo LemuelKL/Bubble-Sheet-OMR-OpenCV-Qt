@@ -30,8 +30,6 @@ private slots:
 
     void onStartedConverting();
 
-    void onBadImgFormat();
-
     void onFinishedConverting(qint64 timeTook);
 
     void onObjDestroyed();
