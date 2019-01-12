@@ -40,7 +40,7 @@ public:
     QFrame *line;
     QLabel *label_TextInfo_ConvertedSoFar;
     QComboBox *comboBox_SelectOutImgFormat;
-    QPushButton *pushButton_CV_Worker;
+    QPushButton *pushButton_CV_Identify_Generic;
     QPushButton *pushButton_PrevPage;
     QPushButton *pushButton_NextPage;
     QLabel *label_CurrentPageNumber;
@@ -48,8 +48,6 @@ public:
     QLabel *label;
     QProgressBar *progressBar;
     QPushButton *pushButton_AllDone;
-    QFrame *line_3;
-    QPushButton *pushButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -133,9 +131,9 @@ public:
         comboBox_SelectOutImgFormat->addItem(QString());
         comboBox_SelectOutImgFormat->setObjectName(QStringLiteral("comboBox_SelectOutImgFormat"));
         comboBox_SelectOutImgFormat->setGeometry(QRect(900, 210, 51, 22));
-        pushButton_CV_Worker = new QPushButton(centralWidget);
-        pushButton_CV_Worker->setObjectName(QStringLiteral("pushButton_CV_Worker"));
-        pushButton_CV_Worker->setGeometry(QRect(490, 280, 91, 51));
+        pushButton_CV_Identify_Generic = new QPushButton(centralWidget);
+        pushButton_CV_Identify_Generic->setObjectName(QStringLiteral("pushButton_CV_Identify_Generic"));
+        pushButton_CV_Identify_Generic->setGeometry(QRect(380, 280, 91, 51));
         pushButton_PrevPage = new QPushButton(centralWidget);
         pushButton_PrevPage->setObjectName(QStringLiteral("pushButton_PrevPage"));
         pushButton_PrevPage->setGeometry(QRect(420, 530, 71, 41));
@@ -186,14 +184,6 @@ public:
         pushButton_AllDone = new QPushButton(centralWidget);
         pushButton_AllDone->setObjectName(QStringLiteral("pushButton_AllDone"));
         pushButton_AllDone->setGeometry(QRect(1110, 530, 81, 41));
-        line_3 = new QFrame(centralWidget);
-        line_3->setObjectName(QStringLiteral("line_3"));
-        line_3->setGeometry(QRect(470, 280, 21, 191));
-        line_3->setFrameShape(QFrame::VLine);
-        line_3->setFrameShadow(QFrame::Sunken);
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(380, 280, 91, 51));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -225,13 +215,12 @@ public:
         comboBox_SelectOutImgFormat->setItemText(2, QApplication::translate("MainWindow", ".bmp", nullptr));
 
         comboBox_SelectOutImgFormat->setCurrentText(QApplication::translate("MainWindow", ".jpg", nullptr));
-        pushButton_CV_Worker->setText(QApplication::translate("MainWindow", "Start CV Worker", nullptr));
+        pushButton_CV_Identify_Generic->setText(QApplication::translate("MainWindow", "Generic", nullptr));
         pushButton_PrevPage->setText(QApplication::translate("MainWindow", "Previous", nullptr));
         pushButton_NextPage->setText(QApplication::translate("MainWindow", "Next", nullptr));
         label_CurrentPageNumber->setText(QApplication::translate("MainWindow", "0", nullptr));
         label->setText(QApplication::translate("MainWindow", "Marking Status:", nullptr));
         pushButton_AllDone->setText(QApplication::translate("MainWindow", "All Done", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "CV Controller", nullptr));
     } // retranslateUi
 
 };

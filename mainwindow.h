@@ -36,7 +36,7 @@ private slots:
 
     void invoke_CV_Controller(std::vector<std::string> ImgPaths);
 
-    void on_pushButton_CV_Worker_clicked();
+    void on_pushButton_CV_Identify_Generic_clicked();
 
     void updateImg(QImage img);
 

@@ -151,7 +151,7 @@ void MainWindow::on_pushButton_ConvertPdf2Png_clicked()
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_pushButton_CV_Worker_clicked()
+void MainWindow::on_pushButton_CV_Identify_Generic_clicked()
 {
     qDebug() << "UI THREAD: " << QThread::currentThreadId();
     mpController->invoke_identify_generic(1, mNConverted);

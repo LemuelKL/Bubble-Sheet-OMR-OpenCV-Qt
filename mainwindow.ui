@@ -235,17 +235,17 @@
      </property>
     </item>
    </widget>
-   <widget class="QPushButton" name="pushButton_CV_Worker">
+   <widget class="QPushButton" name="pushButton_CV_Identify_Generic">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>380</x>
       <y>280</y>
       <width>91</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Start CV Worker</string>
+     <string>Generic</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_PrevPage">
@@ -383,32 +383,6 @@
     </property>
     <property name="text">
      <string>All Done</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>280</y>
-      <width>21</width>
-      <height>191</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>280</y>
-      <width>91</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CV Controller</string>
     </property>
    </widget>
   </widget>
