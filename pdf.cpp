@@ -1,64 +1,44 @@
 #include "pdf.h"
-#include "ui_mainwindow.h"
-#include <QDebug>
 
-std::string pdf::mFullPath = "";
+pdf::pdf()
+{
+}
 
-pdf::pdf(std::string fullPath)
+pdf::pdf(QString path)
 {
-    mFullPath = fullPath;
+    _absPathToPDF = path;
 }
-void pdf::SetFullPath(std::string fullPath)
+
+QVector<QString> pdf::convertPDF2Img(QString destPath, QString fNamePrefix, QString imgFormat)
 {
-    mFullPath = fullPath;
+    QVector<QString> convertedImgPaths;
+    if (!(_absPathToPDF.size() < 1))
+    {
+        int i;
+        int nP = nPages();
+        for (i = 1; i <= nP; i++)
+        {
+            _ImageMagickImg.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
+            _ImageMagickImg.read(_absPathToPDF.toStdString() + "[" + std::to_string(i - 1) + "]");
+            _ImageMagickImg.quality(100);
+            _ImageMagickImg.backgroundColor("white");
+            _ImageMagickImg.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
+            _ImageMagickImg.mergeLayers(Magick::FlattenLayer);
+            _ImageMagickImg.write(destPath.toStdString() + "/" + fNamePrefix.toStdString() + "-p" + std::to_string(i) + imgFormat.toStdString());
+            convertedImgPaths.push_back(destPath + "/" + fNamePrefix + "-p" + QString::fromStdString(std::to_string(i)) + imgFormat);
+            emit progressUpdated(100.00 * i / nP);
+        }
+        emit finishedConversion();
+        return convertedImgPaths;
+    }
 }
-std::string pdf::FullPath()
+
+int pdf::nPages()
 {
-    return mFullPath;
-}
-int pdf::fetchNPages()
-{
-    MagickCore::MagickWand *m_wand;
+    MagickCore::MagickWand *pWand;
     MagickCore::MagickWandGenesis();
-    m_wand = MagickCore::NewMagickWand();
-    MagickCore::MagickReadImage(m_wand, mFullPath.c_str());
-    int nPage = int(MagickCore::MagickGetNumberImages(m_wand));
+    pWand = MagickCore::NewMagickWand();
+    MagickCore::MagickReadImage(pWand, _absPathToPDF.toStdString().c_str());
+    int nPage = int(MagickCore::MagickGetNumberImages(pWand));
     return nPage;
 }
-void pdf::setArgs(std::string destPath, std::string namePrefix, std::string imgFormat)
-{
-    mDestPath = destPath;
-    mImgFormat = imgFormat;
-    mNamePrefix = namePrefix;
-}
-void pdf::ConvertToImgs()
-{
-    std::vector<std::string> convertedImgNames;
-    std::string convertedImgName;
-    QElapsedTimer timer;
-    timer.start();
-    emit startedConverting();
-
-    int i;
-    int nPages = fetchNPages();
-    double percDone = 0;
-    for (i = 1; i <= nPages; i++)
-    {
-        mFile.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
-        mFile.read(mFullPath + "[" + std::to_string(i - 1) + "]");
-        mFile.quality(100);
-        mFile.backgroundColor("white");
-        mFile.alphaChannel(Magick::AlphaChannelType::RemoveAlphaChannel);
-        mFile.mergeLayers(Magick::FlattenLayer);
-        mFile.write(mDestPath+"/"+mNamePrefix+"-" + std::to_string(i) + mImgFormat);
-        convertedImgName = mDestPath + "/" + mNamePrefix+"-" + std::to_string(i) + mImgFormat;
-        percDone = 100.00 * i / nPages;
-        emit progressUpdated(percDone);
-        emit newlyConverted(convertedImgName);
-        convertedImgNames.push_back(convertedImgName);
-    }
-    emit sendImgPaths(convertedImgNames);
-    emit finishedConverting(timer.elapsed());
-}
-
-
