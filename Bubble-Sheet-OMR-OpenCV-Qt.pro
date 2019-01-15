@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-09-30T13:43:06
+# Project created by QtCreator 2019-01-12T20:15:25
 #
 #-------------------------------------------------
 
@@ -27,15 +27,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    pdf.cpp \
-    cv_worker.cpp \
-    cv_controller.cpp
+    document.cpp \
+    sheet.cpp \
+    pdf.cpp
 
 HEADERS += \
         mainwindow.h \
-    pdf.h \
-    cv_worker.h \
-    cv_controller.h
+    document.h \
+    sheet.h \
+    pdf.h
 
 FORMS += \
         mainwindow.ui
@@ -47,7 +47,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 INCLUDEPATH += D:\Users\Lemuel\Software-Development\OpenCV\3.4.2\opencv\build\include \
     "C:\Program Files\ImageMagick-6.9.10-Q16\include"
-
 
 LIBS += D:\Users\Lemuel\Software-Development\OpenCV\3.4.2\opencv\build\x64\vc15\lib\opencv_world343.lib \
     "C:\Program Files\ImageMagick-6.9.10-Q16\lib\CORE_RL_magick_.lib" \

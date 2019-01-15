@@ -1,11 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "cv_controller.h"
-#include "cv_worker.h"
-
 #include <QMainWindow>
-#include <QMetaType>
+#include <QThread>
+#include <document.h>
+#include <QRubberBand>
 
 namespace Ui {
 class MainWindow;
@@ -19,42 +18,44 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
+signals:
+    void PDF_Selected(QString);
+
+    void invokePDF2ImgConversion();
+
 private slots:
-    void on_pushButton_Choose_PDF_clicked();
+    void on_pushButton_ImportPDF_clicked();
 
-    void on_pushButton_ConvertPdf2Png_clicked();
+    void handleSelectedPDF(QString);
 
-    void onProgressUpdated(double perc);
+    void updateProgress(double);
 
-    void onNewlyConverted(std::string convertedImgName);
+    void handleConversionAllDone();
 
-    void onStartedConverting();
+    void updateFrame(QImage);
+    void on_pushButton_Marking_Generic_clicked();
 
-    void onFinishedConverting(qint64 timeTook);
+    void on_pushButton_PreviousSheet_clicked();
 
-    void onObjDestroyed();
-
-    void invoke_CV_Controller(std::vector<std::string> ImgPaths);
-
-    void on_pushButton_CV_Identify_Generic_clicked();
-
-    void updateImg(QImage img);
-
-    void updateImgStorage(std::vector<QImage> imgs, int startP, int endP);
-
-    void on_pushButton_PrevPage_clicked();
-
-    void on_pushButton_NextPage_clicked();
-
-    void on_pushButton_AllDone_clicked();
+    void on_pushButton_NextSheet_clicked();
 
 private:
     Ui::MainWindow *ui;
-    std::vector<QImage> mDisplayImgs;
-    int mNPages;
-    int mNConverted;
 
-    cv_controller* mpController;
+    document* _doc;
+
+    bool _selectedPDF;
+
+    QRubberBand* _rubberBand;
+    QPoint _mouseClickPoint;
+    Qt::MouseButton _lastClickedBtn;
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 };
 
 #endif // MAINWINDOW_H
