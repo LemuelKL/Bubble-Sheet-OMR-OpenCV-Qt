@@ -20,6 +20,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include "frame_displayer.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -27,7 +28,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QLabel *label_FrameDisplayer;
+    frame_displayer *label_FrameDisplayer;
     QPushButton *pushButton_ImportPDF;
     QProgressBar *progressBar_ConversionDone;
     QFrame *line;
@@ -49,7 +50,7 @@ public:
         MainWindow->setAutoFillBackground(false);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        label_FrameDisplayer = new QLabel(centralWidget);
+        label_FrameDisplayer = new frame_displayer(centralWidget);
         label_FrameDisplayer->setObjectName(QStringLiteral("label_FrameDisplayer"));
         label_FrameDisplayer->setGeometry(QRect(10, 10, 500, 707));
         label_FrameDisplayer->setAutoFillBackground(false);

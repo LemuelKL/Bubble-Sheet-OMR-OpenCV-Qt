@@ -29,13 +29,15 @@ SOURCES += \
         mainwindow.cpp \
     document.cpp \
     sheet.cpp \
-    pdf.cpp
+    pdf.cpp \
+    frame_displayer.cpp
 
 HEADERS += \
         mainwindow.h \
     document.h \
     sheet.h \
-    pdf.h
+    pdf.h \
+    frame_displayer.h
 
 FORMS += \
         mainwindow.ui

@@ -29,7 +29,7 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label_FrameDisplayer">
+   <widget class="frame_displayer" name="label_FrameDisplayer">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -180,6 +180,13 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>frame_displayer</class>
+   <extends>QLabel</extends>
+   <header>frame_displayer.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

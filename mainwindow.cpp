@@ -3,7 +3,6 @@
 
 #include <QFileDialog>
 #include <QtDebug>
-#include <QMouseEvent>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
     _selectedPDF = false;
     connect(this, SIGNAL(PDF_Selected(QString)), this, SLOT(handleSelectedPDF(QString)));
-    _rubberBand = nullptr;
+
 }
 
 MainWindow::~MainWindow()
@@ -109,41 +108,5 @@ void MainWindow::on_pushButton_NextSheet_clicked()
             ui->label_PageNumber->setNum(curPageNo + 1);
             updateFrame(_doc->_sheets[curPageNo].markedImage());
         }
-    }
-}
-
-void MainWindow::mousePressEvent(QMouseEvent *event)
-// https://stackoverflow.com/questions/16527248/qrubberband-on-a-definite-label
-{
-    _lastClickedBtn = event->button();
-    if (_lastClickedBtn == Qt::LeftButton)
-    {
-        _mouseClickPoint = ui->label_FrameDisplayer->mapFromGlobal(this->mapToGlobal(event->pos()));
-        if(_rubberBand == nullptr)
-            _rubberBand = new QRubberBand(QRubberBand::Rectangle, ui->label_FrameDisplayer);
-        _rubberBand->setGeometry(QRect(_mouseClickPoint, _mouseClickPoint));
-        _rubberBand->show();
-    }
-}
-
-void MainWindow::mouseMoveEvent(QMouseEvent *event)
-{
-    if(_rubberBand != nullptr)
-    {
-        if (_lastClickedBtn == Qt::LeftButton)
-        {
-            QPoint mouseCurrentPoint = ui->label_FrameDisplayer->mapFromGlobal(this->mapToGlobal(event->pos()));
-            _rubberBand->setGeometry(QRect(_mouseClickPoint, mouseCurrentPoint).normalized());
-            qDebug() << _rubberBand->size();
-        }
-    }
-}
-
-void MainWindow::mouseReleaseEvent(QMouseEvent *event)
-{
-    if(_rubberBand != nullptr)
-    {
-        _rubberBand->hide();
-        _rubberBand->clearMask();
     }
 }

@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QThread>
 #include <document.h>
-#include <QRubberBand>
+
 
 namespace Ui {
 class MainWindow;
@@ -48,14 +48,7 @@ private:
 
     bool _selectedPDF;
 
-    QRubberBand* _rubberBand;
-    QPoint _mouseClickPoint;
-    Qt::MouseButton _lastClickedBtn;
 
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseMoveEvent(QMouseEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *event) override;
 };
 
 #endif // MAINWINDOW_H
