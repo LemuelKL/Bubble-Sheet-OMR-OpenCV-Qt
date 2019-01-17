@@ -25,7 +25,7 @@ QImage sheet::markedImage()
     // Take a copy of _CV_originalImage, and cv::drawContours() on it with _circleContours.
     // Convert the copy to QImage, return it.
     Mat blueprintMat = _CV_originalImage.clone();
-    drawContours(blueprintMat, _circleContours, -1, cv::Scalar(0,0,255), 2);
+    drawContours(blueprintMat, _circleContours, -1, Scalar(0, 255, 0), 2);
     return convertMat2QImage(blueprintMat);
 }
 
