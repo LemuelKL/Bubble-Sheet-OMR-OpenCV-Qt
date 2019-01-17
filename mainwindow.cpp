@@ -26,7 +26,7 @@ void MainWindow::on_pushButton_ImportPDF_clicked()
 {
     ui->progressBar_ConversionDone->setValue(0);
     ui->label_FrameDisplayer->clear();
-    QWidget::setWindowTitle("Beta");
+    QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
     QString absPath2PDF = QFileDialog::getOpenFileName(
                 this,
                 tr("Choose a PDF"),
