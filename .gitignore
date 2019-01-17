@@ -4,3 +4,7 @@
 /pdf/*.jpg
 /pdf/*.png
 /pdf/*.bmp
+/*stash
+/*.Debug
+/*.Release
+Makefile
