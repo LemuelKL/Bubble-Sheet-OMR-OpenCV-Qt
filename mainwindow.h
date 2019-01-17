@@ -48,7 +48,6 @@ private:
 
     bool _selectedPDF;
 
-
 };
 
 #endif // MAINWINDOW_H

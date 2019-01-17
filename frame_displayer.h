@@ -16,10 +16,11 @@ public:
     QPoint _mouseClickPoint;
     Qt::MouseButton _lastClickedBtn;
 
-protected:
+protected slots:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+
 };
 
 #endif // FRAME_DISPLAYER_H

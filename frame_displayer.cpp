@@ -2,11 +2,13 @@
 
 #include <QDebug>
 #include <QMouseEvent>
+#include <QCursor>
 
 frame_displayer::frame_displayer(QWidget * parent) : QLabel(parent)
 {
     _ui = parent;
-    _rubberBand = nullptr;
+    _rubberBand = new QRubberBand(QRubberBand::Rectangle, this);
+    this->setMouseTracking(false);
 }
 
 void frame_displayer::mousePressEvent(QMouseEvent *event)
@@ -16,8 +18,6 @@ void frame_displayer::mousePressEvent(QMouseEvent *event)
     if (_lastClickedBtn == Qt::LeftButton)
     {
         _mouseClickPoint = event->pos();
-        if(_rubberBand == nullptr)
-            _rubberBand = new QRubberBand(QRubberBand::Rectangle, this);
         _rubberBand->setGeometry(QRect(_mouseClickPoint, _mouseClickPoint));
         _rubberBand->show();
     }
@@ -27,17 +27,24 @@ void frame_displayer::mouseMoveEvent(QMouseEvent *event)
 {
     if(_rubberBand != nullptr)
     {
-        if (_lastClickedBtn == Qt::LeftButton)
+        if (this->underMouse())
         {
-            QPoint mouseCurrentPoint = event->pos();
-            _rubberBand->setGeometry(QRect(_mouseClickPoint, mouseCurrentPoint).normalized());
-            qDebug() << _rubberBand->size();
+            if (_lastClickedBtn == Qt::LeftButton)
+            {
+                QPoint mouseCurrentPoint = event->pos();
+                auto clamp_rect = rect();
+                mouseCurrentPoint.rx() = std::min(clamp_rect.right(), std::max(clamp_rect.left(), mouseCurrentPoint.x()));
+                mouseCurrentPoint.ry() = std::min(clamp_rect.bottom(), std::max(clamp_rect.top(), mouseCurrentPoint.y()));
+                _rubberBand->setGeometry(QRect(_mouseClickPoint, mouseCurrentPoint).normalized());
+            }
         }
     }
 }
 
 void frame_displayer::mouseReleaseEvent(QMouseEvent *event)
 {
+    _mouseClickPoint = QPoint();
+    _lastClickedBtn = Qt::MidButton;
     if(_rubberBand != nullptr)
     {
         _rubberBand->hide();

@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
     _selectedPDF = false;
     connect(this, SIGNAL(PDF_Selected(QString)), this, SLOT(handleSelectedPDF(QString)));
-
 }
 
 MainWindow::~MainWindow()
