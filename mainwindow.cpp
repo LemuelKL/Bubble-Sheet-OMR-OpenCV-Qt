@@ -24,6 +24,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_ImportPDF_clicked()
 {
+    ui->spinBox_Marking_endPage->setMaximum(0);
+    ui->spinBox_Marking_endPage->setValue(0);
     ui->progressBar_ConversionDone->setValue(0);
     ui->label_FrameDisplayer->clear();
     QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
@@ -53,6 +55,7 @@ void MainWindow::handleSelectedPDF(QString absPath2PDF)
     connect(&_doc->_PDF, SIGNAL(progressUpdated(double)), this, SLOT(updateProgress(double)));
     connect(_doc, SIGNAL(sheetsReady()), this, SLOT(handleConversionAllDone()));
     connect(&_doc->_PDF, SIGNAL(finishedConversion()), thread, SLOT(quit()));
+    connect(&_doc->_PDF, SIGNAL(progressUpdated(double)), this, SLOT(addOneToMaxNoPages()));
     thread->start();
     emit invokePDF2ImgConversion();
 }
@@ -60,6 +63,15 @@ void MainWindow::handleSelectedPDF(QString absPath2PDF)
 void MainWindow::updateProgress(double lastestProgress)
 {
     ui->progressBar_ConversionDone->setValue(int(lastestProgress));
+}
+
+void MainWindow::addOneToMaxNoPages()
+{
+    int currentMax = ui->spinBox_Marking_endPage->value();
+    ui->spinBox_Marking_endPage->setMinimum(1);
+    ui->spinBox_Marking_endPage->setMaximum(currentMax + 1);
+    ui->spinBox_Marking_endPage->setValue(currentMax + 1);
+    ui->spinBox_Marking_startPage->setMaximum(currentMax + 1);
 }
 
 void MainWindow::handleConversionAllDone()
@@ -78,11 +90,13 @@ void MainWindow::on_pushButton_Marking_Generic_clicked()
     if (_selectedPDF && _doc->hasConvertedImgs())
     {
         int i;
-        for (i = 0; i < _doc->nSheets(); i++)
+        for (i = ui->spinBox_Marking_startPage->value(); i <= ui->spinBox_Marking_endPage->value(); i++)
         {
-            _doc->_sheets[i].mark_Generic(0.0, 0.0, 1.0, 1.0);  // x1, y1, x2, y2
+            _doc->_sheets[i-1].mark_Generic(0.0, 0.0, 1.0, 1.0);  // x1, y1, x2, y2
+            updateFrame(_doc->_sheets[i-1].markedImage());
         }
-        updateFrame(_doc->_sheets[0].markedImage());
+        updateFrame(_doc->_sheets[ui->spinBox_Marking_startPage->value() - 1].markedImage());
+        ui->label_PageNumber->setNum(ui->spinBox_Marking_startPage->value());
     }
 }
 

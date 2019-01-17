@@ -30,9 +30,12 @@ private slots:
 
     void updateProgress(double);
 
+    void addOneToMaxNoPages();
+
     void handleConversionAllDone();
 
     void updateFrame(QImage);
+
     void on_pushButton_Marking_Generic_clicked();
 
     void on_pushButton_PreviousSheet_clicked();

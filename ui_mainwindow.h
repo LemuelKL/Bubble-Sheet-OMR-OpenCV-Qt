@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -40,6 +41,8 @@ public:
     QLabel *label_yCoord;
     QLabel *label_xCoordHolder;
     QLabel *label_yCoordHolder;
+    QSpinBox *spinBox_Marking_startPage;
+    QSpinBox *spinBox_Marking_endPage;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -111,6 +114,16 @@ public:
         label_yCoordHolder->setGeometry(QRect(470, 720, 41, 16));
         label_yCoordHolder->setFont(font1);
         label_yCoordHolder->setAlignment(Qt::AlignCenter);
+        spinBox_Marking_startPage = new QSpinBox(centralWidget);
+        spinBox_Marking_startPage->setObjectName(QStringLiteral("spinBox_Marking_startPage"));
+        spinBox_Marking_startPage->setGeometry(QRect(520, 180, 42, 22));
+        spinBox_Marking_startPage->setMinimum(1);
+        spinBox_Marking_endPage = new QSpinBox(centralWidget);
+        spinBox_Marking_endPage->setObjectName(QStringLiteral("spinBox_Marking_endPage"));
+        spinBox_Marking_endPage->setGeometry(QRect(570, 180, 42, 22));
+        spinBox_Marking_endPage->setMinimum(0);
+        spinBox_Marking_endPage->setMaximum(0);
+        spinBox_Marking_endPage->setValue(0);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
