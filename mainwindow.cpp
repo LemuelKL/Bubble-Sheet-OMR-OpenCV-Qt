@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->label_FrameDisplayer, SIGNAL(mouseMoved(int, int)), this, SLOT(updateMouseXY(int, int)));
     connect(ui->label_FrameDisplayer, SIGNAL(mouseLeave()), this, SLOT(blankMouseXY()));
+
+    connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToMark(QRect)), this, SLOT(markInRoi(QRect)));
+    connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToRemoveMark(QRect)), this, SLOT(removeMarkInRoi(QRect)));
 }
 
 MainWindow::~MainWindow()
@@ -113,7 +116,6 @@ void MainWindow::on_pushButton_PreviousSheet_clicked()
     }
 }
 
-
 void MainWindow::on_pushButton_NextSheet_clicked()
 {
     if (_selectedPDF && _doc->hasConvertedImgs())
@@ -137,4 +139,28 @@ void MainWindow::blankMouseXY()
 {
     ui->label_xCoordHolder->setText(" ");
     ui->label_yCoordHolder->setText(" ");
+}
+
+void MainWindow::markInRoi(QRect ROI)
+{
+    if (_selectedPDF && _doc->hasConvertedImgs())
+    {
+        double relX1;
+        double relY1;
+
+        double relX2;
+        double relY2;
+
+        relX1 = ROI.x() / 500.0;
+        relY1 = ROI.y() / 707.0;
+        relX2 = ROI.right() / 500.0;
+        relY2 = ROI.bottom() / 707.0;
+
+        _doc->_sheets[ui->label_PageNumber->text().toInt()-1].mark_Generic(relX1, relY1, relX2, relY2);  // x1, y1, x2, y2
+        updateFrame(_doc->_sheets[ui->label_PageNumber->text().toInt()-1].markedImage());
+    }
+}
+void MainWindow::removeMarkInRoi(QRect ROI)
+{
+
 }

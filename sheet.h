@@ -29,7 +29,7 @@ public:
     QImage markedImage();
 
 public slots:
-    void mark_Generic(float, float, float, float);
+    void mark_Generic(double, double, double, double);
 
 signals:
     void mark_Generic_Done();

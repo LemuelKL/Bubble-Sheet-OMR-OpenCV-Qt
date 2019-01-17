@@ -21,6 +21,9 @@ signals:
     void mouseLeave();
     void mouseEnter();
 
+    void roiSelectedToMark(QRect);
+    void roiSelectedToRemoveMark(QRect);
+
 protected slots:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

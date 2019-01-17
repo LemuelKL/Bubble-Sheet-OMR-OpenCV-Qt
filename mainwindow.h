@@ -46,6 +46,9 @@ public slots:
     void updateMouseXY(int ,int);
     void blankMouseXY();
 
+    void markInRoi(QRect);
+    void removeMarkInRoi(QRect);
+
 private:
     Ui::MainWindow *ui;
 

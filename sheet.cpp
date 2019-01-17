@@ -74,7 +74,7 @@ Mat sheet::convert2WorkableMat(Mat rawMat)
     return adaptThreshMat;
 }
 
-void sheet::mark_Generic(float relX1, float relY1, float relX2, float relY2)
+void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2)
 {
     // This function idealy should only alter the _circleContours (appending), not the images/mats themselves!
     Mat rawMat = _CV_originalImage.clone();
@@ -82,8 +82,9 @@ void sheet::mark_Generic(float relX1, float relY1, float relX2, float relY2)
 
     int x1 = int(relX1 * mat.cols);
     int y1 = int(relY1 * mat.rows);
-    int x2 = int(relX2 * mat.cols);
-    int y2 = int(relY2 * mat.rows);
+    int x2 = int((relX2 - relX1) * mat.cols);
+    int y2 = int((relY2 - relY1) * mat.rows);
+    qDebug() << x1 << y1 << x2 << y2;
     Rect ROI(x1, y1, x2, y2);
     Mat roiMat = mat(ROI);  // Note: this roiMat is not a copy, it's referencing.
 
@@ -92,7 +93,7 @@ void sheet::mark_Generic(float relX1, float relY1, float relX2, float relY2)
 
     vector<vector<Point> > ctns;
     vector<Vec4i> hierarchy;
-    findContours(roiMat.clone(), ctns, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE);
+    findContours(roiMat.clone(), ctns, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE, Point(x1, y1));
 
     vector<vector<Point> > circleCtns;
     vector<Rect> circleRects;
