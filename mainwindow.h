@@ -18,8 +18,6 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-
-
 signals:
     void PDF_Selected(QString);
 
@@ -41,13 +39,16 @@ private slots:
 
     void on_pushButton_NextSheet_clicked();
 
+public slots:
+    void updateMouseXY(int ,int);
+    void blankMouseXY();
+
 private:
     Ui::MainWindow *ui;
 
     document* _doc;
 
     bool _selectedPDF;
-
 };
 
 #endif // MAINWINDOW_H

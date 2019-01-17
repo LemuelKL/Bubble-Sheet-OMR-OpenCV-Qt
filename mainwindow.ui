@@ -158,6 +158,76 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QLabel" name="label_xCoord">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>720</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x: </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_yCoord">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>720</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y: </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_xCoordHolder">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>720</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_yCoordHolder">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>720</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

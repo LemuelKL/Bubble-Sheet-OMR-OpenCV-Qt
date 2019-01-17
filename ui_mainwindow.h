@@ -36,6 +36,10 @@ public:
     QPushButton *pushButton_PreviousSheet;
     QPushButton *pushButton_NextSheet;
     QLabel *label_PageNumber;
+    QLabel *label_xCoord;
+    QLabel *label_yCoord;
+    QLabel *label_xCoordHolder;
+    QLabel *label_yCoordHolder;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -88,6 +92,25 @@ public:
         font.setWeight(75);
         label_PageNumber->setFont(font);
         label_PageNumber->setAlignment(Qt::AlignCenter);
+        label_xCoord = new QLabel(centralWidget);
+        label_xCoord->setObjectName(QStringLiteral("label_xCoord"));
+        label_xCoord->setGeometry(QRect(400, 720, 16, 16));
+        label_yCoord = new QLabel(centralWidget);
+        label_yCoord->setObjectName(QStringLiteral("label_yCoord"));
+        label_yCoord->setGeometry(QRect(460, 720, 16, 16));
+        label_xCoordHolder = new QLabel(centralWidget);
+        label_xCoordHolder->setObjectName(QStringLiteral("label_xCoordHolder"));
+        label_xCoordHolder->setGeometry(QRect(410, 720, 41, 16));
+        QFont font1;
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_xCoordHolder->setFont(font1);
+        label_xCoordHolder->setAlignment(Qt::AlignCenter);
+        label_yCoordHolder = new QLabel(centralWidget);
+        label_yCoordHolder->setObjectName(QStringLiteral("label_yCoordHolder"));
+        label_yCoordHolder->setGeometry(QRect(470, 720, 41, 16));
+        label_yCoordHolder->setFont(font1);
+        label_yCoordHolder->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -114,6 +137,10 @@ public:
         pushButton_PreviousSheet->setText(QApplication::translate("MainWindow", "Previous", nullptr));
         pushButton_NextSheet->setText(QApplication::translate("MainWindow", "Next", nullptr));
         label_PageNumber->setText(QApplication::translate("MainWindow", "0", nullptr));
+        label_xCoord->setText(QApplication::translate("MainWindow", "x: ", nullptr));
+        label_yCoord->setText(QApplication::translate("MainWindow", "y: ", nullptr));
+        label_xCoordHolder->setText(QString());
+        label_yCoordHolder->setText(QString());
     } // retranslateUi
 
 };

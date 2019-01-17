@@ -2159,6 +2159,36 @@ release\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\objdetect\objdetect.hpp \
 		..\..\OpenCV\3.4.2\opencv\build\include\opencv2\highgui\highgui.hpp \
 		ui_mainwindow.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QApplication \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFrame \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QLabel \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMenuBar \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QProgressBar \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qprogressbar.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QStatusBar \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QToolBar \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtoolbar.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QWidget \
+		frame_displayer.h \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
+		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFileDialog \
 		C:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qfiledialog.h \
 		C:\Qt\5.11.2\msvc2017_64\include\QtCore\qdir.h \

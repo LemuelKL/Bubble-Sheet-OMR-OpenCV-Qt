@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
     _selectedPDF = false;
     connect(this, SIGNAL(PDF_Selected(QString)), this, SLOT(handleSelectedPDF(QString)));
+
+    connect(ui->label_FrameDisplayer, SIGNAL(mouseMoved(int, int)), this, SLOT(updateMouseXY(int, int)));
+    connect(ui->label_FrameDisplayer, SIGNAL(mouseLeave()), this, SLOT(blankMouseXY()));
 }
 
 MainWindow::~MainWindow()
@@ -108,4 +111,16 @@ void MainWindow::on_pushButton_NextSheet_clicked()
             updateFrame(_doc->_sheets[curPageNo].markedImage());
         }
     }
+}
+
+void MainWindow::updateMouseXY(int x, int y)
+{
+    ui->label_xCoordHolder->setNum(x);
+    ui->label_yCoordHolder->setNum(y);
+}
+
+void MainWindow::blankMouseXY()
+{
+    ui->label_xCoordHolder->setText(" ");
+    ui->label_yCoordHolder->setText(" ");
 }

@@ -16,11 +16,18 @@ public:
     QPoint _mouseClickPoint;
     Qt::MouseButton _lastClickedBtn;
 
+signals:
+    void mouseMoved(int, int);
+    void mouseLeave();
+    void mouseEnter();
+
 protected slots:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+    void leaveEvent(QEvent * event) override;
+    void enterEvent(QEvent * event) override;
 };
 
 #endif // FRAME_DISPLAYER_H
