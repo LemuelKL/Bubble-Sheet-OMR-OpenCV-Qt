@@ -106,7 +106,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Generic</string>
+     <string>Mark Bubbles</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_PreviousSheet">
@@ -259,6 +259,193 @@
     <property name="value">
      <number>0</number>
     </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_ConfirmMarkingAllCorrect">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>230</y>
+      <width>231</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>All Bubbles Marked Correctly</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>210</y>
+      <width>271</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>250</y>
+      <width>271</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_MarkingBubblesSettings">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>120</y>
+      <width>161</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Settings for Marking Bubbles:</string>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>143</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_MarkingBubbles">
+      <item>
+       <widget class="QCheckBox" name="checkBox_ifUniformBubblesShapes">
+        <property name="text">
+         <string>Uniform bubbles shapes.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_GroupingBubbles">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>270</y>
+      <width>271</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Grouping Bubbles</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_GroupBubbles">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>91</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Group Bubbles</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_GroupingBubblesSettings">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>251</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Settings For Grouping Bubbles:</string>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>231</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_GroupingBubbles">
+       <item>
+        <widget class="QCheckBox" name="checkBox_GB_1">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Uniform no. of bubbles per question.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_GB_2">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Uniform questions layout.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_GB_3">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Uniform bubbles layout.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_GB_4">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Uniform layout across ALL pages.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

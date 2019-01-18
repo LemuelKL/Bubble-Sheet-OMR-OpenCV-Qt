@@ -42,6 +42,8 @@ private slots:
 
     void on_pushButton_NextSheet_clicked();
 
+    void on_checkBox_ConfirmMarkingAllCorrect_stateChanged(int arg1);
+
 public slots:
     void updateMouseXY(int ,int);
     void blankMouseXY();

@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToMark(QRect)), this, SLOT(markInRoi(QRect)));
     connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToRemoveMark(QRect)), this, SLOT(removeMarkInRoi(QRect)));
+
+    ui->groupBox_GroupingBubbles->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -168,4 +170,12 @@ void MainWindow::removeMarkInRoi(QRect ROI)
         _doc->_sheets[ui->label_PageNumber->text().toInt()-1].unmarkInRoi(relX1, relY1, relX2, relY2);  // x1, y1, x2, y2
         updateFrame(_doc->_sheets[ui->label_PageNumber->text().toInt()-1].markedImage());
     }
+}
+
+void MainWindow::on_checkBox_ConfirmMarkingAllCorrect_stateChanged(int arg1)
+{
+    if (arg1 == 2)
+        ui->groupBox_GroupingBubbles->setEnabled(true);
+    if (arg1 == 0)
+        ui->groupBox_GroupingBubbles->setEnabled(false);
 }
