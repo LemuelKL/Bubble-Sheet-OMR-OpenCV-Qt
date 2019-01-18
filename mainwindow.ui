@@ -338,6 +338,9 @@
         <property name="text">
          <string>Uniform bubbles shapes.</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
      </layout>

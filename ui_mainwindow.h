@@ -174,6 +174,7 @@ public:
         verticalLayout_MarkingBubbles->setContentsMargins(0, 0, 0, 0);
         checkBox_ifUniformBubblesShapes = new QCheckBox(verticalLayoutWidget_2);
         checkBox_ifUniformBubblesShapes->setObjectName(QStringLiteral("checkBox_ifUniformBubblesShapes"));
+        checkBox_ifUniformBubblesShapes->setChecked(true);
 
         verticalLayout_MarkingBubbles->addWidget(checkBox_ifUniformBubblesShapes);
 
