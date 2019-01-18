@@ -31,6 +31,8 @@ public:
 public slots:
     void mark_Generic(double, double, double, double);
 
+    void unmarkInRoi(double, double, double, double);
+
 signals:
     void mark_Generic_Done();
 private:

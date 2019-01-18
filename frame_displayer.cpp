@@ -69,22 +69,6 @@ void frame_displayer::mouseReleaseEvent(QMouseEvent *event)
         _rubberBand->clearMask();
 
         QRect ROI = _rubberBand->geometry();
-        qDebug() << ROI;
-
-        double relX1;
-        double relY1;
-
-        double relX2;
-        double relY2;
-
-        relX1 = ROI.x() / 500.0;
-        relY1 = ROI.y() / 707.0;
-        relX2 = ROI.right() / 500.0;
-        relY2 = ROI.bottom() / 707.0;
-
-        qDebug() << ROI.x() << ROI.y()  << ROI.right() << ROI.bottom();
-        qDebug() << relX1 << relY1 << relX2 << relY2;
-
         if (_lastClickedBtn == Qt::LeftButton)
             emit roiSelectedToMark(ROI);
         if (_lastClickedBtn == Qt::RightButton)

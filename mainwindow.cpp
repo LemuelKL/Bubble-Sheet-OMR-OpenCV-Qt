@@ -145,16 +145,11 @@ void MainWindow::markInRoi(QRect ROI)
 {
     if (_selectedPDF && _doc->hasConvertedImgs())
     {
-        double relX1;
-        double relY1;
-
-        double relX2;
-        double relY2;
-
-        relX1 = ROI.x() / 500.0;
-        relY1 = ROI.y() / 707.0;
-        relX2 = ROI.right() / 500.0;
-        relY2 = ROI.bottom() / 707.0;
+        QRect fdRect = ui->label_FrameDisplayer->frameRect();
+        double relX1 = 1.0 * ROI.x() / fdRect.width();
+        double relY1 = 1.0 * ROI.y() / fdRect.height();
+        double relX2 = 1.0 * ROI.right() / fdRect.width();
+        double relY2 = 1.0 * ROI.bottom() / fdRect.height();
 
         _doc->_sheets[ui->label_PageNumber->text().toInt()-1].mark_Generic(relX1, relY1, relX2, relY2);  // x1, y1, x2, y2
         updateFrame(_doc->_sheets[ui->label_PageNumber->text().toInt()-1].markedImage());
@@ -162,5 +157,15 @@ void MainWindow::markInRoi(QRect ROI)
 }
 void MainWindow::removeMarkInRoi(QRect ROI)
 {
+    if (_selectedPDF && _doc->hasConvertedImgs())
+    {
+        QRect fdRect = ui->label_FrameDisplayer->frameRect();
+        double relX1 = 1.0 * ROI.x() / fdRect.width();
+        double relY1 = 1.0 * ROI.y() / fdRect.height();
+        double relX2 = 1.0 * ROI.right() / fdRect.width();
+        double relY2 = 1.0 * ROI.bottom() / fdRect.height();
 
+        _doc->_sheets[ui->label_PageNumber->text().toInt()-1].unmarkInRoi(relX1, relY1, relX2, relY2);  // x1, y1, x2, y2
+        updateFrame(_doc->_sheets[ui->label_PageNumber->text().toInt()-1].markedImage());
+    }
 }

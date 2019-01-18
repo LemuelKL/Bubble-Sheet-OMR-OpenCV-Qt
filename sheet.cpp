@@ -84,7 +84,6 @@ void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2)
     int y1 = int(relY1 * mat.rows);
     int x2 = int((relX2 - relX1) * mat.cols);
     int y2 = int((relY2 - relY1) * mat.rows);
-    qDebug() << x1 << y1 << x2 << y2;
     Rect ROI(x1, y1, x2, y2);
     Mat roiMat = mat(ROI);  // Note: this roiMat is not a copy, it's referencing.
 
@@ -150,6 +149,35 @@ void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2)
         _circleContours.insert(_circleContours.end(), finalCircleCtns.begin(), finalCircleCtns.end());  // Concatenate
     }
     emit mark_Generic_Done();
+}
+
+void sheet::unmarkInRoi(double relX1, double relY1, double relX2, double relY2)
+{
+    Mat rawMat = _CV_originalImage.clone();
+    Mat mat = convert2WorkableMat(rawMat);
+
+    int x1 = int(relX1 * mat.cols);
+    int y1 = int(relY1 * mat.rows);
+    int x2 = int((relX2 - relX1) * mat.cols);
+    int y2 = int((relY2 - relY1) * mat.rows);
+    Rect ROI(x1, y1, x2, y2);
+    Mat roiMat = mat(ROI);
+
+    vector<vector<Point> > ctns;
+    vector<Vec4i> hierarchy;
+    findContours(roiMat.clone(), ctns, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE, Point(x1, y1));
+
+    unsigned long long i, j;
+    for (i = 0; i < ctns.size(); i++)
+    {
+        for (j = 0; j < _circleContours.size(); j++)
+        {
+            if (_circleContours.at(j) == ctns.at(i))
+            {
+                _circleContours.erase(_circleContours.begin() + int(j));
+            }
+        }
+    }
 }
 
 bool sheet::isCtnDup(vector<Point> ctns)
