@@ -29,7 +29,7 @@ public:
     QImage markedImage();
 
 public slots:
-    void mark_Generic(double, double, double, double);
+    void mark_Generic(double, double, double, double, int);
 
     void unmarkInRoi(double, double, double, double);
 

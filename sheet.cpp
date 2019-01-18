@@ -74,7 +74,7 @@ Mat sheet::convert2WorkableMat(Mat rawMat)
     return adaptThreshMat;
 }
 
-void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2)
+void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2, int ifUniformBubbles)
 {
     // This function idealy should only alter the _circleContours (appending), not the images/mats themselves!
     Mat rawMat = _CV_originalImage.clone();
@@ -120,34 +120,46 @@ void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2)
             }
         }
     }
-    if (circleCtns.size() > 0)
+    if (ifUniformBubbles == 2)
     {
-        vector<int> radii(unsigned(long(long(maxRadius))) + 1, 0);
-        for (i = 0; i < circleRects.size(); i++)
+        qDebug() << "HO";
+        if (circleCtns.size() > 0)
         {
-            if (circleRects.at(i).width <= maxRadius)
+            vector<int> radii(unsigned(long(long(maxRadius))) + 1, 0);
+            for (i = 0; i < circleRects.size(); i++)
             {
-                radii.at(unsigned(long(long(circleRects.at(i).width)))) += 1;
+                if (circleRects.at(i).width <= maxRadius)
+                {
+                    radii.at(unsigned(long(long(circleRects.at(i).width)))) += 1;
+                }
             }
-        }
-        unsigned long long modeRadius = 0;
-        for (i = 1; i < radii.size(); i++)
-        {
-            if (radii.at(i) > radii.at(modeRadius))
+            unsigned long long modeRadius = 0;
+            for (i = 1; i < radii.size(); i++)
             {
-                modeRadius = i;
+                if (radii.at(i) > radii.at(modeRadius))
+                {
+                    modeRadius = i;
+                }
             }
-        }
-        vector<vector<Point> > finalCircleCtns;
-        for (i = 0; i < circleRects.size(); i++)
-        {
-            if (abs(int(circleRects.at(i).width) - int(modeRadius)) < 2)
+            vector<vector<Point> > finalCircleCtns;
+            for (i = 0; i < circleRects.size(); i++)
             {
-                finalCircleCtns.push_back(circleCtns.at(i));
+                if (abs(int(circleRects.at(i).width) - int(modeRadius)) < 2)
+                {
+                    finalCircleCtns.push_back(circleCtns.at(i));
+                }
             }
+            _circleContours.insert(_circleContours.end(), finalCircleCtns.begin(), finalCircleCtns.end());  // Concatenate
         }
-        _circleContours.insert(_circleContours.end(), finalCircleCtns.begin(), finalCircleCtns.end());  // Concatenate
     }
+    else
+    {
+        if (circleCtns.size() > 0)
+        {
+            _circleContours.insert(_circleContours.end(), circleCtns.begin(), circleCtns.end());  // Concatenate
+        }
+    }
+
     emit mark_Generic_Done();
 }
 

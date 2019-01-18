@@ -97,7 +97,7 @@ void MainWindow::on_pushButton_Marking_Generic_clicked()
         int i;
         for (i = ui->spinBox_Marking_startPage->value(); i <= ui->spinBox_Marking_endPage->value(); i++)
         {
-            _doc->_sheets[i-1].mark_Generic(0.0, 0.0, 1.0, 1.0);  // x1, y1, x2, y2
+            _doc->_sheets[i-1].mark_Generic(0.0, 0.0, 1.0, 1.0, ui->checkBox_ifUniformBubblesShapes->checkState());  // x1, y1, x2, y2
             updateFrame(_doc->_sheets[i-1].markedImage());
         }
         updateFrame(_doc->_sheets[ui->spinBox_Marking_startPage->value() - 1].markedImage());
@@ -153,7 +153,7 @@ void MainWindow::markInRoi(QRect ROI)
         double relX2 = 1.0 * ROI.right() / fdRect.width();
         double relY2 = 1.0 * ROI.bottom() / fdRect.height();
 
-        _doc->_sheets[ui->label_PageNumber->text().toInt()-1].mark_Generic(relX1, relY1, relX2, relY2);  // x1, y1, x2, y2
+        _doc->_sheets[ui->label_PageNumber->text().toInt()-1].mark_Generic(relX1, relY1, relX2, relY2, ui->checkBox_ifUniformBubblesShapes->checkState());  // x1, y1, x2, y2
         updateFrame(_doc->_sheets[ui->label_PageNumber->text().toInt()-1].markedImage());
     }
 }
