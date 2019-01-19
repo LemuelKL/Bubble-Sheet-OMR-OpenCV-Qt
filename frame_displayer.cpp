@@ -69,9 +69,9 @@ void frame_displayer::mouseReleaseEvent(QMouseEvent *event)
         _rubberBand->clearMask();
 
         QRect ROI = _rubberBand->geometry();
-        if (_lastClickedBtn == Qt::LeftButton)
+        if (_lastClickedBtn == Qt::LeftButton && this->mode() == 1)
             emit roiSelectedToMark(ROI);
-        if (_lastClickedBtn == Qt::RightButton)
+        if (_lastClickedBtn == Qt::RightButton && this->mode() == 1)
             emit roiSelectedToRemoveMark(ROI);
     }
     _lastClickedBtn = Qt::MidButton;
@@ -85,4 +85,14 @@ void frame_displayer::leaveEvent(QEvent * event)
 void frame_displayer::enterEvent(QEvent * event)
 {
     emit mouseEnter();
+}
+
+void frame_displayer::setMode(int mode)
+{
+    _mode = mode;
+}
+
+int frame_displayer::mode()
+{
+    return _mode;
 }

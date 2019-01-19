@@ -42,7 +42,7 @@ private slots:
 
     void on_pushButton_NextSheet_clicked();
 
-    void on_checkBox_ConfirmMarkingAllCorrect_stateChanged(int arg1);
+    void on_tabWidget_currentChanged(int index);
 
 public slots:
     void updateMouseXY(int ,int);
@@ -56,6 +56,7 @@ private:
 
     document* _doc;
 
+    bool _isConverting;
     bool _selectedPDF;
 };
 

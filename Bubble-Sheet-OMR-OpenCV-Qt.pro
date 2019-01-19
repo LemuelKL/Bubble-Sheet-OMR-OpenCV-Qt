@@ -30,14 +30,18 @@ SOURCES += \
     document.cpp \
     sheet.cpp \
     pdf.cpp \
-    frame_displayer.cpp
+    frame_displayer.cpp \
+    bubble.cpp \
+    question.cpp
 
 HEADERS += \
         mainwindow.h \
     document.h \
     sheet.h \
     pdf.h \
-    frame_displayer.h
+    frame_displayer.h \
+    bubble.h \
+    question.h
 
 FORMS += \
         mainwindow.ui

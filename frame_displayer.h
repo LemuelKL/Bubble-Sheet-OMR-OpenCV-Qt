@@ -16,6 +16,8 @@ public:
     QPoint _mouseClickPoint;
     Qt::MouseButton _lastClickedBtn;
 
+    void setMode(int);
+    int mode();
 signals:
     void mouseMoved(int, int);
     void mouseLeave();
@@ -31,6 +33,9 @@ protected slots:
 
     void leaveEvent(QEvent * event) override;
     void enterEvent(QEvent * event) override;
+
+private:
+    int _mode;  // 0-, 1-Marking, 2-Grouping
 };
 
 #endif // FRAME_DISPLAYER_H

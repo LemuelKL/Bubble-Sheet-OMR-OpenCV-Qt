@@ -122,7 +122,6 @@ void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2,
     }
     if (ifUniformBubbles == 2)
     {
-        qDebug() << "HO";
         if (circleCtns.size() > 0)
         {
             vector<int> radii(unsigned(long(long(maxRadius))) + 1, 0);
@@ -149,14 +148,14 @@ void sheet::mark_Generic(double relX1, double relY1, double relX2, double relY2,
                     finalCircleCtns.push_back(circleCtns.at(i));
                 }
             }
-            _circleContours.insert(_circleContours.end(), finalCircleCtns.begin(), finalCircleCtns.end());  // Concatenate
+            _circleContours.insert(_circleContours.end(), finalCircleCtns.begin(), finalCircleCtns.end());
         }
     }
     else
     {
         if (circleCtns.size() > 0)
         {
-            _circleContours.insert(_circleContours.end(), circleCtns.begin(), circleCtns.end());  // Concatenate
+            _circleContours.insert(_circleContours.end(), circleCtns.begin(), circleCtns.end());
         }
     }
 

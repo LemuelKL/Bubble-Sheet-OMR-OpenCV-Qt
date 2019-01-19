@@ -28,10 +28,10 @@ public:
     QImage originalImage();
     QImage markedImage();
 
-public slots:
     void mark_Generic(double, double, double, double, int);
-
     void unmarkInRoi(double, double, double, double);
+
+
 
 signals:
     void mark_Generic_Done();
@@ -46,7 +46,13 @@ private:
     QImage _originalImage;
     cv::Mat _CV_originalImage;
 
-    std::vector<std::vector<cv::Point> > _circleContours;   // OpenCV specifically takes std::vectors
+    std::vector<std::vector<cv::Point> > _circleContours;
+
+    int _nBubbles;
+    int _nQuestions;
+    bool _uniform_nB_inQ;
+    bool _uniform_D_B2B;
+    bool _uniform_D_Q2Q;
 };
 
 #endif // SHEET_H

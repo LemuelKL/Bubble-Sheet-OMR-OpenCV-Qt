@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
+    _isConverting = false;
     _selectedPDF = false;
     connect(this, SIGNAL(PDF_Selected(QString)), this, SLOT(handleSelectedPDF(QString)));
 
@@ -18,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToMark(QRect)), this, SLOT(markInRoi(QRect)));
     connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToRemoveMark(QRect)), this, SLOT(removeMarkInRoi(QRect)));
-
-    ui->groupBox_GroupingBubbles->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -29,21 +28,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_ImportPDF_clicked()
 {
-    ui->spinBox_Marking_endPage->setMaximum(0);
-    ui->spinBox_Marking_endPage->setValue(0);
-    ui->progressBar_ConversionDone->setValue(0);
-    ui->label_FrameDisplayer->clear();
-    QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
-    QString absPath2PDF = QFileDialog::getOpenFileName(
-                this,
-                tr("Choose a PDF"),
-                "C:/",
-                tr("PDF Files (*.pdf)")
-                );
-    if (!(absPath2PDF.isEmpty()))
+    if (!(_isConverting))
     {
-        QWidget::setWindowTitle("[ PDF Read ] " + absPath2PDF);
-        emit PDF_Selected(absPath2PDF);
+        ui->spinBox_Marking_endPage->setMaximum(0);
+        ui->spinBox_Marking_endPage->setValue(0);
+        ui->spinBox_Grouping_endPage->setMaximum(0);
+        ui->spinBox_Grouping_endPage->setValue(0);
+
+        ui->progressBar_ConversionDone->setValue(0);
+        ui->label_FrameDisplayer->clear();
+        QWidget::setWindowTitle("Bubble-Sheet-OMR-OpenCV-Qt");
+        QString absPath2PDF = QFileDialog::getOpenFileName(
+                    this,
+                    tr("Choose a PDF"),
+                    "C:/",
+                    tr("PDF Files (*.pdf)")
+                    );
+        if (!(absPath2PDF.isEmpty()))
+        {
+            QWidget::setWindowTitle("[ PDF Read ] " + absPath2PDF);
+            emit PDF_Selected(absPath2PDF);
+        }
     }
 }
 
@@ -62,6 +67,7 @@ void MainWindow::handleSelectedPDF(QString absPath2PDF)
     connect(&_doc->_PDF, SIGNAL(finishedConversion()), thread, SLOT(quit()));
     connect(&_doc->_PDF, SIGNAL(progressUpdated(double)), this, SLOT(addOneToMaxNoPages()));
     thread->start();
+    _isConverting = true;
     emit invokePDF2ImgConversion();
 }
 
@@ -77,10 +83,16 @@ void MainWindow::addOneToMaxNoPages()
     ui->spinBox_Marking_endPage->setMaximum(currentMax + 1);
     ui->spinBox_Marking_endPage->setValue(currentMax + 1);
     ui->spinBox_Marking_startPage->setMaximum(currentMax + 1);
+
+    ui->spinBox_Grouping_endPage->setMinimum(1);
+    ui->spinBox_Grouping_endPage->setMaximum(currentMax + 1);
+    ui->spinBox_Grouping_endPage->setValue(currentMax + 1);
+    ui->spinBox_Grouping_startPage->setMaximum(currentMax + 1);
 }
 
 void MainWindow::handleConversionAllDone()
 {
+    _isConverting = false;
     updateFrame(_doc->_sheets[0].originalImage());
     ui->label_PageNumber->setNum(1);
 }
@@ -172,10 +184,7 @@ void MainWindow::removeMarkInRoi(QRect ROI)
     }
 }
 
-void MainWindow::on_checkBox_ConfirmMarkingAllCorrect_stateChanged(int arg1)
+void MainWindow::on_tabWidget_currentChanged(int index)
 {
-    if (arg1 == 2)
-        ui->groupBox_GroupingBubbles->setEnabled(true);
-    if (arg1 == 0)
-        ui->groupBox_GroupingBubbles->setEnabled(false);
+    ui->label_FrameDisplayer->setMode(index);
 }

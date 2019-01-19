@@ -57,58 +57,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_ImportPDF">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>10</y>
-      <width>91</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Import PDF</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar_ConversionDone">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>70</y>
-      <width>271</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>0</number>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>100</y>
-      <width>271</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_Marking_Generic">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>120</y>
-      <width>91</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Mark Bubbles</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_PreviousSheet">
     <property name="geometry">
      <rect>
@@ -228,131 +176,13 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_Marking_startPage">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>180</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="minimum">
-     <number>1</number>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBox_Marking_endPage">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>180</y>
-      <width>42</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="minimum">
-     <number>0</number>
-    </property>
-    <property name="maximum">
-     <number>0</number>
-    </property>
-    <property name="value">
-     <number>0</number>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_ConfirmMarkingAllCorrect">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>230</y>
-      <width>231</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="text">
-     <string>All Bubbles Marked Correctly</string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>16</width>
-      <height>16</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>210</y>
+      <y>10</y>
       <width>271</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>250</y>
-      <width>271</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_MarkingBubblesSettings">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>120</y>
-      <width>161</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Settings for Marking Bubbles:</string>
-    </property>
-    <widget class="QWidget" name="verticalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>143</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_MarkingBubbles">
-      <item>
-       <widget class="QCheckBox" name="checkBox_ifUniformBubblesShapes">
-        <property name="text">
-         <string>Uniform bubbles shapes.</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_GroupingBubbles">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>270</y>
-      <width>271</width>
-      <height>241</height>
+      <height>651</height>
      </rect>
     </property>
     <property name="font">
@@ -360,93 +190,330 @@
       <pointsize>8</pointsize>
      </font>
     </property>
-    <property name="title">
-     <string>Grouping Bubbles</string>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
-    <widget class="QPushButton" name="pushButton_GroupBubbles">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>91</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Group Bubbles</string>
-     </property>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_GroupingBubblesSettings">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>80</y>
-       <width>251</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Settings For Grouping Bubbles:</string>
-     </property>
-     <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_pdfConversion">
+     <attribute name="title">
+      <string>PDF</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_ImportPDF">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
-        <width>231</width>
-        <height>121</height>
+        <y>10</y>
+        <width>91</width>
+        <height>51</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_GroupingBubbles">
-       <item>
-        <widget class="QCheckBox" name="checkBox_GB_1">
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Uniform no. of bubbles per question.</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkBox_GB_2">
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Uniform questions layout.</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkBox_GB_3">
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Uniform bubbles layout.</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkBox_GB_4">
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Uniform layout across ALL pages.</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <property name="text">
+       <string>Import PDF</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar_ConversionDone">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>251</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_BubbleMarking">
+     <attribute name="title">
+      <string>Marking</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_MarkingBubblesSettings">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>251</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Settings:</string>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>231</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_MarkingBubbles">
+        <item>
+         <widget class="QCheckBox" name="checkBox_ifUniformBubblesShapes">
+          <property name="text">
+           <string>Uniform bubbles shapes.</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Marking_startPage">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Marking_endPage">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>70</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>0</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Marking_Generic">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>91</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mark Bubbles</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_BubbleGrouping">
+     <attribute name="title">
+      <string>Grouping</string>
+     </attribute>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>-20</y>
+        <width>271</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_GroupingBubblesSettings">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>251</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Settings:</string>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>231</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_GroupingBubbles">
+        <item>
+         <widget class="QCheckBox" name="checkBox_GB_1">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Uniform no. of bubbles per question.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_GB_2">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Uniform questions layout.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_GB_3">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Uniform bubbles layout.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_GB_4">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Distance of B2B &lt; Q2Q.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_GB_5">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Uniform layout across ALL pages.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_GroupBubbles">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>91</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Group Bubbles</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_GroupingMethod">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>10</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Generic Grouping</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>K-Mean Clustering</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Grouping_startPage">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Grouping_endPage">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>70</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_Info">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>251</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Info:</string>
+      </property>
+      <widget class="QGroupBox" name="groupBox_Info_Overall">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>231</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Overall:</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_Info_CurrentPage">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>231</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Current Page:</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
