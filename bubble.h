@@ -9,7 +9,7 @@
 class bubble
 {
 public:
-    bubble(std::vector<std::vector<cv::Point>>);
+    bubble(std::vector<cv::Point>);
 
     bool isBlackened();
     void setBlackened(bool);

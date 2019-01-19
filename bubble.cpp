@@ -3,9 +3,9 @@
 using namespace std;
 using namespace cv;
 
-bubble::bubble(vector<vector<Point> > ctn)
+bubble::bubble(vector<Point> ctn)
 {
-
+    bubble
 }
 
 bool bubble::isBlackened()
