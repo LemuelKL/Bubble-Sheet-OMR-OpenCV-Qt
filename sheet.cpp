@@ -197,14 +197,35 @@ bool sheet::isCtnDup(vector<Point> ctns)
     for (i = 0; i < _circleContours.size(); i++)
     {
         if (_circleContours.at(i) == ctns)
-        {
             return true;
-        }
     }
     return false;
 }
 
 void sheet::mark_Generic_Done()
 {
+
+}
+
+int sheet::nBubbles()
+{
+    return _nBubbles;
+}
+
+void sheet::loadCtnsToBubbles()
+// Initializes nBubbles and _bubbleCoords (purge existing if found)
+{
+    _nBubbles = int(_circleContours.size());
+    QVector2D coord;
+    QVector<QVector2D> coords;
+
+    for (unsigned long long i = 0; i < unsigned(long(long(_nBubbles))); i++)
+    {
+        Rect bubbleRect = boundingRect(_circleContours.at(i));
+        coord.setX(bubbleRect.x + bubbleRect.width/2);
+        coord.setY(bubbleRect.y + bubbleRect.height/2);
+        coords.append(coord);
+    }
+    _bubbleCoords = coords;
 
 }

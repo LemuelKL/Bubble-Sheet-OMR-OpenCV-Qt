@@ -11,21 +11,22 @@ class bubble
 public:
     bubble(std::vector<cv::Point>);
 
+    int optionNum();
+    void setOptionNum(int);
     bool isBlackened();
     void setBlackened(bool);
 
     int cx();
     int cy();
     int r();
-    int optionNum();
-    void setOptionNum(int);
 
 private:
+    int _optionNum;
+    bool _isBlackened;
+
     int _cx;
     int _cy;
     int _r;
-    int _optionNum;
-    bool _isBlackened;
 
 };
 

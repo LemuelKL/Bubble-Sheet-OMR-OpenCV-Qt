@@ -56,14 +56,6 @@ public:
     QPushButton *pushButton_Marking_Generic;
     QWidget *tab_BubbleGrouping;
     QFrame *line_3;
-    QGroupBox *groupBox_GroupingBubblesSettings;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout_GroupingBubbles;
-    QCheckBox *checkBox_GB_1;
-    QCheckBox *checkBox_GB_2;
-    QCheckBox *checkBox_GB_3;
-    QCheckBox *checkBox_GB_4;
-    QCheckBox *checkBox_GB_5;
     QPushButton *pushButton_GroupBubbles;
     QComboBox *comboBox_GroupingMethod;
     QSpinBox *spinBox_Grouping_startPage;
@@ -71,6 +63,8 @@ public:
     QGroupBox *groupBox_Info;
     QGroupBox *groupBox_Info_Overall;
     QGroupBox *groupBox_Info_CurrentPage;
+    QLabel *label_Holder_Overall_nBubbles;
+    QLabel *label_Overall_nBubbles;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -186,49 +180,6 @@ public:
         line_3->setGeometry(QRect(10, -20, 271, 16));
         line_3->setFrameShape(QFrame::HLine);
         line_3->setFrameShadow(QFrame::Sunken);
-        groupBox_GroupingBubblesSettings = new QGroupBox(tab_BubbleGrouping);
-        groupBox_GroupingBubblesSettings->setObjectName(QStringLiteral("groupBox_GroupingBubblesSettings"));
-        groupBox_GroupingBubblesSettings->setGeometry(QRect(10, 100, 251, 181));
-        verticalLayoutWidget = new QWidget(groupBox_GroupingBubblesSettings);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 20, 231, 151));
-        verticalLayout_GroupingBubbles = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout_GroupingBubbles->setSpacing(6);
-        verticalLayout_GroupingBubbles->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_GroupingBubbles->setObjectName(QStringLiteral("verticalLayout_GroupingBubbles"));
-        verticalLayout_GroupingBubbles->setContentsMargins(0, 0, 0, 0);
-        checkBox_GB_1 = new QCheckBox(verticalLayoutWidget);
-        checkBox_GB_1->setObjectName(QStringLiteral("checkBox_GB_1"));
-        QFont font3;
-        font3.setPointSize(9);
-        checkBox_GB_1->setFont(font3);
-
-        verticalLayout_GroupingBubbles->addWidget(checkBox_GB_1);
-
-        checkBox_GB_2 = new QCheckBox(verticalLayoutWidget);
-        checkBox_GB_2->setObjectName(QStringLiteral("checkBox_GB_2"));
-        checkBox_GB_2->setFont(font3);
-
-        verticalLayout_GroupingBubbles->addWidget(checkBox_GB_2);
-
-        checkBox_GB_3 = new QCheckBox(verticalLayoutWidget);
-        checkBox_GB_3->setObjectName(QStringLiteral("checkBox_GB_3"));
-        checkBox_GB_3->setFont(font3);
-
-        verticalLayout_GroupingBubbles->addWidget(checkBox_GB_3);
-
-        checkBox_GB_4 = new QCheckBox(verticalLayoutWidget);
-        checkBox_GB_4->setObjectName(QStringLiteral("checkBox_GB_4"));
-        checkBox_GB_4->setFont(font3);
-
-        verticalLayout_GroupingBubbles->addWidget(checkBox_GB_4);
-
-        checkBox_GB_5 = new QCheckBox(verticalLayoutWidget);
-        checkBox_GB_5->setObjectName(QStringLiteral("checkBox_GB_5"));
-        checkBox_GB_5->setFont(font3);
-
-        verticalLayout_GroupingBubbles->addWidget(checkBox_GB_5);
-
         pushButton_GroupBubbles = new QPushButton(tab_BubbleGrouping);
         pushButton_GroupBubbles->setObjectName(QStringLiteral("pushButton_GroupBubbles"));
         pushButton_GroupBubbles->setGeometry(QRect(10, 10, 91, 51));
@@ -246,7 +197,7 @@ public:
         spinBox_Grouping_endPage->setGeometry(QRect(60, 70, 42, 22));
         groupBox_Info = new QGroupBox(tab_BubbleGrouping);
         groupBox_Info->setObjectName(QStringLiteral("groupBox_Info"));
-        groupBox_Info->setGeometry(QRect(10, 290, 251, 331));
+        groupBox_Info->setGeometry(QRect(10, 100, 251, 521));
         groupBox_Info_Overall = new QGroupBox(groupBox_Info);
         groupBox_Info_Overall->setObjectName(QStringLiteral("groupBox_Info_Overall"));
         groupBox_Info_Overall->setGeometry(QRect(10, 20, 231, 81));
@@ -254,10 +205,22 @@ public:
         groupBox_Info_CurrentPage->setObjectName(QStringLiteral("groupBox_Info_CurrentPage"));
         groupBox_Info_CurrentPage->setGeometry(QRect(10, 110, 231, 211));
         tabWidget->addTab(tab_BubbleGrouping, QString());
+        label_Holder_Overall_nBubbles = new QLabel(centralWidget);
+        label_Holder_Overall_nBubbles->setObjectName(QStringLiteral("label_Holder_Overall_nBubbles"));
+        label_Holder_Overall_nBubbles->setGeometry(QRect(320, 720, 41, 20));
+        QFont font3;
+        font3.setPointSize(10);
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_Holder_Overall_nBubbles->setFont(font3);
+        label_Holder_Overall_nBubbles->setAlignment(Qt::AlignCenter);
+        label_Overall_nBubbles = new QLabel(centralWidget);
+        label_Overall_nBubbles->setObjectName(QStringLiteral("label_Overall_nBubbles"));
+        label_Overall_nBubbles->setGeometry(QRect(220, 720, 101, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 800, 21));
+        menuBar->setGeometry(QRect(0, 0, 800, 20));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -268,7 +231,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -291,12 +254,6 @@ public:
         checkBox_ifUniformBubblesShapes->setText(QApplication::translate("MainWindow", "Uniform bubbles shapes.", nullptr));
         pushButton_Marking_Generic->setText(QApplication::translate("MainWindow", "Mark Bubbles", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_BubbleMarking), QApplication::translate("MainWindow", "Marking", nullptr));
-        groupBox_GroupingBubblesSettings->setTitle(QApplication::translate("MainWindow", "Settings:", nullptr));
-        checkBox_GB_1->setText(QApplication::translate("MainWindow", "Uniform no. of bubbles per question.", nullptr));
-        checkBox_GB_2->setText(QApplication::translate("MainWindow", "Uniform questions layout.", nullptr));
-        checkBox_GB_3->setText(QApplication::translate("MainWindow", "Uniform bubbles layout.", nullptr));
-        checkBox_GB_4->setText(QApplication::translate("MainWindow", "Distance of B2B < Q2Q.", nullptr));
-        checkBox_GB_5->setText(QApplication::translate("MainWindow", "Uniform layout across ALL pages.", nullptr));
         pushButton_GroupBubbles->setText(QApplication::translate("MainWindow", "Group Bubbles", nullptr));
         comboBox_GroupingMethod->setItemText(0, QApplication::translate("MainWindow", "Generic Grouping", nullptr));
         comboBox_GroupingMethod->setItemText(1, QApplication::translate("MainWindow", "K-Mean Clustering", nullptr));
@@ -305,6 +262,8 @@ public:
         groupBox_Info_Overall->setTitle(QApplication::translate("MainWindow", "Overall:", nullptr));
         groupBox_Info_CurrentPage->setTitle(QApplication::translate("MainWindow", "Current Page:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_BubbleGrouping), QApplication::translate("MainWindow", "Grouping", nullptr));
+        label_Holder_Overall_nBubbles->setText(QApplication::translate("MainWindow", "00000", nullptr));
+        label_Overall_nBubbles->setText(QApplication::translate("MainWindow", "Number of Bubbles:", nullptr));
     } // retranslateUi
 
 };

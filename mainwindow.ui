@@ -200,7 +200,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_pdfConversion">
      <attribute name="title">
@@ -335,91 +335,6 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_GroupingBubblesSettings">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>100</y>
-        <width>251</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Settings:</string>
-      </property>
-      <widget class="QWidget" name="verticalLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>231</width>
-         <height>151</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_GroupingBubbles">
-        <item>
-         <widget class="QCheckBox" name="checkBox_GB_1">
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Uniform no. of bubbles per question.</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkBox_GB_2">
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Uniform questions layout.</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkBox_GB_3">
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Uniform bubbles layout.</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkBox_GB_4">
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Distance of B2B &lt; Q2Q.</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkBox_GB_5">
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Uniform layout across ALL pages.</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
      <widget class="QPushButton" name="pushButton_GroupBubbles">
       <property name="geometry">
        <rect>
@@ -480,9 +395,9 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>290</y>
+        <y>100</y>
         <width>251</width>
-        <height>331</height>
+        <height>521</height>
        </rect>
       </property>
       <property name="title">
@@ -517,6 +432,42 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QLabel" name="label_Holder_Overall_nBubbles">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>720</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>00000</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Overall_nBubbles">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>720</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Number of Bubbles:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -524,7 +475,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -4,3 +4,8 @@ question::question()
 {
 
 }
+
+void question::setQNum(int qNum)
+{
+    _qNum = qNum;
+}

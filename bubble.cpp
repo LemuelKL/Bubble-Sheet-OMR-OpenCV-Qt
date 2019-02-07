@@ -5,7 +5,21 @@ using namespace cv;
 
 bubble::bubble(vector<Point> ctn)
 {
-    bubble
+    Rect rect = boundingRect(ctn);
+    _cx = rect.x + rect.width / 2;
+    _cy = rect.y + rect.height / 2;
+    _r = rect.width + rect.height / 4;
+
+}
+
+int bubble::optionNum()
+{
+    return _optionNum;
+}
+
+void bubble::setOptionNum(int num)
+{
+    _optionNum = num;
 }
 
 bool bubble::isBlackened()
@@ -33,12 +47,3 @@ int bubble::r()
     return _r;
 }
 
-int bubble::optionNum()
-{
-    return _optionNum;
-}
-
-void bubble::setOptionNum(int num)
-{
-    _optionNum = num;
-}

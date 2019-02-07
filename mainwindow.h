@@ -44,12 +44,16 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_pushButton_GroupBubbles_clicked();
+
 public slots:
     void updateMouseXY(int ,int);
     void blankMouseXY();
 
     void markInRoi(QRect);
     void removeMarkInRoi(QRect);
+
+    void updateBubblesData();
 
 private:
     Ui::MainWindow *ui;

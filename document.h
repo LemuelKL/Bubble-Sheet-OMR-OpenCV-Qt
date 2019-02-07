@@ -19,6 +19,9 @@ public:
 
     bool hasConvertedImgs();
     int nSheets();
+    int nBubbles();
+
+    void loadSheetsCtnsToBubbles();
 signals:
     void sheetsReady();
 

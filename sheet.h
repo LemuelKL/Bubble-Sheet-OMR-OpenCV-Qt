@@ -31,28 +31,32 @@ public:
     void mark_Generic(double, double, double, double, int);
     void unmarkInRoi(double, double, double, double);
 
-
+    void loadCtnsToBubbles();
+    int nBubbles();
 
 signals:
     void mark_Generic_Done();
+
 private:
+    QString _absImgPath;
+
     QImage convertMat2QImage(cv::Mat);
     cv::Mat convert2WorkableMat(cv::Mat);
     bool isCtnDup(std::vector<cv::Point> ctns);
 
-    QString _absImgPath;
-    bool _isMarkedDone;
-    QVector<QVector2D> _bubbleCoords;
     QImage _originalImage;
     cv::Mat _CV_originalImage;
 
     std::vector<std::vector<cv::Point> > _circleContours;
 
+    bool _isMarkedDone;
     int _nBubbles;
     int _nQuestions;
     bool _uniform_nB_inQ;
     bool _uniform_D_B2B;
     bool _uniform_D_Q2Q;
+    QVector<QVector2D> _bubbleCoords;
+
 };
 
 #endif // SHEET_H

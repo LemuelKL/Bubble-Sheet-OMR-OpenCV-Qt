@@ -21,12 +21,30 @@ void document::convertPDF2Img()
 
 bool document::hasConvertedImgs()
 {
-    if (_sheets.size() > 0)
-        return true;
-    return false;
+    return !(_sheets.empty());
 }
 
 int document::nSheets()
 {
+    if (_sheets.empty())
+        return 0;
     return _sheets.size();
+}
+
+int document::nBubbles()
+{
+    int n = 0;
+    for (int i = 0; i < nSheets(); i++)
+    {
+        n = n + _sheets[i].nBubbles();
+    }
+    return n;
+}
+
+void document::loadSheetsCtnsToBubbles()
+{
+    for (int i = 0; i < nSheets(); i++)
+    {
+        _sheets[i].loadCtnsToBubbles();
+    }
 }

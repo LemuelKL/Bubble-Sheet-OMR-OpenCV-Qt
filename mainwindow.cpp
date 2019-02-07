@@ -19,6 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToMark(QRect)), this, SLOT(markInRoi(QRect)));
     connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToRemoveMark(QRect)), this, SLOT(removeMarkInRoi(QRect)));
+
+    connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToMark(QRect)), this, SLOT(updateBubblesData()));
+    connect(ui->label_FrameDisplayer, SIGNAL(roiSelectedToRemoveMark(QRect)), this, SLOT(updateBubblesData()));
+
+    ui->tabWidget->setCurrentIndex(0);
+
 }
 
 MainWindow::~MainWindow()
@@ -114,6 +120,7 @@ void MainWindow::on_pushButton_Marking_Generic_clicked()
         }
         updateFrame(_doc->_sheets[ui->spinBox_Marking_startPage->value() - 1].markedImage());
         ui->label_PageNumber->setNum(ui->spinBox_Marking_startPage->value());
+        updateBubblesData();
     }
 }
 
@@ -187,4 +194,18 @@ void MainWindow::removeMarkInRoi(QRect ROI)
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
     ui->label_FrameDisplayer->setMode(index);
+}
+
+void MainWindow::on_pushButton_GroupBubbles_clicked()
+{
+    if (_selectedPDF && _doc->hasConvertedImgs())
+    {
+
+    }
+}
+
+void MainWindow::updateBubblesData()
+{
+    this->_doc->loadSheetsCtnsToBubbles();
+    ui->label_Holder_Overall_nBubbles->setText(QString::number(_doc->nBubbles()));
 }
