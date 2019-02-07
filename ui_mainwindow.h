@@ -57,12 +57,16 @@ public:
     QWidget *tab_BubbleGrouping;
     QFrame *line_3;
     QPushButton *pushButton_GroupBubbles;
-    QComboBox *comboBox_GroupingMethod;
-    QSpinBox *spinBox_Grouping_startPage;
-    QSpinBox *spinBox_Grouping_endPage;
     QGroupBox *groupBox_Info;
     QGroupBox *groupBox_Info_Overall;
     QGroupBox *groupBox_Info_CurrentPage;
+    QGroupBox *groupBox_Grouping_Settings;
+    QSpinBox *spinBox_Grouping_startPage;
+    QSpinBox *spinBox_Grouping_endPage;
+    QSpinBox *spinBox_nQuestions;
+    QComboBox *comboBox_GroupingMethod;
+    QLabel *label_nQuestions;
+    QWidget *tab_Debug;
     QLabel *label_Holder_Overall_nBubbles;
     QLabel *label_Overall_nBubbles;
     QMenuBar *menuBar;
@@ -183,28 +187,44 @@ public:
         pushButton_GroupBubbles = new QPushButton(tab_BubbleGrouping);
         pushButton_GroupBubbles->setObjectName(QStringLiteral("pushButton_GroupBubbles"));
         pushButton_GroupBubbles->setGeometry(QRect(10, 10, 91, 51));
-        comboBox_GroupingMethod = new QComboBox(tab_BubbleGrouping);
-        comboBox_GroupingMethod->addItem(QString());
-        comboBox_GroupingMethod->addItem(QString());
-        comboBox_GroupingMethod->setObjectName(QStringLiteral("comboBox_GroupingMethod"));
-        comboBox_GroupingMethod->setGeometry(QRect(110, 10, 141, 21));
-        spinBox_Grouping_startPage = new QSpinBox(tab_BubbleGrouping);
-        spinBox_Grouping_startPage->setObjectName(QStringLiteral("spinBox_Grouping_startPage"));
-        spinBox_Grouping_startPage->setGeometry(QRect(10, 70, 42, 22));
-        spinBox_Grouping_startPage->setMinimum(1);
-        spinBox_Grouping_endPage = new QSpinBox(tab_BubbleGrouping);
-        spinBox_Grouping_endPage->setObjectName(QStringLiteral("spinBox_Grouping_endPage"));
-        spinBox_Grouping_endPage->setGeometry(QRect(60, 70, 42, 22));
         groupBox_Info = new QGroupBox(tab_BubbleGrouping);
         groupBox_Info->setObjectName(QStringLiteral("groupBox_Info"));
-        groupBox_Info->setGeometry(QRect(10, 100, 251, 521));
+        groupBox_Info->setGeometry(QRect(10, 240, 251, 371));
         groupBox_Info_Overall = new QGroupBox(groupBox_Info);
         groupBox_Info_Overall->setObjectName(QStringLiteral("groupBox_Info_Overall"));
         groupBox_Info_Overall->setGeometry(QRect(10, 20, 231, 81));
         groupBox_Info_CurrentPage = new QGroupBox(groupBox_Info);
         groupBox_Info_CurrentPage->setObjectName(QStringLiteral("groupBox_Info_CurrentPage"));
-        groupBox_Info_CurrentPage->setGeometry(QRect(10, 110, 231, 211));
+        groupBox_Info_CurrentPage->setGeometry(QRect(10, 110, 231, 251));
+        groupBox_Grouping_Settings = new QGroupBox(tab_BubbleGrouping);
+        groupBox_Grouping_Settings->setObjectName(QStringLiteral("groupBox_Grouping_Settings"));
+        groupBox_Grouping_Settings->setGeometry(QRect(10, 70, 251, 161));
+        spinBox_Grouping_startPage = new QSpinBox(groupBox_Grouping_Settings);
+        spinBox_Grouping_startPage->setObjectName(QStringLiteral("spinBox_Grouping_startPage"));
+        spinBox_Grouping_startPage->setGeometry(QRect(120, 50, 42, 22));
+        spinBox_Grouping_startPage->setMinimum(1);
+        spinBox_Grouping_endPage = new QSpinBox(groupBox_Grouping_Settings);
+        spinBox_Grouping_endPage->setObjectName(QStringLiteral("spinBox_Grouping_endPage"));
+        spinBox_Grouping_endPage->setGeometry(QRect(170, 50, 42, 22));
+        spinBox_nQuestions = new QSpinBox(groupBox_Grouping_Settings);
+        spinBox_nQuestions->setObjectName(QStringLiteral("spinBox_nQuestions"));
+        spinBox_nQuestions->setGeometry(QRect(120, 80, 43, 22));
+        spinBox_nQuestions->setButtonSymbols(QAbstractSpinBox::PlusMinus);
+        spinBox_nQuestions->setAccelerated(true);
+        spinBox_nQuestions->setMinimum(1);
+        spinBox_nQuestions->setMaximum(10000);
+        comboBox_GroupingMethod = new QComboBox(groupBox_Grouping_Settings);
+        comboBox_GroupingMethod->addItem(QString());
+        comboBox_GroupingMethod->addItem(QString());
+        comboBox_GroupingMethod->setObjectName(QStringLiteral("comboBox_GroupingMethod"));
+        comboBox_GroupingMethod->setGeometry(QRect(120, 20, 121, 21));
+        label_nQuestions = new QLabel(groupBox_Grouping_Settings);
+        label_nQuestions->setObjectName(QStringLiteral("label_nQuestions"));
+        label_nQuestions->setGeometry(QRect(10, 80, 111, 21));
         tabWidget->addTab(tab_BubbleGrouping, QString());
+        tab_Debug = new QWidget();
+        tab_Debug->setObjectName(QStringLiteral("tab_Debug"));
+        tabWidget->addTab(tab_Debug, QString());
         label_Holder_Overall_nBubbles = new QLabel(centralWidget);
         label_Holder_Overall_nBubbles->setObjectName(QStringLiteral("label_Holder_Overall_nBubbles"));
         label_Holder_Overall_nBubbles->setGeometry(QRect(320, 720, 41, 20));
@@ -231,7 +251,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -255,14 +275,17 @@ public:
         pushButton_Marking_Generic->setText(QApplication::translate("MainWindow", "Mark Bubbles", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_BubbleMarking), QApplication::translate("MainWindow", "Marking", nullptr));
         pushButton_GroupBubbles->setText(QApplication::translate("MainWindow", "Group Bubbles", nullptr));
-        comboBox_GroupingMethod->setItemText(0, QApplication::translate("MainWindow", "Generic Grouping", nullptr));
-        comboBox_GroupingMethod->setItemText(1, QApplication::translate("MainWindow", "K-Mean Clustering", nullptr));
-
         groupBox_Info->setTitle(QApplication::translate("MainWindow", "Info:", nullptr));
         groupBox_Info_Overall->setTitle(QApplication::translate("MainWindow", "Overall:", nullptr));
         groupBox_Info_CurrentPage->setTitle(QApplication::translate("MainWindow", "Current Page:", nullptr));
+        groupBox_Grouping_Settings->setTitle(QApplication::translate("MainWindow", "Settings:", nullptr));
+        comboBox_GroupingMethod->setItemText(0, QApplication::translate("MainWindow", "Generic Grouping", nullptr));
+        comboBox_GroupingMethod->setItemText(1, QApplication::translate("MainWindow", "K-Mean Clustering", nullptr));
+
+        label_nQuestions->setText(QApplication::translate("MainWindow", "Number of Questions:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_BubbleGrouping), QApplication::translate("MainWindow", "Grouping", nullptr));
-        label_Holder_Overall_nBubbles->setText(QApplication::translate("MainWindow", "00000", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_Debug), QApplication::translate("MainWindow", "Debug", nullptr));
+        label_Holder_Overall_nBubbles->setText(QApplication::translate("MainWindow", "----", nullptr));
         label_Overall_nBubbles->setText(QApplication::translate("MainWindow", "Number of Bubbles:", nullptr));
     } // retranslateUi
 

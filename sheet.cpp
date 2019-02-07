@@ -213,7 +213,7 @@ int sheet::nBubbles()
 }
 
 void sheet::loadCtnsToBubbles()
-// Initializes nBubbles and _bubbleCoords (purge existing if found)
+// (Initializes) nBubbles and _bubbleCoords (purge existing if found)
 {
     _nBubbles = int(_circleContours.size());
     QVector2D coord;
