@@ -9,6 +9,7 @@
 class bubble
 {
 public:
+    bubble();
     bubble(std::vector<cv::Point>);
 
     int optionNum();

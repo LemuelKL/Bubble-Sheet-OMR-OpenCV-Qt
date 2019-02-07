@@ -14,6 +14,8 @@
 #include <opencv2/objdetect/objdetect.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+#include <bubble.h>
+
 class sheet
 {
 public:
@@ -24,7 +26,6 @@ public:
     void markDone();
     void markUndone();
 
-    QVector<QVector2D> bubbleCoords();
     QImage originalImage();
     QImage markedImage();
 
@@ -55,7 +56,7 @@ private:
     bool _uniform_nB_inQ;
     bool _uniform_D_B2B;
     bool _uniform_D_Q2Q;
-    QVector<QVector2D> _bubbleCoords;
+    QVector<bubble> _bubbleCoords;
 
 };
 

@@ -3,6 +3,11 @@
 using namespace std;
 using namespace cv;
 
+bubble::bubble()
+{
+
+}
+
 bubble::bubble(vector<Point> ctn)
 {
     Rect rect = boundingRect(ctn);

@@ -216,16 +216,14 @@ void sheet::loadCtnsToBubbles()
 // (Initializes) nBubbles and _bubbleCoords (purge existing if found)
 {
     _nBubbles = int(_circleContours.size());
-    QVector2D coord;
-    QVector<QVector2D> coords;
+
+    QVector<bubble> bs;
 
     for (unsigned long long i = 0; i < unsigned(long(long(_nBubbles))); i++)
     {
-        Rect bubbleRect = boundingRect(_circleContours.at(i));
-        coord.setX(bubbleRect.x + bubbleRect.width/2);
-        coord.setY(bubbleRect.y + bubbleRect.height/2);
-        coords.append(coord);
+        bubble b(_circleContours[i]);
+        bs.append(b);
     }
-    _bubbleCoords = coords;
+    _bubbleCoords = bs;
 
 }
