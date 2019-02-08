@@ -6,6 +6,7 @@ pdf::pdf()
 
 pdf::pdf(QString path)
 {
+    qDebug() << path;
     _absPathToPDF = path;
 }
 
@@ -41,4 +42,19 @@ int pdf::nPages()
     MagickCore::MagickReadImage(pWand, _absPathToPDF.toStdString().c_str());
     int nPage = int(MagickCore::MagickGetNumberImages(pWand));
     return nPage;
+}
+
+QString pdf::fileName()
+// From StackOverflow XDD
+{
+    std::string base_filename = _absPathToPDF.toStdString().substr(_absPathToPDF.toStdString().find_last_of("/\\") + 1);
+    std::string::size_type const p(base_filename.find_last_of('.'));
+    std::string file_without_extension = base_filename.substr(0, p);
+    return QString::fromStdString(file_without_extension);
+}
+
+QString pdf::fileDirectory()
+{
+    int idx = _absPathToPDF.toStdString().find_last_of("/");
+    return QString::fromStdString(_absPathToPDF.toStdString().substr(0, idx));
 }

@@ -10,7 +10,9 @@ document::document(QString absPDF) : _PDF(absPDF)
 
 void document::convertPDF2Img()
 {
-    QVector<QString> convertedImgPaths = _PDF.convertPDF2Img("D:/Users/Lemuel/Desktop", "testing", ".png");
+    QString prefix = _PDF.fileName();
+    QString dir = _PDF.fileDirectory();
+    QVector<QString> convertedImgPaths = _PDF.convertPDF2Img(dir, prefix, ".png");
     int i;
     for (i = 0; i < convertedImgPaths.size(); i++)
     {

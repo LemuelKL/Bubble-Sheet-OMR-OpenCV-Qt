@@ -5,6 +5,7 @@
 #include <QString>
 #include <QVector>
 #include <QImage>
+#include <QDebug>
 
 #include <Magick++.h>
 #include <wand/magick_wand.h>
@@ -15,6 +16,8 @@ class pdf : public QObject
 public:
     pdf();
     pdf(QString absPath2PDF);
+    QString fileName();
+    QString fileDirectory();
     QVector<QString> convertPDF2Img(QString destPath, QString fNamePrefix, QString imgFormat);
 
 signals:
