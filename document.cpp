@@ -48,3 +48,24 @@ void document::loadSheetsCtnsToBubbles()
         _sheets[i].loadCtnsToBubbles();
     }
 }
+
+void document::groupBubbles_kMeanClustering(int startPage, int nPages, int k)
+{
+    int page = startPage - 1;
+    while (nPages > 0)
+    {
+        _sheets[page].groupBubbles_kMeanClustering(k);
+        page++;
+        nPages--;
+    }
+}
+
+int document::nQuestions()
+{
+    int n = 0;
+    for (int i = 0; i < nSheets(); i++)
+    {
+        n = n + _sheets[i].nQuestions();
+    }
+    return n;
+}

@@ -13,6 +13,8 @@ sheet::sheet(QString absImgPath)
     _isMarkedDone = false;
     _originalImage = QImage(absImgPath);
     _CV_originalImage = imread(absImgPath.toStdString());
+    _nQuestions = 0;
+    _nBubbles = 0;
 }
 
 QImage sheet::originalImage()
@@ -21,9 +23,9 @@ QImage sheet::originalImage()
 }
 
 QImage sheet::markedImage()
+// Take a copy of _CV_originalImage, and cv::drawContours() on it with _circleContours.
+// Convert the copy to QImage, return it.
 {
-    // Take a copy of _CV_originalImage, and cv::drawContours() on it with _circleContours.
-    // Convert the copy to QImage, return it.
     Mat blueprintMat = _CV_originalImage.clone();
     drawContours(blueprintMat, _circleContours, -1, Scalar(0, 255, 0), 2);
     return convertMat2QImage(blueprintMat);
@@ -224,6 +226,129 @@ void sheet::loadCtnsToBubbles()
         bubble b(_circleContours[i]);
         bs.append(b);
     }
-    _bubbleCoords = bs;
+    _bubbles = bs;
 
+}
+
+QVector<bubble> sheet::bubbles()
+{
+    return _bubbles;
+}
+
+double sheet::distB2C(bubble b, QVector2D c)
+{
+    float distX = (b.cx() - c.x()) * (b.cx() - c.x());
+    float distY = (b.cy() - c.y()) * (b.cy() - c.y());
+    double dist = sqrt(double(distX) - double(distY));
+    return dist;
+}
+
+QVector2D sheet::newMeanCentroid(QVector<float> x, QVector<float> y)
+{
+    QVector2D ret;
+    if (x.size() == 0 || y.size() == 0)
+    {
+        qDebug() << "EMPTY CLUSTER!!!";
+        ret.setX(0);
+        ret.setY(0);
+        return ret;
+    }
+    float xMean = accumulate(x.begin(), x.end(), 0.0f) / x.size();
+    float yMean = accumulate(y.begin(), y.end(), 0.0f) / y.size();
+    ret.setX(xMean);
+    ret.setY(yMean);
+    return ret;
+}
+
+void sheet::debugBubbles()
+{
+    for (int i = 0; i < _nBubbles; i++)
+    {
+        bubble b = _bubbles[i];
+        qDebug() << b.centroidID() << b.cx() << b.cy();
+    }
+}
+
+void sheet::groupBubbles_kMeanClustering(int k)
+{
+    qDebug() << "Called sheet::groupBubbles_kMeanClustering(int k)";
+    QVector<QVector2D> C;
+    Size S = _CV_originalImage.size();
+
+    // Initialize random centroids
+    //Mat drawImg = _CV_originalImage.clone();
+    for (int i = 0; i < k; i++)
+    {
+        int widthMargin = int(S.width*0.2);
+        int heightMargin = int(S.height*0.2);
+        int randIntW = rand()%(S.width - widthMargin - widthMargin + 1) + widthMargin;
+        int randIntH = rand()%(S.height - heightMargin - heightMargin + 1) + heightMargin;
+        QVector2D coord(randIntW, randIntH);
+        qDebug() << "Cluster " << i << " " << coord.x() << " " << coord.y();
+        C.append(coord);
+
+        /*
+        circle(drawImg, Point(coord.x(), coord.y()), 20, Scalar(255,0,0), 5);
+        namedWindow("debug", WINDOW_NORMAL);
+        resizeWindow("debug", 595,842);
+        imshow("debug", drawImg);
+        */
+    }
+    // Clusters optimization
+    int pass = 0;
+    QVector<QVector2D> lastC;
+    while (true)
+    {
+        qDebug() << "Pass" << ++pass;
+        // Assign each bubble to the nearest centroid.
+        for (int i = 0; i < _nBubbles; i++)
+        {
+            double minCentoidDist = 9999999;
+            for (int j = 0; j < k; j++)
+            {
+                double dist = distB2C(_bubbles[i], C[j]);
+                if (dist < minCentoidDist)
+                {
+                    minCentoidDist = dist;
+                    _bubbles[i].setCentroidID(j);
+                }
+            }
+        }
+        QVector<float> j_xbubbles;
+        QVector<float> j_ybubbles;
+        for (int j = 0; j < k; j++)
+        {
+           j_xbubbles.clear();
+            for (int i = 0; i < _nBubbles; i++)
+            {
+                if (_bubbles[i].centroidID() == j)
+                {
+                    j_xbubbles.append(_bubbles[i].cx());
+                }
+            }
+            j_ybubbles.clear();
+            for (int i = 0; i < _nBubbles; i++)
+            {
+                if (_bubbles[i].centroidID() == j)
+                {
+                    j_ybubbles.append(_bubbles[i].cy());
+                }
+            }
+            C[j] = newMeanCentroid(j_xbubbles, j_ybubbles);
+            qDebug() << "Cluster " << j << " " << C[j].x() << " " << C[j].y();
+        }
+        //debugBubbles();
+        if (C == lastC)
+        {
+            qDebug() << "Break out from KMC!";
+            break;
+        }
+        lastC = C;
+    }
+    debugBubbles();
+}
+
+int sheet::nQuestions()
+{
+    return _nQuestions;
 }

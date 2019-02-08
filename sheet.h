@@ -34,6 +34,14 @@ public:
 
     void loadCtnsToBubbles();
     int nBubbles();
+    QVector<bubble> bubbles();
+
+    void groupBubbles_generic();
+    void groupBubbles_kMeanClustering(int k);
+
+    void debugBubbles();
+
+    int nQuestions();
 
 signals:
     void mark_Generic_Done();
@@ -56,7 +64,12 @@ private:
     bool _uniform_nB_inQ;
     bool _uniform_D_B2B;
     bool _uniform_D_Q2Q;
-    QVector<bubble> _bubbleCoords;
+    QVector<bubble> _bubbles;
+
+    QVector<QVector2D> _centroids;
+
+    double distB2C(bubble b, QVector2D c);
+    QVector2D newMeanCentroid(QVector<float> x, QVector<float> y);
 
 };
 

@@ -21,6 +21,9 @@ public:
     int cy();
     int r();
 
+    void setCentroidID(int id);
+    int centroidID();
+
 private:
     int _optionNum;
     bool _isBlackened;
@@ -28,6 +31,8 @@ private:
     int _cx;
     int _cy;
     int _r;
+
+    int _centroidID;
 
 };
 

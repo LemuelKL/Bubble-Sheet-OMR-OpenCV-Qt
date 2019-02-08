@@ -372,6 +372,44 @@
        <property name="title">
         <string>Overall:</string>
        </property>
+       <widget class="QLabel" name="label_OverAll_nQuestions">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Number of Questions: </string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_OverAll_nQuestions">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>20</y>
+          <width>43</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="accelerated">
+         <bool>true</bool>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_Info_CurrentPage">
        <property name="geometry">
@@ -385,6 +423,47 @@
        <property name="title">
         <string>Current Page:</string>
        </property>
+       <widget class="QSpinBox" name="spinbox_CurrentPage_nQuestions">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>20</y>
+          <width>43</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::PlusMinus</enum>
+        </property>
+        <property name="accelerated">
+         <bool>true</bool>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_CurrentPage_nQuestions">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Number of Questions:</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Grouping_Settings">
@@ -422,28 +501,6 @@
         </rect>
        </property>
       </widget>
-      <widget class="QSpinBox" name="spinBox_nQuestions">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>80</y>
-         <width>43</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="accelerated">
-        <bool>true</bool>
-       </property>
-       <property name="minimum">
-        <number>1</number>
-       </property>
-       <property name="maximum">
-        <number>10000</number>
-       </property>
-      </widget>
       <widget class="QComboBox" name="comboBox_GroupingMethod">
        <property name="geometry">
         <rect>
@@ -463,19 +520,6 @@
          <string>K-Mean Clustering</string>
         </property>
        </item>
-      </widget>
-      <widget class="QLabel" name="label_nQuestions">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>80</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Number of Questions:</string>
-       </property>
       </widget>
      </widget>
     </widget>

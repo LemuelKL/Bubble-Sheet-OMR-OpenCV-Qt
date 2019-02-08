@@ -22,6 +22,10 @@ public:
     int nBubbles();
 
     void loadSheetsCtnsToBubbles();
+
+    void groupBubbles_kMeanClustering(int startPage, int nPages, int k);
+
+    int nQuestions();
 signals:
     void sheetsReady();
 

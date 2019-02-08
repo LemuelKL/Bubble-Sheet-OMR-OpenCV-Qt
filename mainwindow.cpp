@@ -135,6 +135,7 @@ void MainWindow::on_pushButton_PreviousSheet_clicked()
             updateFrame(_doc->_sheets[curPageNo - 2].markedImage());
         }
     }
+    updateInfo();
 }
 
 void MainWindow::on_pushButton_NextSheet_clicked()
@@ -148,6 +149,7 @@ void MainWindow::on_pushButton_NextSheet_clicked()
             updateFrame(_doc->_sheets[curPageNo].markedImage());
         }
     }
+    updateInfo();
 }
 
 void MainWindow::updateMouseXY(int x, int y)
@@ -200,7 +202,17 @@ void MainWindow::on_pushButton_GroupBubbles_clicked()
 {
     if (_selectedPDF && _doc->hasConvertedImgs())
     {
-
+        if (ui->comboBox_GroupingMethod->currentIndex() == 0)
+        {
+            qDebug() << "Trying to call Generic Grouping Method";
+        }
+        if (ui->comboBox_GroupingMethod->currentIndex() == 1)
+        {
+            qDebug() << "Trying to call K-Mean Clustering Method";
+            _doc->groupBubbles_kMeanClustering(ui->spinBox_Grouping_startPage->value(),
+                                               ui->spinBox_Grouping_endPage->value() - ui->spinBox_Grouping_startPage->value() + 1,
+                                               ui->spinbox_CurrentPage_nQuestions->value());
+        }
     }
 }
 
@@ -208,4 +220,29 @@ void MainWindow::updateBubblesData()
 {
     this->_doc->loadSheetsCtnsToBubbles();
     ui->label_Holder_Overall_nBubbles->setText(QString::number(_doc->nBubbles()));
+}
+
+void MainWindow::updateInfo()
+{
+    updateCurrentPageInfo();
+    updateOverAllInfo();
+}
+
+void MainWindow::updateOverAllInfo()
+{
+
+    ui->spinBox_OverAll_nQuestions->setValue(_doc->nQuestions());
+}
+
+void MainWindow::updateCurrentPageInfo()
+{
+    ui->spinbox_CurrentPage_nQuestions->setValue(_doc->_sheets[ui->label_PageNumber->text().toInt()-1].nQuestions());
+}
+
+void MainWindow::on_tabWidget_tabBarClicked(int index)
+{
+    if (index == 2)
+    {
+        updateInfo();
+    }
 }

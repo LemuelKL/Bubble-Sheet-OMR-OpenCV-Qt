@@ -46,6 +46,8 @@ private slots:
 
     void on_pushButton_GroupBubbles_clicked();
 
+    void on_tabWidget_tabBarClicked(int index);
+
 public slots:
     void updateMouseXY(int ,int);
     void blankMouseXY();
@@ -62,6 +64,10 @@ private:
 
     bool _isConverting;
     bool _selectedPDF;
+
+    void updateInfo();
+    void updateOverAllInfo();
+    void updateCurrentPageInfo();
 };
 
 #endif // MAINWINDOW_H

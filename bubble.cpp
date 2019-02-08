@@ -14,7 +14,6 @@ bubble::bubble(vector<Point> ctn)
     _cx = rect.x + rect.width / 2;
     _cy = rect.y + rect.height / 2;
     _r = rect.width + rect.height / 4;
-
 }
 
 int bubble::optionNum()
@@ -52,3 +51,12 @@ int bubble::r()
     return _r;
 }
 
+int bubble::centroidID()
+{
+    return _centroidID;
+}
+
+void bubble::setCentroidID(int id)
+{
+    _centroidID = id;
+}
