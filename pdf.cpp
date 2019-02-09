@@ -15,11 +15,10 @@ QVector<QString> pdf::convertPDF2Img(QString destPath, QString fNamePrefix, QStr
     QVector<QString> convertedImgPaths;
     if (!(_absPathToPDF.size() < 1))
     {
-        int i;
         int nP = nPages();
-        for (i = 1; i <= nP; i++)
+        for (int i = 1; i <= nP; i++)
         {
-            _ImageMagickImg.density(Magick::Geometry(300,300)); // THIS MUST COME BEFORE IMAGE IS READ
+            _ImageMagickImg.density(Magick::Geometry(300, 300)); // THIS MUST COME BEFORE IMAGE IS READ
             _ImageMagickImg.read(_absPathToPDF.toStdString() + "[" + std::to_string(i - 1) + "]");
             _ImageMagickImg.quality(100);
             _ImageMagickImg.backgroundColor("white");
@@ -30,8 +29,8 @@ QVector<QString> pdf::convertPDF2Img(QString destPath, QString fNamePrefix, QStr
             emit progressUpdated(100.00 * i / nP);
         }
         emit finishedConversion();
-        return convertedImgPaths;
     }
+    return convertedImgPaths;
 }
 
 int pdf::nPages()
