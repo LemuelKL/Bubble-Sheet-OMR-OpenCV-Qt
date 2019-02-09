@@ -1,6 +1,7 @@
 /debug
 /release
 /deploy
+compile_commands.json
 *.autosave
 /pdf/*.jpg
 /pdf/*.png
