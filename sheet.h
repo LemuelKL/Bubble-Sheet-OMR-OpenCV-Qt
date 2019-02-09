@@ -42,6 +42,7 @@ public:
     void debugBubbles();
 
     int nQuestions();
+    void setNQuestions(int n);
 
 signals:
     void mark_Generic_Done();

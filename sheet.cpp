@@ -352,3 +352,8 @@ int sheet::nQuestions()
 {
     return _nQuestions;
 }
+
+void sheet::setNQuestions(int n)
+{
+    _nQuestions = n;
+}

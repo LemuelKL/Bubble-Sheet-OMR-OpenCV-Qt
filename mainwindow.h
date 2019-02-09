@@ -5,7 +5,6 @@
 #include <QThread>
 #include <document.h>
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -48,6 +47,8 @@ private slots:
 
     void on_tabWidget_tabBarClicked(int index);
 
+    void on_spinbox_CurrentPage_nQuestions_valueChanged(const QString &arg1);
+
 public slots:
     void updateMouseXY(int ,int);
     void blankMouseXY();
@@ -64,6 +65,8 @@ private:
 
     bool _isConverting;
     bool _selectedPDF;
+
+    int currentPageNo();
 
     void updateInfo();
     void updateOverAllInfo();

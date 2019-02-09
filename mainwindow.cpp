@@ -243,6 +243,20 @@ void MainWindow::on_tabWidget_tabBarClicked(int index)
 {
     if (index == 2)
     {
-        updateInfo();
+        if (_selectedPDF && _doc->hasConvertedImgs())
+        {
+            updateInfo();
+        }
     }
+}
+
+int MainWindow::currentPageNo()
+{
+    return ui->label_PageNumber->text().toInt() - 1;
+}
+
+void MainWindow::on_spinbox_CurrentPage_nQuestions_valueChanged(const QString &arg1)
+{
+    _doc->_sheets[currentPageNo()].setNQuestions(arg1.toInt());
+    updateInfo();
 }
