@@ -1,5 +1,6 @@
 /debug
 /release
+/deploy
 *.autosave
 /pdf/*.jpg
 /pdf/*.png
