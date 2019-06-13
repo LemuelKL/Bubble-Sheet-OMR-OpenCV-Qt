@@ -23,6 +23,7 @@ public:
 
     void loadSheetsCtnsToBubbles();
 
+    void groupBubbles_GenericMethod(int startP, int endP);
     void groupBubbles_kMeanClustering(int startPage, int nPages, int k);
 
     int nQuestions();

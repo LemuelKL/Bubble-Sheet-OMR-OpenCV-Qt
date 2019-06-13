@@ -14,6 +14,8 @@ public:
 
     int optionNum();
     void setOptionNum(int);
+    int questionNum();
+    void setQuestionNum(int);
     bool isBlackened();
     void setBlackened(bool);
 
@@ -26,6 +28,7 @@ public:
 
 private:
     int _optionNum;
+    int _questionNum;
     bool _isBlackened;
 
     int _cx;

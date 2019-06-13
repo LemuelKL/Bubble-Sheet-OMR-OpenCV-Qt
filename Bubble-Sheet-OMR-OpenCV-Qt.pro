@@ -52,9 +52,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 INCLUDEPATH += D:\Users\Lemuel\Software-Development\OpenCV\3.4.2\opencv\build\include \
-    "C:\Program Files\ImageMagick-6.9.10-Q16\include"
+    "C:\Program Files\ImageMagick-6.9.10-Q16\include" \
+    "D:\Users\Lemuel\Software-Development\Aspose.PDF_for_C++_19.4\include"
 
 LIBS += D:\Users\Lemuel\Software-Development\OpenCV\3.4.2\opencv\build\x64\vc15\lib\opencv_world343.lib \
     "C:\Program Files\ImageMagick-6.9.10-Q16\lib\CORE_RL_magick_.lib" \
     "C:\Program Files\ImageMagick-6.9.10-Q16\lib\CORE_RL_Magick++_.lib" \
-    "C:\Program Files\ImageMagick-6.9.10-Q16\lib\CORE_RL_wand_.lib"
+    "C:\Program Files\ImageMagick-6.9.10-Q16\lib\CORE_RL_wand_.lib" \
+    "D:\Users\Lemuel\Software-Development\Aspose.PDF_for_C++_19.4\lib\Release\Aspose.PDF_vc141x64.lib" \
+    "D:\Users\Lemuel\Software-Development\Aspose.PDF_for_C++_19.4\lib\Release\aspose_cpp_vc141x64.lib"

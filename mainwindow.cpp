@@ -205,6 +205,7 @@ void MainWindow::on_pushButton_GroupBubbles_clicked()
         if (ui->comboBox_GroupingMethod->currentIndex() == 0)
         {
             qDebug() << "Trying to call Generic Grouping Method";
+            _doc->groupBubbles_GenericMethod(ui->spinBox_Grouping_startPage->value(), ui->spinBox_Grouping_endPage->value());
         }
         if (ui->comboBox_GroupingMethod->currentIndex() == 1)
         {

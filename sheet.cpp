@@ -357,3 +357,43 @@ void sheet::setNQuestions(int n)
 {
     _nQuestions = n;
 }
+
+bool sheet::xComp(bubble &b1, bubble &b2)
+{
+    return b1.cx() < b2.cx();
+}
+
+bool sheet::yComp(bubble b1, bubble b2)
+{
+    return b1.cy() < b2.cy();
+}
+
+void sheet::groupBubbles_GenericMethod()
+{
+    // Check for the possibility of evenly distributed bubbles per question
+    bool prosUniBPQ = (_nQuestions%_nBubbles == 0);
+
+    // Find UpperLeft-most bubble
+    /*
+    bubble *startBubble = &_bubbles[0];
+    for (int i = 0; i < _nBubbles; i++)
+    {
+        if (_bubbles[i].cx() < startBubble->cx() || _bubbles[i].cy() < startBubble->cy())
+        {
+            startBubble = &_bubbles[i];
+        }
+    }
+    */
+    // Use sorting instead:
+    stable_sort(_bubbles.begin(), _bubbles.end(), yComp);
+    debugBubbles();
+
+    // Start grouping:
+    int groupID = 0;
+    for (bubble b : _bubbles)
+    {
+        //b
+    }
+
+
+}

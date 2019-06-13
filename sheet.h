@@ -36,7 +36,7 @@ public:
     int nBubbles();
     QVector<bubble> bubbles();
 
-    void groupBubbles_generic();
+    void groupBubbles_GenericMethod();
     void groupBubbles_kMeanClustering(int k);
 
     void debugBubbles();
@@ -71,6 +71,9 @@ private:
 
     double distB2C(bubble b, QVector2D c);
     QVector2D newMeanCentroid(QVector<float> x, QVector<float> y);
+
+    static bool yComp(bubble b1, bubble b2);
+    static bool xComp(bubble &b1, bubble &b2);
 
 };
 

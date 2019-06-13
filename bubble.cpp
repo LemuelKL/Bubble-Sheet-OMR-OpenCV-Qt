@@ -14,6 +14,10 @@ bubble::bubble(vector<Point> ctn)
     _cx = rect.x + rect.width / 2;
     _cy = rect.y + rect.height / 2;
     _r = rect.width + rect.height / 4;
+
+    _centroidID = -1;
+    _optionNum = -1;
+    _questionNum = -1;
 }
 
 int bubble::optionNum()
@@ -24,6 +28,16 @@ int bubble::optionNum()
 void bubble::setOptionNum(int num)
 {
     _optionNum = num;
+}
+
+int bubble::questionNum()
+{
+    return _questionNum;
+}
+
+void bubble::setQuestionNum(int n)
+{
+    _questionNum = n;
 }
 
 bool bubble::isBlackened()

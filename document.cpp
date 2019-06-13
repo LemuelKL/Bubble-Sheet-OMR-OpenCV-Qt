@@ -71,3 +71,14 @@ int document::nQuestions()
     }
     return n;
 }
+
+void document::groupBubbles_GenericMethod(int startP, int endP)
+{
+    //int nP = endP - startP + 1;
+    for (int i = startP; i <= endP; i++)
+    {
+        int j = i - 1;
+        _sheets[j].groupBubbles_GenericMethod();
+
+    }
+}
